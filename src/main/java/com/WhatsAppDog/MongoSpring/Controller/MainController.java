@@ -25,6 +25,7 @@ public class MainController {
     public List<Rescue> getRescues(){
         return rescueRepo.findAll();
     }
+
     @DeleteMapping("/delete/{id}")
     public String deleteBook(@PathVariable int id){
         rescueRepo.deleteById(id);

@@ -3,7 +3,6 @@ package com.WhatsAppDog.MongoSpring.Model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -17,7 +16,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 public class Rescue {
     @Id //sets value as primary key
-    private ObjectId id;
     private Integer license_id;
     private String name;
     private String state;
