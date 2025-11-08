@@ -7,11 +7,13 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 //indicates table name in database
-@Document
+
 //reduces need for getters, setters etc
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Document (collection ="Rescues")
+
 public class Rescue {
     @Id //sets value as primary key
     private Integer license_id;
