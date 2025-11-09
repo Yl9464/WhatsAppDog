@@ -1,6 +1,8 @@
 //creates routes
 package com.WhatsAppDog.MongoSpring.Controller;
+import com.WhatsAppDog.MongoSpring.Model.Dog;
 import com.WhatsAppDog.MongoSpring.Model.Rescue;
+import com.WhatsAppDog.MongoSpring.Repository.DogRepo;
 import com.WhatsAppDog.MongoSpring.Repository.RescueRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,7 @@ import java.util.List;
 public class MainController {
     @Autowired //connects repo and controller
     private RescueRepo rescueRepo;
+    private DogRepo dogRepo;
 
     @PostMapping("/addRescue")
         public String saveRescue(@RequestBody Rescue rescue){
@@ -24,6 +27,11 @@ public class MainController {
     @GetMapping("/getAllRescues")
     public List<Rescue> getRescues(){
         return rescueRepo.findAll();
+    }
+
+    @GetMapping("/getAllDogs")
+    public List<Dog> getDogs(){
+        return dogRepo.findAll();
     }
 
     @DeleteMapping("/delete/{id}")

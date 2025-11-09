@@ -1,0 +1,352 @@
+[
+      {
+        "idNu": 1,
+        "name": "Dog_1",
+        "breed": "Chihuahua",
+        "age": 10,
+        "aggression": false
+      },
+      {
+        "idNu": 2,
+        "name": "Dog_2",
+        "breed": "Rottweiler",
+        "age": 4,
+        "aggression": false
+      },
+      {
+        "idNu": 3,
+        "name": "Dog_3",
+        "breed": "Rottweiler",
+        "age": 8,
+        "aggression": false
+      },
+      {
+        "idNu": 4,
+        "name": "Dog_4",
+        "breed": "Labrador Retriever",
+        "age": 8,
+        "aggression": false
+      },
+      {
+        "idNu": 5,
+        "name": "Dog_5",
+        "breed": "Boxer",
+        "age": 15,
+        "aggression": true
+      },
+      {
+        "idNu": 6,
+        "name": "Dog_6",
+        "breed": "Golden Retriever",
+        "age": 13,
+        "aggression": true
+      },
+      {
+        "idNu": 7,
+        "name": "Dog_7",
+        "breed": "German Shepherd",
+        "age": 15,
+        "aggression": false
+      },
+      {
+        "idNu": 8,
+        "name": "Dog_8",
+        "breed": "Rottweiler",
+        "age": 2,
+        "aggression": true
+      },
+      {
+        "idNu": 9,
+        "name": "Dog_9",
+        "breed": "Boxer",
+        "age": 12,
+        "aggression": false
+      },
+      {
+        "idNu": 10,
+        "name": "Dog_10",
+        "breed": "Boxer",
+        "age": 11,
+        "aggression": false
+      },
+      {
+        "idNu": 11,
+        "name": "Dog_11",
+        "breed": "Rottweiler",
+        "age": 13,
+        "aggression": true
+      },
+      {
+        "idNu": 12,
+        "name": "Dog_12",
+        "breed": "Rottweiler",
+        "age": 9,
+        "aggression": false
+      },
+      {
+        "idNu": 13,
+        "name": "Dog_13",
+        "breed": "Boxer",
+        "age": 4,
+        "aggression": true
+      },
+      {
+        "idNu": 14,
+        "name": "Dog_14",
+        "breed": "Chihuahua",
+        "age": 8,
+        "aggression": false
+      },
+      {
+        "idNu": 15,
+        "name": "Dog_15",
+        "breed": "Labrador Retriever",
+        "age": 6,
+        "aggression": false
+      },
+      {
+        "idNu": 16,
+        "name": "Dog_16",
+        "breed": "Poodle",
+        "age": 12,
+        "aggression": false
+      },
+      {
+        "idNu": 17,
+        "name": "Dog_17",
+        "breed": "Dachshund",
+        "age": 4,
+        "aggression": false
+      },
+      {
+        "idNu": 18,
+        "name": "Dog_18",
+        "breed": "Labrador Retriever",
+        "age": 4,
+        "aggression": false
+      },
+      {
+        "idNu": 19,
+        "name": "Dog_19",
+        "breed": "Rottweiler",
+        "age": 12,
+        "aggression": true
+      },
+      {
+        "idNu": 20,
+        "name": "Dog_20",
+        "breed": "Rottweiler",
+        "age": 6,
+        "aggression": false
+      },
+      {
+        "idNu": 21,
+        "name": "Dog_21",
+        "breed": "Chihuahua",
+        "age": 7,
+        "aggression": true
+      },
+      {
+        "idNu": 22,
+        "name": "Dog_22",
+        "breed": "Bulldog",
+        "age": 6,
+        "aggression": true
+      },
+      {
+        "idNu": 23,
+        "name": "Dog_23",
+        "breed": "German Shepherd",
+        "age": 15,
+        "aggression": true
+      },
+      {
+        "idNu": 24,
+        "name": "Dog_24",
+        "breed": "Boxer",
+        "age": 2,
+        "aggression": true
+      },
+      {
+        "idNu": 25,
+        "name": "Dog_25",
+        "breed": "Boxer",
+        "age": 8,
+        "aggression": false
+      },
+      {
+        "idNu": 26,
+        "name": "Dog_26",
+        "breed": "Boxer",
+        "age": 11,
+        "aggression": false
+      },
+      {
+        "idNu": 27,
+        "name": "Dog_27",
+        "breed": "Chihuahua",
+        "age": 8,
+        "aggression": false
+      },
+      {
+        "idNu": 28,
+        "name": "Dog_28",
+        "breed": "Dachshund",
+        "age": 14,
+        "aggression": false
+      },
+      {
+        "idNu": 29,
+        "name": "Dog_29",
+        "breed": "Beagle",
+        "age": 4,
+        "aggression": true
+      },
+      {
+        "idNu": 30,
+        "name": "Dog_30",
+        "breed": "Bulldog",
+        "age": 6,
+        "aggression": true
+      },
+      {
+        "idNu": 31,
+        "name": "Dog_31",
+        "breed": "Poodle",
+        "age": 3,
+        "aggression": true
+      },
+      {
+        "idNu": 32,
+        "name": "Dog_32",
+        "breed": "Beagle",
+        "age": 12,
+        "aggression": true
+      },
+      {
+        "idNu": 33,
+        "name": "Dog_33",
+        "breed": "Chihuahua",
+        "age": 7,
+        "aggression": true
+      },
+      {
+        "idNu": 34,
+        "name": "Dog_34",
+        "breed": "Golden Retriever",
+        "age": 6,
+        "aggression": true
+      },
+      {
+        "idNu": 35,
+        "name": "Dog_35",
+        "breed": "Rottweiler",
+        "age": 4,
+        "aggression": false
+      },
+      {
+        "idNu": 36,
+        "name": "Dog_36",
+        "breed": "Labrador Retriever",
+        "age": 8,
+        "aggression": true
+      },
+      {
+        "idNu": 37,
+        "name": "Dog_37",
+        "breed": "German Shepherd",
+        "age": 13,
+        "aggression": true
+      },
+      {
+        "idNu": 38,
+        "name": "Dog_38",
+        "breed": "Golden Retriever",
+        "age": 14,
+        "aggression": false
+      },
+      {
+        "idNu": 39,
+        "name": "Dog_39",
+        "breed": "Poodle",
+        "age": 8,
+        "aggression": true
+      },
+      {
+        "idNu": 40,
+        "name": "Dog_40",
+        "breed": "Labrador Retriever",
+        "age": 13,
+        "aggression": false
+      },
+      {
+        "idNu": 41,
+        "name": "Dog_41",
+        "breed": "Golden Retriever",
+        "age": 9,
+        "aggression": false
+      },
+      {
+        "idNu": 42,
+        "name": "Dog_42",
+        "breed": "Bulldog",
+        "age": 6,
+        "aggression": true
+      },
+      {
+        "idNu": 43,
+        "name": "Dog_43",
+        "breed": "Dachshund",
+        "age": 3,
+        "aggression": false
+      },
+      {
+        "idNu": 44,
+        "name": "Dog_44",
+        "breed": "Rottweiler",
+        "age": 13,
+        "aggression": true
+      },
+      {
+        "idNu": 45,
+        "name": "Dog_45",
+        "breed": "German Shepherd",
+        "age": 5,
+        "aggression": false
+      },
+      {
+        "idNu": 46,
+        "name": "Dog_46",
+        "breed": "German Shepherd",
+        "age": 9,
+        "aggression": false
+      },
+      {
+        "idNu": 47,
+        "name": "Dog_47",
+        "breed": "Boxer",
+        "age": 11,
+        "aggression": false
+      },
+      {
+        "idNu": 48,
+        "name": "Dog_48",
+        "breed": "Bulldog",
+        "age": 15,
+        "aggression": true
+      },
+      {
+        "idNu": 49,
+        "name": "Dog_49",
+        "breed": "Poodle",
+        "age": 4,
+        "aggression": false
+      },
+      {
+        "idNu": 50,
+        "name": "Dog_50",
+        "breed": "Labrador Retriever",
+        "age": 3,
+        "aggression": false
+      }
+]
