@@ -2,8 +2,11 @@
 package com.WhatsAppDog.MongoSpring.Controller;
 import com.WhatsAppDog.MongoSpring.Model.Dog;
 import com.WhatsAppDog.MongoSpring.Model.Rescue;
+import com.WhatsAppDog.MongoSpring.Model.Supplies;
+
 import com.WhatsAppDog.MongoSpring.Repository.DogRepo;
 import com.WhatsAppDog.MongoSpring.Repository.RescueRepo;
+import com.WhatsAppDog.MongoSpring.Repository.SuppliesRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +22,9 @@ public class MainController {
     private RescueRepo rescueRepo;
     @Autowired //connects repo and controller
     private DogRepo dogRepo;
+    @Autowired //connects repo and controller
+    private SuppliesRepo suppliesRepo;
+
 
     //Collection: Rescues
     @PostMapping("/addRescue")
@@ -51,6 +57,14 @@ public class MainController {
       return dogRepo.findByBreed(breed);
 
     }
+    //Collection: Supplies
+    @GetMapping("/getAllSupplies")
+    public List<Supplies> getAllSupplies() {
+        return suppliesRepo.findAll();
+    }
+    @GetMapping("/supplies/{category}")
+    public List<Supplies> getDSuppliesByCategory(@PathVariable("category") String category) {
+        return suppliesRepo.findByCategory(category);
 
-
+    }
 }
