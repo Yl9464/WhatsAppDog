@@ -15,23 +15,18 @@ import java.util.List;
 public class MainController {
     @Autowired //connects repo and controller
     private RescueRepo rescueRepo;
+    @Autowired //connects repo and controller
     private DogRepo dogRepo;
 
+    //Collection: Rescues
     @PostMapping("/addRescue")
         public String saveRescue(@RequestBody Rescue rescue){
         rescueRepo.save(rescue);
-
-            return "Added Successfully";
+            return "Rescue Added Successfully";
     }
-
     @GetMapping("/getAllRescues")
     public List<Rescue> getRescues(){
         return rescueRepo.findAll();
-    }
-
-    @GetMapping("/getAllDogs")
-    public List<Dog> getDogs(){
-        return dogRepo.findAll();
     }
 
     @DeleteMapping("/delete/{id}")
@@ -40,5 +35,18 @@ public class MainController {
 
         return "Deleted Successfully";
     }
+    //Collection: Dogs
+    @PostMapping("/addDog")
+    public String saveDog(@RequestBody Dog dog){
+        dogRepo.save(dog);
+        return "Dog Added Successfully";
+    }
+
+
+    @GetMapping("/getAllDogs")
+    public List<Dog> getDogs(){
+        return dogRepo.findAll();
+    }
+
 
 }
