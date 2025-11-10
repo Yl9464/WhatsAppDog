@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface SuppliesRepo extends MongoRepository<Supplies, String> {
     List<Supplies> findByCategory(String category);
-
+    //List<Supplies> findBySupplier(String supplier);
 }

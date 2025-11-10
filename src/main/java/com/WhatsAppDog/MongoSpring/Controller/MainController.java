@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 //Define api paths
@@ -32,7 +33,10 @@ public class MainController {
         rescueRepo.save(rescue);
         return "Rescue Added Successfully";
     }
-
+    @GetMapping("/getAllRescues")
+    public List<Rescue> getAllRescues() {
+        return rescueRepo.findAll();
+    }
     @DeleteMapping("/delete/{id}")
     public String deleteBook(@PathVariable int id) {
         rescueRepo.deleteById(id);
@@ -57,14 +61,26 @@ public class MainController {
       return dogRepo.findByBreed(breed);
 
     }
+
     //Collection: Supplies
+    @PostMapping("/addSupplies")
+    public String saveDog(@RequestBody Supplies supplies) {
+        suppliesRepo.save(supplies);
+        return "Dog Added Successfully";
+    }
+
     @GetMapping("/getAllSupplies")
     public List<Supplies> getAllSupplies() {
         return suppliesRepo.findAll();
     }
     @GetMapping("/supplies/{category}")
-    public List<Supplies> getDSuppliesByCategory(@PathVariable("category") String category) {
+    public List<Supplies> getSuppliesByCategory(@PathVariable("category") String category) {
         return suppliesRepo.findByCategory(category);
 
     }
+//    @GetMapping("/supplies/{supplier}")
+//    public List<Supplies> getBySupplier(@PathVariable("supplier") String supplier) {
+//        return suppliesRepo.findBySupplier(supplier);
+//
+//    }
 }
