@@ -7,20 +7,15 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-//indicates table name in database
-
-//reduces need for getters, setters etc
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document (collection ="Rescues")
-
-public class Rescue {
+@Document(collection ="Supplies")
+public class Supplies {
     @Id //sets value as primary key
     private ObjectId id;
-    private Integer license_id;
-    private String name;
-    private String state;
-    private String type;
-    private String email;
+    private String item;
+    private String category;
+    private Integer quantity;
+    private String supplier;
 }
