@@ -17,7 +17,7 @@ public class Animals extends VerticalLayout {
 @Serial
 private static final long serialVersionUID = 1L;
 
-public static final String ROUTE = "Ans";
+public static final String ROUTE = "ans";
 public static final String TITLE = "Animals";
 
 public Animals() {
