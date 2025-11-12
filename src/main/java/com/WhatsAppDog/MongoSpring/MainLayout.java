@@ -1,5 +1,6 @@
 package com.WhatsAppDog.MongoSpring;
 
+import com.WhatsAppDog.MongoSpring.Views.Animals;
 import com.WhatsAppDog.MongoSpring.Views.Buttons;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
@@ -14,8 +15,9 @@ public class MainLayout extends AppLayout{
         addToNavbar(new H2("WhatsAppDog"));
 
         final VerticalLayout menuBar = new VerticalLayout();
-        menuBar.add(new RouterLink(Buttons.TITLE, Buttons.class));
-
+       // menuBar.add(new RouterLink(Buttons.TITLE, Buttons.class));
+        menuBar.add(new RouterLink(Animals.TITLE, Animals.class));
+        addToDrawer(menuBar);
 
     }
 }
