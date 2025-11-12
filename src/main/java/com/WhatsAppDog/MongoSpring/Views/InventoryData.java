@@ -1,12 +1,16 @@
 package com.WhatsAppDog.MongoSpring.Views;
 
+import lombok.Getter;
+
 public class InventoryData {
     private String item;
+    private String supplier;
     private Integer quantity;
 
-    public InventoryData(String item, Integer quantity) {
+    public InventoryData(String item, Integer quantity, String supplier) {
         setItem(item);
         setQuantity(quantity);
+        setSupplier(supplier);
     }
 
     public String getItem() {
@@ -22,6 +26,14 @@ public class InventoryData {
     }
 
     public void setQuantity(Integer quantity) {
-        this.quantity  = quantity;
+        this.quantity = quantity;
+    }
+    ///
+    public String getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(String supplier) {
+        this.supplier = supplier;
     }
 }
