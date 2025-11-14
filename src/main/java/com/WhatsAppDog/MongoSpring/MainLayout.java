@@ -1,8 +1,7 @@
 package com.WhatsAppDog.MongoSpring;
-
 import com.WhatsAppDog.MongoSpring.Views.Animals;
-import com.WhatsAppDog.MongoSpring.Views.Buttons;
 import com.WhatsAppDog.MongoSpring.Views.InventoryTable;
+import com.WhatsAppDog.MongoSpring.Views.LoginValidation;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.H2;
