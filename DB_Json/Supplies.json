@@ -1,0 +1,53 @@
+[
+  {
+    "item": "Blankets",
+    "category": "Animals",
+    "quantity": 10,
+    "supplier": "Donations"
+  },
+  {
+    "item": "Pens",
+    "category": "Office",
+    "quantity": 50,
+    "supplier": "Staples"
+  },
+  {
+    "item": "Clorox",
+    "category": "Cleaning",
+    "quantity": 3,
+    "supplier": "Costco"
+  },
+  {
+    "item": "Kennel Food",
+    "category": "Animals",
+    "quantity": 4,
+    "supplier": "Chewy"
+  },
+  {
+    "item": "Toys",
+    "category": "Animals",
+    "quantity": 40,
+    "supplier": "Donations"
+  }, {
+  "item": "Bowls",
+  "category": "Animals",
+  "quantity": 45,
+  "supplier": "Costco"
+},{
+  "item": "Printer Ink",
+  "category": "Office",
+  "quantity": 10,
+  "supplier": "Staples"
+  },
+  {
+    "item": "Paper Towels",
+    "category": "Cleaning",
+    "quantity": 20,
+    "supplier": "Costco"
+  },  {
+  "item": "Towels",
+  "category": "Animals",
+  "quantity": 30,
+  "supplier": "Donations"
+}
+]
