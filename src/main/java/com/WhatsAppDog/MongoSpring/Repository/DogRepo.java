@@ -7,6 +7,5 @@ import java.util.List;
 
 //Links with dog class
 public interface DogRepo extends MongoRepository<Dog,Integer> {
-    //find dog by breed
-    List<Dog> findByBreed(String breed);
+
 }
