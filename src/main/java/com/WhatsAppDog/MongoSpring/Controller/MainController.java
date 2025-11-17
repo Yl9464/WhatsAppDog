@@ -11,61 +11,42 @@ import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
+import org.vaadin.crudui.crud.CrudListener;
 
 import java.util.List;
 
-
-//Define api paths
+//Define api paths, call repos
 @Service
-@RestController
-public class MainController {
+public class MainController implements CrudListener<Supplies> {
     @Autowired //connects repo and controller
     private RescueRepo rescueRepo;
     @Autowired //connects repo and controller
     private DogRepo dogRepo;
     @Autowired //connects repo and controller
-    private SuppliesRepo suppliesRepo;
+    private final SuppliesRepo suppliesRepo;
 
 
-    //Collection: Rescues
-    @PostMapping("/addRescue")
-    public String saveRescue(@RequestBody Rescue rescue) {
-        rescueRepo.save(rescue);
-        return "Rescue Added Successfully";
+    //constructor for repository and usable in methods
+    public MainController(SuppliesRepo suppliesRepo) {
+        this.suppliesRepo = suppliesRepo;
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String deleteBook(@PathVariable int id) {
-        rescueRepo.deleteById(id);
-
-        return "Deleted Successfully";
-    }
-
-    //Collection: Dogs
-    @PostMapping("/addDog")
-    public String saveDog(@RequestBody Dog dog) {
-        dogRepo.save(dog);
-        return "Dog Added Successfully";
-    }
-
-    @GetMapping("/getAllDogs")
-    public List<Dog> getDogs() {
-        return dogRepo.findAll();
-    }
-
-    @GetMapping("/dogs/{breed}")
-    public List<Dog> getDogsByBreed(@PathVariable("breed") String breed) {
-      return dogRepo.findByBreed(breed);
-
-    }
-    //Collection: Supplies
-    @GetMapping("/getAllSupplies")
-    public List<Supplies> getAllSupplies() {
+    @Override
+    //findAll() will run out of memory if db grows substantially
+    public List<Supplies> findAll(){
         return suppliesRepo.findAll();
     }
-    @GetMapping("/supplies/{category}")
-    public List<Supplies> getDSuppliesByCategory(@PathVariable("category") String category) {
-        return suppliesRepo.findByCategory(category);
-
+    @Override
+    public Supplies add(Supplies supply){
+        return suppliesRepo.save(supply);
     }
+    @Override
+    public Supplies update(Supplies supply){
+        return suppliesRepo.save(supply);
+    }
+    @Override
+    public void delete(Supplies supply){
+        suppliesRepo.delete(supply);
+    }
+
 }
