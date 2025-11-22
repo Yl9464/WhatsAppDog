@@ -1,0 +1,275 @@
+[
+      {
+        "idNu": 1,
+        "name": "Bob",
+        "type": "Dog",
+        "age": 8,
+        "aggression": false
+      },
+      {
+        "idNu": 2,
+        "name": "Santa",
+        "type": "Dog",
+        "age": 4,
+        "aggression": true
+      },
+      {
+        "idNu": 3,
+        "name": "Pearl",
+        "type": "Squirrel",
+        "age": 8,
+        "aggression": false
+      },
+      {
+        "idNu": 4,
+        "name": "Raymond",
+        "type": "Racoon",
+        "age": 8,
+        "aggression": true
+      },
+      {
+        "idNu": 5,
+        "name": "Dierdre",
+        "type": "Deer",
+        "age": 15,
+        "aggression": false
+      },
+      {
+        "idNu": 6,
+        "name": "Steve",
+        "type": "Dog",
+        "age": 7,
+        "aggression": false
+      },
+      {
+        "idNu": 7,
+        "name": "Karren",
+        "type": "Cat",
+        "age": 10,
+        "aggression": true
+      },
+      {
+        "idNu": 8,
+        "name": "Carol",
+        "type": "Cat",
+        "age": 2,
+        "aggression": false
+      },
+      {
+        "idNu": 9,
+        "name": "Pebbles",
+        "type": "Dog",
+        "age": 5,
+        "aggression": false
+      },
+      {
+        "idNu": 10,
+        "name": "Sydney",
+        "type": "Squirrel",
+        "age": 8,
+        "aggression": false
+      },
+      {
+        "idNu": 11,
+        "name": "Rachel",
+        "type": "Racoon",
+        "age": 13,
+        "aggression": true
+      },
+      {
+        "idNu": 12,
+        "name": "Kia",
+        "type": "Coyote",
+        "age": 9,
+        "aggression": true
+      },
+      {
+        "idNu": 13,
+        "name": "Fred",
+        "type": "Fish",
+        "age": 4,
+        "aggression": false
+      },
+      {
+        "idNu": 14,
+        "name": "Kyle",
+        "type": "Cat",
+        "age": 8,
+        "aggression": false
+      },
+      {
+        "idNu": 15,
+        "name": "Sushi",
+        "type": "Cat",
+        "age": 6,
+        "aggression": false
+      },
+      {
+        "idNu": 16,
+        "name": "Terry",
+        "type": "Turtle",
+        "age": 12,
+        "aggression": false
+      },
+      {
+        "idNu": 17,
+        "name": "Bandit",
+        "type": "Racoon",
+        "age": 4,
+        "aggression": true
+      },
+      {
+        "idNu": 18,
+        "name": "Brie",
+        "type": "Bird",
+        "age": 4,
+        "aggression": true
+      },
+      {
+        "idNu": 19,
+        "name": "Cupcake",
+        "type": "Coyote",
+        "age": 12,
+        "aggression": true
+      },
+      {
+        "idNu": 20,
+        "name": "Jenny",
+        "type": "Dog",
+        "age": 6,
+        "aggression": false
+      },
+      {
+        "idNu": 21,
+        "name": "Darth Vader ",
+        "type": "Dog",
+        "age": 7,
+        "aggression": true
+      },
+      {
+        "idNu": 22,
+        "name": "Mini",
+        "type": "Dog",
+        "age": 6,
+        "aggression": true
+      },
+      {
+        "idNu": 23,
+        "name": "Sean",
+        "type": "Dog",
+        "age": 15,
+        "aggression": true
+      },
+      {
+        "idNu": 24,
+        "name": "Henry",
+        "type": "Horse",
+        "age": 6,
+        "aggression": false
+      },
+      {
+        "idNu": 25,
+        "name": "Jason",
+        "type": "Dog",
+        "age": 8,
+        "aggression": false
+      },
+      {
+        "idNu": 26,
+        "name": "Zeek",
+        "type": "Dog",
+        "age": 11,
+        "aggression": false
+      },
+      {
+        "idNu": 27,
+        "name": "Anna",
+        "type": "Bird",
+        "age": 8,
+        "aggression": false
+      },
+      {
+        "idNu": 28,
+        "name": "Derek",
+        "type": "Deer",
+        "age": 14,
+        "aggression": false
+      },
+      {
+        "idNu": 29,
+        "name": "Merl",
+        "type": "Squirrel",
+        "age": 4,
+        "aggression": true
+      },
+      {
+        "idNu": 30,
+        "name": "Leo",
+        "type": "Cat",
+        "age": 6,
+        "aggression": true
+      },
+      {
+        "idNu": 31,
+        "name": "Caitlyn",
+        "type": "Cat",
+        "age": 3,
+        "aggression": false
+      },
+      {
+        "idNu": 32,
+        "name": "Benny",
+        "type": "Bear",
+        "age": 12,
+        "aggression": true
+      },
+      {
+        "idNu": 33,
+        "name": "Vinny",
+        "type": "Dog",
+        "age": 7,
+        "aggression": true
+      },
+      {
+        "idNu": 34,
+        "name": "Locks",
+        "type": "Dog",
+        "age": 6,
+        "aggression": false
+      },
+      {
+        "idNu": 35,
+        "name": "Hannah",
+        "type": "Bunny",
+        "age": 4,
+        "aggression": false
+      },
+      {
+        "idNu": 36,
+        "name": "Bert",
+        "type": "Bunny",
+        "age": 8,
+        "aggression": true
+      },
+      {
+        "idNu": 37,
+        "name": "Vincent",
+        "type": "Racoon",
+        "age": 13,
+        "aggression": true
+      },
+      {
+        "idNu": 38,
+        "name": "Tina",
+        "type": "Turtle",
+        "age": 14,
+        "aggression": true
+      },
+      {
+        "idNu": 39,
+        "name": "Gene",
+        "type": "Dog",
+        "age": 8,
+        "aggression": true
+      }
+]

@@ -16,7 +16,6 @@ public class SuppliesController implements CrudListener<Supplies> {
     @Autowired //connects repo and controller
     private final SuppliesRepo suppliesRepo;
 
-
     //constructor for repository and usable in methods
     public SuppliesController(SuppliesRepo suppliesRepo) {
         this.suppliesRepo = suppliesRepo;

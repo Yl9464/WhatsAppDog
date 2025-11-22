@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection ="Dogs")
+@Document(collection ="Animals")
 
 public class Animal {
     @Id //sets value as primary key
@@ -19,7 +19,7 @@ public class Animal {
     private ObjectId id;
     private Integer idNu;
     private String name;
-    private String breed;
+    private String type;
     private Integer age;
     private Boolean aggression;
     private ObjectId imageId;
