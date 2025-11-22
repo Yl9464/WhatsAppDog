@@ -1,15 +1,12 @@
 package com.WhatsAppDog.MongoSpring.Views;
 
 import com.WhatsAppDog.MongoSpring.MainLayout;
-import com.WhatsAppDog.MongoSpring.Model.Dog;
-import com.WhatsAppDog.MongoSpring.Model.Supplies;
-import com.WhatsAppDog.MongoSpring.Repository.DogRepo;
-import com.vaadin.flow.component.checkbox.Checkbox;
+import com.WhatsAppDog.MongoSpring.Model.Animal;
+import com.WhatsAppDog.MongoSpring.Repository.AnimalRepo;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 import org.vaadin.crudui.crud.impl.GridCrud;
@@ -24,8 +21,8 @@ private static final long serialVersionUID = 1L;
 public static final String ROUTE = "animals";
 public static final String TITLE = "Animals";
 
-public Animals(DogRepo dogRepo) {
-    GridCrud<Dog> dogGridCrud = new GridCrud<>(Dog.class);
+public Animals(AnimalRepo dogRepo) {
+    GridCrud<Animal> dogGridCrud = new GridCrud<>(Animal.class);
     dogGridCrud.setFindAllOperation(dogRepo::findAll);
 
     add(dogGridCrud);

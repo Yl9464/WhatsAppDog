@@ -17,8 +17,8 @@ public class Supplies {
     @Id //sets value as primary key
     @EqualsAndHashCode.Include //creates getters and setters for each field ( equals() & hashcode)
     private ObjectId id;
-    private String item;
-    private String category;
-    private Integer quantity;
-    private String supplier;
+    private String   item;
+    private String   category;
+    private Integer  quantity;
+    private String   supplier;
 }

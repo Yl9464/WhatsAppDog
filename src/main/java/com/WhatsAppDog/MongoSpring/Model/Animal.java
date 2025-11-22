@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Document(collection ="Dogs")
 
-public class Dog {
+public class Animal {
     @Id //sets value as primary key
     @EqualsAndHashCode.Include
     private ObjectId id;
@@ -25,3 +25,4 @@ public class Dog {
     private ObjectId imageId;
 
 }
+
