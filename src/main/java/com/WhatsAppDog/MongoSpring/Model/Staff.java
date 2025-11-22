@@ -2,6 +2,7 @@ package com.WhatsAppDog.MongoSpring.Model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -14,11 +15,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 public class Staff {
     @Id //sets value as primary key
+    @EqualsAndHashCode.Include
     private ObjectId id;
-    private String firstName;
-    private String lastName;
-    private String title; //employee or volunteer
-    private Integer age;
-    //contact info
+    private Integer  employee_id;
+    private String   firstName;
+    private String   lastName;
+    private String   email;
+    private String   jobTitle;
+    private String   salary;
 
 }

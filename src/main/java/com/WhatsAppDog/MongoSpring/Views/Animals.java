@@ -1,14 +1,15 @@
 package com.WhatsAppDog.MongoSpring.Views;
 
 import com.WhatsAppDog.MongoSpring.MainLayout;
-import com.vaadin.flow.component.checkbox.Checkbox;
+import com.WhatsAppDog.MongoSpring.Model.Animal;
+import com.WhatsAppDog.MongoSpring.Repository.AnimalRepo;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
+import org.vaadin.crudui.crud.impl.GridCrud;
 
 import java.io.Serial;
 
@@ -17,40 +18,45 @@ public class Animals extends VerticalLayout {
 @Serial
 private static final long serialVersionUID = 1L;
 
-public static final String ROUTE = "ans";
+public static final String ROUTE = "animals";
 public static final String TITLE = "Animals";
 
-public Animals() {
+public Animals(AnimalRepo dogRepo) {
+    GridCrud<Animal> dogGridCrud = new GridCrud<>(Animal.class);
+    dogGridCrud.setFindAllOperation(dogRepo::findAll);
+
+    add(dogGridCrud);
     setSizeFull();
+//    setSizeFull();
+//
+//    createEmailFields();
+//    createCheckBoxes();
+//    createComboBoxes();
+//    createExampleTextSpan();
 
-    createEmailFields();
-    createCheckBoxes();
-    createComboBoxes();
-    createExampleTextSpan();
 
-
-}
-    private void createEmailFields() {
-        EmailField emailField = new EmailField();
-        emailField.setLabel("Enter your email");
-
-        EmailField confirmField = new EmailField();
-        confirmField.setLabel("Confirm your email");
-
-        add(new HorizontalLayout(emailField, confirmField));
-    }
-
-    private void createCheckBoxes() {
-        Checkbox normalCheckbox = new Checkbox();
-        normalCheckbox.setLabel("This is a normal checkbox");
-
-        Checkbox styledCheckbox = new Checkbox();
-        styledCheckbox.setLabel("Check me to change the style");
-        styledCheckbox.setClassName("green-when-checked");
-
-        // TODO style styledCheckbox so it's background turns green when it's checked
-
-        add(new HorizontalLayout(normalCheckbox, styledCheckbox));
+//}
+//    private void createEmailFields() {
+//        EmailField emailField = new EmailField();
+//        emailField.setLabel("Enter your email");
+//
+//        EmailField confirmField = new EmailField();
+//        confirmField.setLabel("Confirm your email");
+//
+//        add(new HorizontalLayout(emailField, confirmField));
+//    }
+//
+//    private void createCheckBoxes() {
+//        Checkbox normalCheckbox = new Checkbox();
+//        normalCheckbox.setLabel("This is a normal checkbox");
+//
+//        Checkbox styledCheckbox = new Checkbox();
+//        styledCheckbox.setLabel("Check me to change the style");
+//        styledCheckbox.setClassName("green-when-checked");
+//
+//        // TODO style styledCheckbox so it's background turns green when it's checked
+//
+//        add(new HorizontalLayout(normalCheckbox, styledCheckbox));
     }
 
     private void createComboBoxes() {
