@@ -1,13 +1,41 @@
 [
   {
-    "firstName": "John",
-    "lastName": "Doe",
-    "title": "Volunteer",
-    "age": 18
+    "employee_id": "0",
+    "firstName": "Jan",
+    "lastName":  "Doe",
+    "email": "JaneDoe@gmail.com",
+    "jobTitle": "Staff",
+    "salary":  "$20"
   },{
-  "firstName": "Jane",
-  "lastName": "Doe",
-  "title": "Employee",
-  "age": 30
-}
+  "employee_id": "1",
+  "firstName": "John",
+  "lastName":  "Doe",
+  "email": "JohnDoe@gmail.com",
+  "jobTitle": "Volunteer",
+  "salary":  "N/A"
+},
+  {
+    "employee_id": "2",
+    "firstName": "Bob",
+    "lastName":  "Burger",
+    "email": "BoB@gmail.com",
+    "jobTitle": "Volunteer",
+    "salary":  "N/A"
+  },
+  {
+    "employee_id": "3",
+    "firstName": "Peter",
+    "lastName":  "Griffin",
+    "email": "PGiff@gmail.com",
+    "jobTitle": "Volunteer",
+    "salary":  "N/A"
+  },
+  {
+    "employee_id": "4",
+    "firstName": "Bojack",
+    "lastName":  "Horseman",
+    "email": "BojH@gmail.com",
+    "jobTitle": "Staff",
+    "salary":  "$15"
+  }
 ]
