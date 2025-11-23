@@ -1,5 +1,6 @@
 package com.WhatsAppDog.MongoSpring;
 import com.WhatsAppDog.MongoSpring.Views.AnimalsView;
+import com.WhatsAppDog.MongoSpring.Views.HomeView;
 import com.WhatsAppDog.MongoSpring.Views.SuppliesView;
 import com.WhatsAppDog.MongoSpring.Views.StaffView;
 import com.vaadin.flow.component.applayout.AppLayout;
@@ -15,7 +16,7 @@ public class MainLayout extends AppLayout{
         addToNavbar(new H2("WhatsAppDog"));
 
         final VerticalLayout menuBar = new VerticalLayout();
-
+        menuBar.add(new RouterLink(HomeView.TITLE, HomeView.class));
         menuBar.add(new RouterLink(AnimalsView.TITLE, AnimalsView.class));
         menuBar.add(new RouterLink(SuppliesView.TITLE, SuppliesView.class));
         menuBar.add(new RouterLink(StaffView.TITLE, StaffView.class));

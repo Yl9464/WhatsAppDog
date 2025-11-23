@@ -6,6 +6,7 @@ import com.WhatsAppDog.MongoSpring.Repository.AnimalRepo;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.card.Card;
+import com.vaadin.flow.component.card.CardVariant;
 import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -43,7 +44,7 @@ public class AnimalsView extends VerticalLayout {
     private Component createAnimalCard(Animal animal) {
         Card imageCard = new Card();
         DownloadHandler imageHandler = DownloadHandler.forClassResource(
-                getClass(), animal.getImageUrl(), "Animal Pic Placeholder");
+                getClass(), animal.getImageUrl(), "Animal Pic");
         Image image = new Image(imageHandler, "");
         image.setWidth("100px");
 
@@ -64,7 +65,7 @@ public class AnimalsView extends VerticalLayout {
 
         Button addNewAnimal = new Button("Add New Animal");
 
-        VerticalLayout layout = new VerticalLayout(title, image, details);
+        VerticalLayout layout = new VerticalLayout(image, title, details);
 
         layout.setWidth("260px");
         layout.setPadding(true);

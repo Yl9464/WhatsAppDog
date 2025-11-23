@@ -1,0 +1,18 @@
+package com.WhatsAppDog.MongoSpring.Views;
+
+import com.WhatsAppDog.MongoSpring.MainLayout;
+import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.Route;
+
+@Route(value = "", layout = MainLayout.class)
+public class HomeView extends VerticalLayout {
+    public static final String ROUTE = "home";
+    public static final String TITLE = "Home";
+
+    public HomeView() {
+        H1 h1 = new H1("App Home Page");
+        add(h1);
+    }
+
+}

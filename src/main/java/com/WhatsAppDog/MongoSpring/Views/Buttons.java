@@ -14,8 +14,8 @@ import com.vaadin.flow.router.RouteAlias;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 import java.io.Serial;
 
-@Route(value = Buttons.ROUTE, layout = MainLayout.class)
-@RouteAlias(value = "", layout = MainLayout.class)
+//@Route(value = Buttons.ROUTE, layout = MainLayout.class)
+//@RouteAlias(value = "", layout = MainLayout.class)
 
 public class Buttons extends VerticalLayout {
     @Serial

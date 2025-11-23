@@ -4,6 +4,7 @@ import com.WhatsAppDog.MongoSpring.MainLayout;
 import com.WhatsAppDog.MongoSpring.Model.Staff;
 import com.WhatsAppDog.MongoSpring.Repository.StaffRepo;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
