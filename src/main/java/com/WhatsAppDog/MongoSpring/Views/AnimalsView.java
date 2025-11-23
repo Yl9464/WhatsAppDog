@@ -23,10 +23,7 @@ public class AnimalsView extends VerticalLayout {
     public static final String TITLE = "Animals";
 
     public AnimalsView(AnimalRepo animalRepo) {
-//        Div layout = new Div();
-//        layout.getStyle().set("display", "grid")
-//                .set("grid-template-columns", "repeat(auto-fill, minmax(190px, 1fr))")
-//                .set("gap", "1em");
+
         setSizeFull();
         setPadding(true);
 
@@ -35,9 +32,9 @@ public class AnimalsView extends VerticalLayout {
         FlexLayout container = new FlexLayout();
         container.setFlexWrap(FlexLayout.FlexWrap.WRAP);
         container.setJustifyContentMode(JustifyContentMode.CENTER);
-//        container.setGap("20px");
+        //create card for all animals
         for (Animal animal : animals) {
-            container.add(createAnimalCard(animal));
+            container.add(createAnimalCard(animal)); //call create method
         }
         add(container);
     }
@@ -46,7 +43,7 @@ public class AnimalsView extends VerticalLayout {
     private Component createAnimalCard(Animal animal) {
         Card imageCard = new Card();
         DownloadHandler imageHandler = DownloadHandler.forClassResource(
-                getClass(), "images/tempAnimal.png", "Animal Pic Placeholder");
+                getClass(), animal.getImageUrl(), "Animal Pic Placeholder");
         Image image = new Image(imageHandler, "");
         image.setWidth("100px");
 
@@ -75,16 +72,3 @@ public class AnimalsView extends VerticalLayout {
         return layout;
     }
 }
-//Grid data rendering
-//public class AnimalsView extends VerticalLayout{
-//H1 h1 = new H1("In House Animals");
-//    Grid<Animal> grid = new Grid<>(Animal.class, false);
-//    grid.addColumn(Animal::getName).setHeader("Name");
-//    grid.addColumn(Animal::getType).setHeader("Type");
-//    grid.addColumn(Animal::getAge).setHeader("Age");
-//    grid.addColumn(Animal::getAggression).setHeader("Aggression");
-//
-//    List<Animal> animal = animalRepo.findAll();
-//    grid.setItems(animal);
-//    add(h1,grid);
-//

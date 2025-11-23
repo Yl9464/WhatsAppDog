@@ -1,275 +1,292 @@
 [
       {
-        "idNu": 1,
         "name": "Bob",
         "type": "Dog",
         "age": 8,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/dog.jpeg"
+
       },
       {
-        "idNu": 2,
         "name": "Santa",
         "type": "Dog",
         "age": 4,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/dog.jpeg"
       },
       {
-        "idNu": 3,
         "name": "Pearl",
         "type": "Squirrel",
         "age": 8,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/squirrel.jpeg"
       },
       {
-        "idNu": 4,
         "name": "Raymond",
-        "type": "Racoon",
+        "type": "raccoon",
         "age": 8,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/raccoon.jpeg"
       },
       {
-        "idNu": 5,
         "name": "Dierdre",
         "type": "Deer",
         "age": 15,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/deer.jpeg"
       },
       {
-        "idNu": 6,
         "name": "Steve",
         "type": "Dog",
         "age": 7,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/dog.jpeg"
+
       },
       {
-        "idNu": 7,
         "name": "Karren",
         "type": "Cat",
         "age": 10,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/cat.jpeg"
       },
       {
-        "idNu": 8,
         "name": "Carol",
         "type": "Cat",
         "age": 2,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/cat.jpeg"
       },
       {
         "idNu": 9,
         "name": "Pebbles",
         "type": "Dog",
         "age": 5,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/dog.jpeg"
       },
       {
-        "idNu": 10,
         "name": "Sydney",
         "type": "Squirrel",
         "age": 8,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/squirrel.jpeg"
       },
       {
-        "idNu": 11,
         "name": "Rachel",
-        "type": "Racoon",
+        "type": "raccoon",
         "age": 13,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/raccoon.jpeg"
       },
       {
-        "idNu": 12,
         "name": "Kia",
         "type": "Coyote",
         "age": 9,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/coyote.jpeg"
       },
       {
-        "idNu": 13,
-        "name": "Fred",
-        "type": "Fish",
-        "age": 4,
-        "aggression": false
-      },
-      {
-        "idNu": 14,
         "name": "Kyle",
         "type": "Cat",
         "age": 8,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/cat.jpeg"
       },
       {
-        "idNu": 15,
         "name": "Sushi",
         "type": "Cat",
         "age": 6,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/cat.jpeg"
       },
       {
-        "idNu": 16,
+
         "name": "Terry",
         "type": "Turtle",
         "age": 12,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/turtle.jpeg"
       },
       {
-        "idNu": 17,
+
         "name": "Bandit",
-        "type": "Racoon",
+        "type": "Raccoon",
         "age": 4,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/raccoon.jpeg"
       },
       {
-        "idNu": 18,
+
         "name": "Brie",
         "type": "Bird",
         "age": 4,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/bird.jpeg"
       },
       {
-        "idNu": 19,
+
         "name": "Cupcake",
         "type": "Coyote",
         "age": 12,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/coyote.jpeg"
       },
       {
-        "idNu": 20,
+
         "name": "Jenny",
         "type": "Dog",
         "age": 6,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/dog.jpeg"
       },
       {
-        "idNu": 21,
+
         "name": "Darth Vader ",
         "type": "Dog",
         "age": 7,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/dog.jpeg"
       },
       {
-        "idNu": 22,
+
         "name": "Mini",
         "type": "Dog",
         "age": 6,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/dog.jpeg"
       },
       {
-        "idNu": 23,
+
         "name": "Sean",
         "type": "Dog",
         "age": 15,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/dog.jpeg"
       },
       {
-        "idNu": 24,
+
         "name": "Henry",
         "type": "Horse",
         "age": 6,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/horse.jpeg"
       },
       {
-        "idNu": 25,
+
         "name": "Jason",
         "type": "Dog",
         "age": 8,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/dog.jpeg"
       },
       {
-        "idNu": 26,
+
         "name": "Zeek",
         "type": "Dog",
         "age": 11,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/dog.jpeg"
       },
       {
-        "idNu": 27,
+
         "name": "Anna",
         "type": "Bird",
         "age": 8,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/bird.jpeg"
       },
       {
-        "idNu": 28,
+
         "name": "Derek",
         "type": "Deer",
         "age": 14,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/deer.jpeg"
       },
       {
-        "idNu": 29,
+
         "name": "Merl",
         "type": "Squirrel",
         "age": 4,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/squirrel.jpeg"
       },
       {
-        "idNu": 30,
+
         "name": "Leo",
         "type": "Cat",
         "age": 6,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/cat.jpeg"
       },
       {
-        "idNu": 31,
+
         "name": "Caitlyn",
         "type": "Cat",
         "age": 3,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/cat.jpeg"
       },
       {
-        "idNu": 32,
+
         "name": "Benny",
         "type": "Bear",
         "age": 12,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/bear.jpeg"
       },
       {
-        "idNu": 33,
+
         "name": "Vinny",
         "type": "Dog",
         "age": 7,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/dog.jpeg"
       },
       {
-        "idNu": 34,
+
         "name": "Locks",
         "type": "Dog",
         "age": 6,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/dog.jpeg"
       },
       {
-        "idNu": 35,
+
         "name": "Hannah",
         "type": "Bunny",
         "age": 4,
-        "aggression": false
+        "aggression": false,
+        "imageUrl": "images/bunny.jpeg"
       },
       {
-        "idNu": 36,
+
         "name": "Bert",
         "type": "Bunny",
         "age": 8,
-        "aggression": true
+        "aggression": false,
+        "imageUrl": "images/bunny.jpeg"
       },
       {
-        "idNu": 37,
         "name": "Vincent",
-        "type": "Racoon",
+        "type": "raccoon",
         "age": 13,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/raccoon.jpeg"
       },
       {
-        "idNu": 38,
         "name": "Tina",
         "type": "Turtle",
         "age": 14,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/turtle.jpeg"
       },
       {
-        "idNu": 39,
         "name": "Gene",
         "type": "Dog",
         "age": 8,
-        "aggression": true
+        "aggression": true,
+        "imageUrl": "images/dog.jpeg"
       }
 ]
