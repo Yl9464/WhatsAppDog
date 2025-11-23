@@ -1,64 +1,48 @@
 package com.WhatsAppDog.MongoSpring.Views;
 
 import com.WhatsAppDog.MongoSpring.MainLayout;
-import com.WhatsAppDog.MongoSpring.Model.Animal;
 import com.WhatsAppDog.MongoSpring.Repository.AnimalRepo;
-import com.vaadin.flow.component.combobox.ComboBox;
-import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.html.H1;
-import com.vaadin.flow.component.html.Span;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.card.Card;
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.theme.lumo.LumoUtility;
-
-import java.io.Serial;
-import java.util.List;
+import com.vaadin.flow.server.streams.DownloadHandler;
 
 @Route(value = AnimalsView.ROUTE, layout= MainLayout.class)
-public class AnimalsView extends VerticalLayout {
+
+public class AnimalsView extends Div {
 
     public static final String ROUTE = "animals";
     public static final String TITLE = "Animals";
 
-public AnimalsView(AnimalRepo animalRepo) {
-    H1 h1 = new H1("In House Animals");
-    Grid<Animal> grid = new Grid<>(Animal.class, false);
-    grid.addColumn(Animal::getName).setHeader("Name");
-    grid.addColumn(Animal::getType).setHeader("Type");
-    grid.addColumn(Animal::getAge).setHeader("Age");
-    grid.addColumn(Animal::getAggression).setHeader("Aggression");
+    public AnimalsView(AnimalRepo animalRepo) {
+        Div layout = new Div();
+        layout.getStyle().set("display", "grid")
+                .set("grid-template-columns", "repeat(auto-fill, minmax(190px, 1fr))")
+                .set("gap", "1em");
 
-    List<Animal> animal = animalRepo.findAll();
-    grid.setItems(animal);
-    add(h1,grid);
+        Card imageCard = new Card();
+        DownloadHandler imageHandler = DownloadHandler.forClassResource(
+                getClass(), "images/tempAnimal.png", "Animal Pic Placeholder");
+        Image image = new Image(imageHandler, "");
+        image.setWidth("100px");
+        imageCard.setMedia(image);
+        imageCard.add("Lapland is the northern-most region of Finland and an active outdoor destination.");
+
+        layout.add(imageCard);
+        add(layout);
     }
-
-//    private void createComboBoxes() {
-//        ComboBox<String> normalCombo = new ComboBox<>();
-//        normalCombo.setItems("First", "Second", "Third");
-//
-//        ComboBox<String> yellowBgColorCombo = new ComboBox<>();
-//        yellowBgColorCombo.setItems("First", "Second", "Third");
-//        yellowBgColorCombo.setClassName("yellowBg");
-//        yellowBgColorCombo.setOverlayClassName("yellowBg");
-//
-//        add(new HorizontalLayout(normalCombo, yellowBgColorCombo));
-//    }
-//
-//    private void createExampleTextSpan() {
-//        Span span = new Span("This is example text");
-//
-//        span.addClassNames(
-//                LumoUtility.FontSize.LARGE,
-//                LumoUtility.FontWeight.BOLD,
-//                LumoUtility.Border.ALL,
-//                LumoUtility.BorderRadius.MEDIUM,
-//                LumoUtility.BorderColor.ERROR,
-//                LumoUtility.Margin.Top.LARGE,
-//                LumoUtility.Padding.MEDIUM
-//        );
-//
-//        add(span);
-//    }
 }
+//Grid data rendering
+//public class AnimalsView extends VerticalLayout{
+//H1 h1 = new H1("In House Animals");
+//    Grid<Animal> grid = new Grid<>(Animal.class, false);
+//    grid.addColumn(Animal::getName).setHeader("Name");
+//    grid.addColumn(Animal::getType).setHeader("Type");
+//    grid.addColumn(Animal::getAge).setHeader("Age");
+//    grid.addColumn(Animal::getAggression).setHeader("Aggression");
+//
+//    List<Animal> animal = animalRepo.findAll();
+//    grid.setItems(animal);
+//    add(h1,grid);
+//
