@@ -42,21 +42,25 @@ public class AnimalsView extends VerticalLayout {
 
 
     private Component createAnimalCard(Animal animal) {
-        Card imageCard = new Card();
+        Card cardOutlined = new Card();
+        cardOutlined.addThemeVariants(CardVariant.LUMO_OUTLINED);
+
         DownloadHandler imageHandler = DownloadHandler.forClassResource(
                 getClass(), animal.getImageUrl(), "Animal Pic");
         Image image = new Image(imageHandler, "");
         image.setWidth("100px");
+        UnorderedList details = new UnorderedList(
+                new ListItem( "Name: " + animal.getName()),
+                new ListItem("Category: " + animal.getType() ),
+                new ListItem("Aggression: " + (animal.getAggression() ? "Yes, approach with caution" : "No"))
+        );
+        cardOutlined.add(image,details);
 
-        H3 title = new H3(animal.getName());
-        VerticalLayout layout = getVerticalLayout(animal, title, image);
-        layout.addClassName("pet-card");
-
-        return layout;
+        return cardOutlined;
     }
 
     @NotNull
-    private static VerticalLayout getVerticalLayout(Animal animal, H3 title, Image image) {
+    private static VerticalLayout getVerticalLayout(Animal animal, H3 title) {
         UnorderedList details = new UnorderedList(
           new ListItem( "Name: " + animal.getName()),
                   new ListItem("Category: " + animal.getType() ),
@@ -65,7 +69,7 @@ public class AnimalsView extends VerticalLayout {
 
         Button addNewAnimal = new Button("Add New Animal");
 
-        VerticalLayout layout = new VerticalLayout(image, title, details);
+        VerticalLayout layout = new VerticalLayout(title, details);
 
         layout.setWidth("260px");
         layout.setPadding(true);

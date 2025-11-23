@@ -7,7 +7,6 @@ import com.vaadin.flow.component.page.AppShellConfigurator;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-@Theme("my-theme")
 public class MongoSpringApplication extends SpringBootServletInitializer implements AppShellConfigurator {
 
     public static void main(String[] args) {
