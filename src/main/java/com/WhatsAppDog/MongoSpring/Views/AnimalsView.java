@@ -49,26 +49,15 @@ public class AnimalsView extends Div {
                 getClass(), animal.getImageUrl(), "Animal Pic");
         Image image = new Image(imageHandler, "");
         image.setWidth("100px");
+        image.setHeight("100px");
 
         UnorderedList details = new UnorderedList(
-                new ListItem( "Name: " + animal.getName()),
-                new ListItem("Category: " + animal.getType() ),
+                new ListItem("Name: " + animal.getName()),
+                new ListItem("Category: " + animal.getType()),
                 new ListItem("Aggression: " + (animal.getAggression() ? "Yes, approach with caution" : "No"))
         );
-        cardOutlined.add(image,details);
+        cardOutlined.add(image, details);
 
         return cardOutlined;
-    }
-
-    @NotNull
-    private static VerticalLayout getVerticalLayout(Animal animal, H3 title) {
-        Button addNewAnimal = new Button("Add New Animal");
-
-        VerticalLayout layout = new VerticalLayout(title);
-
-        layout.setWidth("260px");
-        layout.setPadding(true);
-        layout.setSpacing(true);
-        return layout;
     }
 }
