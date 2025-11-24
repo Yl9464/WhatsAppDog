@@ -8,7 +8,9 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.card.Card;
 import com.vaadin.flow.component.card.CardVariant;
 import com.vaadin.flow.component.html.*;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.streams.DownloadHandler;
@@ -18,26 +20,24 @@ import java.util.List;
 
 @Route(value = AnimalsView.ROUTE, layout= MainLayout.class)
 
-public class AnimalsView extends VerticalLayout {
+public class AnimalsView extends Div {
 
     public static final String ROUTE = "animals";
     public static final String TITLE = "Animals";
 
     public AnimalsView(AnimalRepo animalRepo) {
-
-        setSizeFull();
-        setPadding(true);
+        Div layout = new Div();
+        layout.getStyle().set("display", "grid")
+                .set("grid-template-columns", "repeat(auto-fill, minmax(190px, 1fr))")
+                .set("gap", "1em");
 
         List<Animal> animals = animalRepo.findAll();
 
-        FlexLayout container = new FlexLayout();
-        container.setFlexWrap(FlexLayout.FlexWrap.WRAP);
-        container.setJustifyContentMode(JustifyContentMode.CENTER);
         //create card for all animals
         for (Animal animal : animals) {
-            container.add(createAnimalCard(animal)); //call create method
+            layout.add(createAnimalCard(animal)); //call create method
         }
-        add(container);
+        add(layout);
     }
 
 
@@ -49,6 +49,7 @@ public class AnimalsView extends VerticalLayout {
                 getClass(), animal.getImageUrl(), "Animal Pic");
         Image image = new Image(imageHandler, "");
         image.setWidth("100px");
+
         UnorderedList details = new UnorderedList(
                 new ListItem( "Name: " + animal.getName()),
                 new ListItem("Category: " + animal.getType() ),
@@ -61,15 +62,9 @@ public class AnimalsView extends VerticalLayout {
 
     @NotNull
     private static VerticalLayout getVerticalLayout(Animal animal, H3 title) {
-        UnorderedList details = new UnorderedList(
-          new ListItem( "Name: " + animal.getName()),
-                  new ListItem("Category: " + animal.getType() ),
-                  new ListItem("Aggression: " + (animal.getAggression() ? "Yes, approach with caution" : "No"))
-        );
-
         Button addNewAnimal = new Button("Add New Animal");
 
-        VerticalLayout layout = new VerticalLayout(title, details);
+        VerticalLayout layout = new VerticalLayout(title);
 
         layout.setWidth("260px");
         layout.setPadding(true);
