@@ -17,7 +17,6 @@ import java.util.List;
 public class StaffView extends VerticalLayout{
 
     public static final String ROUTE = "staff";
-    public static final String TITLE = "Staff";
 
     public StaffView(StaffRepo staffRepo) {
         H1 h1 = new H1("Staff Members");

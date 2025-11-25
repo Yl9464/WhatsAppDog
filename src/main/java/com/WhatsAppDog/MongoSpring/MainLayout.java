@@ -1,44 +1,38 @@
 package com.WhatsAppDog.MongoSpring;
-import com.WhatsAppDog.MongoSpring.Views.AnimalsView;
-import com.WhatsAppDog.MongoSpring.Views.HomeView;
-import com.WhatsAppDog.MongoSpring.Views.SuppliesView;
-import com.WhatsAppDog.MongoSpring.Views.StaffView;
+import com.WhatsAppDog.MongoSpring.Views.*;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.contextmenu.MenuItem;
 import com.vaadin.flow.component.contextmenu.SubMenu;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.menubar.MenuBar;
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.router.RouterLink;
 
 
 public class MainLayout extends AppLayout{
     public MainLayout() {
         addToNavbar(new DrawerToggle());
         addToNavbar(new H2("WhatsAppDog"));
+        createMenuBar();
 
+
+
+    }
+    private void createMenuBar() {
         MenuBar menuBar = new MenuBar();
-         menuBar.addItem("Home");
+        menuBar.addItem("Home", e -> getUI().ifPresent(ui -> ui.navigate(HomeView.class)));
 
         MenuItem animalItem = menuBar.addItem("Animals");
 
         SubMenu animalSub = animalItem.getSubMenu();
-                animalSub.addItem("Dogs");
-                animalSub.addItem("Cats");
-                animalSub.addItem("Other");
+        animalSub.addItem("Dogs", e -> getUI().ifPresent(ui -> ui.navigate(DogsView.class)));
+        animalSub.addItem("Cats",e -> getUI().ifPresent(ui -> ui.navigate(CatsView.class)));
+        animalSub.addItem("Other", e -> getUI().ifPresent(ui -> ui.navigate(OthersView.class)));
 
-        menuBar.addItem("Other");
-        menuBar.addItem("Supplies");
-        menuBar.addItem("Staff");
+
+        menuBar.addItem("Supplies", e -> getUI().ifPresent(ui -> ui.navigate(SuppliesView.class)));
+        menuBar.addItem("Staff",  e -> getUI().ifPresent(ui -> ui.navigate(StaffView.class)));
 
         addToNavbar(menuBar);
-        //        final VerticalLayout menuBar = new VerticalLayout();
-//        menuBar.add(new RouterLink(HomeView.TITLE, HomeView.class));
-//        menuBar.add(new RouterLink(AnimalsView.TITLE, AnimalsView.class));
-//        menuBar.add(new RouterLink(SuppliesView.TITLE, SuppliesView.class));
-//        menuBar.add(new RouterLink(StaffView.TITLE, StaffView.class));
-//        addToDrawer(menuBar);
 
     }
 }
