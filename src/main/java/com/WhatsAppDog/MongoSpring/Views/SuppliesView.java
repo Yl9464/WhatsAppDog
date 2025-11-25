@@ -21,10 +21,10 @@ public class SuppliesView extends VerticalLayout {
         H1 h1 = new H1("Facility Supplies");
 
         Grid<Supplies> grid = new Grid<>(Supplies.class, false);
-        grid.addColumn(Supplies::getItem).setHeader("Item");
-        grid.addColumn(Supplies::getCategory).setHeader("Category");
-        grid.addColumn(Supplies::getQuantity).setHeader("Quantity");
-        grid.addColumn(Supplies::getSupplier).setHeader("Supplier");
+        grid.addColumn(Supplies::getItem).setHeader        ("Item").setSortable(true);
+        grid.addColumn(Supplies::getCategory).setHeader("Category").setSortable(true);
+        grid.addColumn(Supplies::getQuantity).setHeader("Quantity").setSortable(true);
+        grid.addColumn(Supplies::getSupplier).setHeader("Supplier").setSortable(true);
 
     List<Supplies> supplies = suppliesRepo.findAll();
     grid.setItems(supplies);
