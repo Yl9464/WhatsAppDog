@@ -5,6 +5,8 @@ import com.WhatsAppDog.MongoSpring.Views.SuppliesView;
 import com.WhatsAppDog.MongoSpring.Views.StaffView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
+import com.vaadin.flow.component.contextmenu.MenuItem;
+import com.vaadin.flow.component.contextmenu.SubMenu;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -17,11 +19,15 @@ public class MainLayout extends AppLayout{
         addToNavbar(new H2("WhatsAppDog"));
 
         MenuBar menuBar = new MenuBar();
-        menuBar.addItem("Home");
-        menuBar.addItem("Animals")
-                .getSubMenu()
-                .addItem("Dogs");
-        menuBar.addItem("Cats");
+         menuBar.addItem("Home");
+
+        MenuItem animalItem = menuBar.addItem("Animals");
+
+        SubMenu animalSub = animalItem.getSubMenu();
+                animalSub.addItem("Dogs");
+                animalSub.addItem("Cats");
+                animalSub.addItem("Other");
+
         menuBar.addItem("Other");
         menuBar.addItem("Supplies");
         menuBar.addItem("Staff");
