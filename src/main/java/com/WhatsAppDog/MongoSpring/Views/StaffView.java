@@ -19,18 +19,18 @@ public class StaffView extends VerticalLayout{
     public static final String ROUTE = "staff";
     public static final String TITLE = "Staff";
 
-public StaffView(StaffRepo staffRepo) {
-    H1 h1 = new H1("Staff Members");
-    Grid<Staff> grid = new Grid<>(Staff.class, false);
-    grid.addColumn(Staff::getFirstName).setHeader("First Name");
-    grid.addColumn(Staff::getLastName).setHeader("Last Name");
-    grid.addColumn(Staff::getEmail).setHeader("Email");
-    grid.addColumn(Staff::getJobTitle).setHeader("Position");
-    grid.addColumn(Staff::getSalary).setHeader("Salary");
+    public StaffView(StaffRepo staffRepo) {
+        H1 h1 = new H1("Staff Members");
+        Grid<Staff> grid = new Grid<>(Staff.class, false);
+        grid.addColumn(Staff::getFirstName).setHeader("First Name");
+        grid.addColumn(Staff::getLastName).setHeader("Last Name");
+        grid.addColumn(Staff::getEmail).setHeader("Email");
+        grid.addColumn(Staff::getJobTitle).setHeader("Position");
+        grid.addColumn(Staff::getSalary).setHeader("Salary");
 
-    List<Staff> staff = staffRepo.findAll();
-    grid.setItems(staff);
-    add(h1,grid);
+        List<Staff> staff = staffRepo.findAll();
+        grid.setItems(staff);
+        add(h1,grid);
 
-}
+    }
 }
