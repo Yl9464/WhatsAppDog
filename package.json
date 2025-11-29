@@ -6,6 +6,7 @@
     "@polymer/polymer": "3.5.2",
     "@vaadin/bundles": "24.9.5",
     "@vaadin/common-frontend": "0.0.19",
+    "@vaadin/crud": "24.9.5",
     "@vaadin/polymer-legacy-adapter": "24.9.5",
     "@vaadin/react-components": "24.9.5",
     "@vaadin/vaadin-development-mode-detector": "2.0.7",
@@ -46,6 +47,7 @@
       "@polymer/polymer": "3.5.2",
       "@vaadin/bundles": "24.9.5",
       "@vaadin/common-frontend": "0.0.19",
+      "@vaadin/crud": "24.9.5",
       "@vaadin/polymer-legacy-adapter": "24.9.5",
       "@vaadin/react-components": "24.9.5",
       "@vaadin/vaadin-development-mode-detector": "2.0.7",
@@ -81,7 +83,7 @@
       "workbox-core": "7.3.0",
       "workbox-precaching": "7.3.0"
     },
-    "hash": "4edb83f9556f1d7d0c3f44354d2f8db935fdd1cd3f4d47d27324f1146b766d3b"
+    "hash": "b71c82953e566f8604e635369b9eb09555416e2103b6394a5b47df09598b8507"
   },
   "overrides": {
     "@vaadin/bundles": "$@vaadin/bundles",
@@ -158,6 +160,7 @@
     "@vaadin/tooltip": "24.9.5",
     "@vaadin/upload": "24.9.5",
     "@vaadin/vertical-layout": "24.9.5",
-    "@vaadin/virtual-list": "24.9.5"
+    "@vaadin/virtual-list": "24.9.5",
+    "@vaadin/crud": "$@vaadin/crud"
   }
 }

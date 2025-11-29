@@ -1,11 +1,11 @@
 package com.WhatsAppDog.MongoSpring.Views;
 
-import com.WhatsAppDog.MongoSpring.MainLayout;
+import com.WhatsAppDog.MongoSpring.MainView;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
-@Route(value= CatsView.ROUTE, layout = MainLayout.class)
+@Route(value= CatsView.ROUTE, layout = MainView.class)
 public class CatsView extends VerticalLayout {
     public static final String ROUTE = "cats";
     // public static final String TITLE = "Dogs";

@@ -1,6 +1,6 @@
 package com.WhatsAppDog.MongoSpring.Controller;
-import com.WhatsAppDog.MongoSpring.Model.Staff;
 
+import com.WhatsAppDog.MongoSpring.Model.Staff;
 import com.WhatsAppDog.MongoSpring.Repository.StaffRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +13,7 @@ public class StaffController implements CrudListener<Staff> {
     @Autowired
     private final StaffRepo staffRepo;
 
+    @Autowired
     public StaffController(StaffRepo staffRepo) {
         this.staffRepo = staffRepo;
     }
@@ -23,7 +24,12 @@ public class StaffController implements CrudListener<Staff> {
     }
     @Override
     //Dog Data
-    public Staff add(Staff staff){ return staffRepo.save(staff);}
+
+    public Staff add(Staff staff){
+        if(staff == null){
+            return null;
+        }
+        return staffRepo.save(staff);}
     @Override
     public Staff update(Staff staff){ return staffRepo.save(staff);}
     @Override
@@ -31,4 +37,3 @@ public class StaffController implements CrudListener<Staff> {
     public  void delete(Staff staff){ staffRepo.delete(staff);}
 
 }
-

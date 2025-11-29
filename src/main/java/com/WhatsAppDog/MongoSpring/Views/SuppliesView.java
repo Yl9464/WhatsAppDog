@@ -1,17 +1,15 @@
 package com.WhatsAppDog.MongoSpring.Views;
-import com.WhatsAppDog.MongoSpring.MainLayout;
-import com.WhatsAppDog.MongoSpring.Model.Staff;
+import com.WhatsAppDog.MongoSpring.MainView;
 import com.WhatsAppDog.MongoSpring.Model.Supplies;
 import com.WhatsAppDog.MongoSpring.Repository.SuppliesRepo;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
-import org.vaadin.crudui.crud.impl.GridCrud;
 
 import java.util.List;
 
-@Route(value = SuppliesView.ROUTE, layout = MainLayout.class)
+@Route(value = SuppliesView.ROUTE, layout = MainView.class)
 public class SuppliesView extends VerticalLayout {
 
     public static final String ROUTE = "supplies";
