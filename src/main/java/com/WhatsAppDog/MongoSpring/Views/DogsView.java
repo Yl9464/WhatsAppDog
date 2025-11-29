@@ -6,9 +6,10 @@ import com.WhatsAppDog.MongoSpring.Repository.AnimalRepo;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.card.Card;
 import com.vaadin.flow.component.card.CardVariant;
-import com.vaadin.flow.component.html.*;
-import com.vaadin.flow.component.orderedlayout.FlexLayout;
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.html.ListItem;
+import com.vaadin.flow.component.html.UnorderedList;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.streams.DownloadHandler;
 
@@ -16,36 +17,32 @@ import java.util.List;
 
 
 @Route(value= DogsView.ROUTE, layout = MainView.class)
-public class DogsView extends VerticalLayout {
+
+public class DogsView extends Div {
     public static final String ROUTE = "dogs";
-   // public static final String TITLE = "Dogs";
 
     public DogsView(AnimalRepo animalRepo) {
         Div dogLayout = new Div();
         dogLayout.getStyle().set("display", "grid")
                 .set("grid-template-columns", "repeat(auto-fill, minmax(190px, 1fr))")
-                .set("gap", "1em");
-
-        setSizeFull();
-        setPadding(true);
-
+                .set("gap", "1em")
+                .set("margin", "2em");
+        //getAll Data
         List<Animal> animals = animalRepo.findAll();
 
-        FlexLayout container = new FlexLayout();
-        container.setFlexWrap(FlexLayout.FlexWrap.WRAP);
-        container.setJustifyContentMode(JustifyContentMode.CENTER);
+        //Create dog Cards
         for (Animal animal : animals) {
             if("Dog".equals(animal.getType())) {
-               container.add(createAnimalCard(animal));
+               dogLayout.add(createAnimalCard(animal));
             }
-            add(container);
+           add(dogLayout);
         }
 
     }
 
     private Component createAnimalCard(Animal animal) {
-        Card cardOutlined = new Card();
-        cardOutlined.addThemeVariants(CardVariant.LUMO_OUTLINED);
+        Card dogCard = new Card();
+       dogCard.addThemeVariants(CardVariant.LUMO_OUTLINED);
 
         DownloadHandler imageHandler = DownloadHandler.forClassResource(
                 getClass(), animal.getImageUrl(), "Animal Pic");
@@ -53,13 +50,16 @@ public class DogsView extends VerticalLayout {
         image.setWidth("100px");
         image.setHeight("100px");
 
+       dogCard.setTitle(new Div(animal.getName() + " • "+ animal.getType()));
+
+
         UnorderedList details = new UnorderedList(
-                new ListItem("Name: " + animal.getName()),
-                new ListItem("Category: " + animal.getType()),
+               // new ListItem("Name: " + animal.getName()),
+                new ListItem("Age: " + animal.getAge()),
                 new ListItem("Aggression: " + (animal.getAggression() ? "Yes, approach with caution" : "No"))
         );
-        cardOutlined.add(image, details);
+        dogCard.add(image, details);
 
-        return cardOutlined;
+        return dogCard;
     }
 }

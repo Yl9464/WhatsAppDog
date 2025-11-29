@@ -15,14 +15,7 @@ public class HomeView extends VerticalLayout {
     public HomeView() {
         H1 h1 = new H1("App Home Page");
         add(h1);
-//        Button button = new Button("Click me");
-//        DatePicker datePicker = new DatePicker("Pick a date");
-//
-//        HorizontalLayout dateLayout = new HorizontalLayout(button, datePicker);
-//        dateLayout.setDefaultVerticalComponentAlignment(Alignment.END);
-//        add(dateLayout);
-//
-//        button.addClickListener(click-> add(new Paragraph("Clicked: " + datePicker.getValue())));
+
     }
 
 }
