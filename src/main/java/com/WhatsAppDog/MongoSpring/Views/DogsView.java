@@ -55,11 +55,14 @@ public class DogsView extends Div {
 
        dogCard.setTitle(new Div(animal.getName() + " • "+ animal.getType()));
 
-
+       if(animal.getAggression() == true){
+           dogCard.addThemeVariants(CardVariant.LUMO_OUTLINED);
+          dogCard.addClassName("aggression-card");
+       }
         UnorderedList details = new UnorderedList(
                // new ListItem("Name: " + animal.getName()),
                 new ListItem("Age: " + animal.getAge()),
-                new ListItem("Aggression: " + (animal.getAggression() ? "Yes, approach with caution" : "No"))
+                new ListItem("Aggression: " + (animal.getAggression() ? "Yes" : "No"))
         );
 
         dogCard.add(image, details);

@@ -4,12 +4,15 @@ import com.WhatsAppDog.MongoSpring.MainView;
 import com.WhatsAppDog.MongoSpring.Model.Animal;
 import com.WhatsAppDog.MongoSpring.Repository.AnimalRepo;
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.card.Card;
 import com.vaadin.flow.component.card.CardVariant;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.ListItem;
 import com.vaadin.flow.component.html.UnorderedList;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.streams.DownloadHandler;
 
@@ -49,13 +52,20 @@ public class CatsView extends Div {
 
         catCard.setTitle(new Div(animal.getName() + " • "+ animal.getType()));
 
+        if(animal.getAggression() == true){
+            catCard.addThemeVariants(CardVariant.LUMO_OUTLINED);
+            catCard.addClassName("aggression-card");
+        }
         UnorderedList details = new UnorderedList(
                 // new ListItem("Name: " + animal.getName()),
                 new ListItem("Age: " + animal.getAge()),
-                new ListItem("Aggression: " + (animal.getAggression() ? "Yes, approach with caution" : "No"))
+                new ListItem("Aggression: " + (animal.getAggression() ? "Yes" : "No"))
         );
         catCard.add(image, details);
-
+        // Edit button
+        Button editBtn = new Button("Edit", VaadinIcon.EDIT.create());
+        editBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+        catCard.addToFooter(editBtn);
         return catCard;
     }
 }

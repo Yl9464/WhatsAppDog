@@ -20,6 +20,7 @@ public class SuppliesView extends VerticalLayout {
         GridCrud<Supplies> crud = new GridCrud<>(Supplies.class);
         Grid<Supplies> grid = crud.getGrid(); //access internal grid
         grid.removeAllColumns(); //remove default headers
+
         //readd custom headers
         grid.addColumn(Supplies::getCategory).setHeader("Category").setSortable(true);
         grid.addColumn(Supplies::getItem).setHeader("Item").setSortable(true);
@@ -29,11 +30,11 @@ public class SuppliesView extends VerticalLayout {
         //add Data
         crud.setFindAllOperation(supplies::findAll);
         crud.setAddOperation(supplies::save);
-       add(h1, crud);
+        //low stock
+
+        add(h1, crud);
         setSizeFull();
 
-
-
-
     }
+
 }
