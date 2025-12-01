@@ -8,10 +8,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.card.Card;
 import com.vaadin.flow.component.card.CardVariant;
-import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.component.html.ListItem;
-import com.vaadin.flow.component.html.UnorderedList;
+import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.streams.DownloadHandler;
@@ -25,6 +22,7 @@ import java.util.List;
 
         public OthersView(AnimalRepo animalRepo) {
             Div otherLayout = new Div();
+            H1 h1 = new H1("Other in Facility Housed Animals");
             otherLayout.getStyle().set("display", "grid")
                     .set("grid-template-columns", "repeat(auto-fill, minmax(190px, 1fr))")
                     .set("gap", "1em")

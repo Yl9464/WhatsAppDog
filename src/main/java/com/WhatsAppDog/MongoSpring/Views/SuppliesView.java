@@ -6,6 +6,7 @@ import com.WhatsAppDog.MongoSpring.Repository.SuppliesRepo;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import org.vaadin.crudui.crud.impl.GridCrud;
 
@@ -14,11 +15,15 @@ public class SuppliesView extends VerticalLayout {
 
     public static final String ROUTE = "supplies";
 
+    GridCrud<Supplies> crud = new GridCrud<>(Supplies.class);
+    Grid<Supplies> grid = crud.getGrid(); //access internal grid
+    TextField filterText = new TextField();
+    private SuppliesRepo suppliesRepo;
+
     public SuppliesView(SuppliesRepo supplies) {
 
         H1 h1 = new H1("Facility Supplies");
-        GridCrud<Supplies> crud = new GridCrud<>(Supplies.class);
-        Grid<Supplies> grid = crud.getGrid(); //access internal grid
+
         grid.removeAllColumns(); //remove default headers
 
         //readd custom headers
@@ -32,7 +37,7 @@ public class SuppliesView extends VerticalLayout {
         crud.setAddOperation(supplies::save);
         //low stock
 
-        add(h1, crud);
+        add(h1, filterText, crud);
         setSizeFull();
 
     }

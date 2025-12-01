@@ -8,10 +8,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.card.Card;
 import com.vaadin.flow.component.card.CardVariant;
-import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.component.html.ListItem;
-import com.vaadin.flow.component.html.UnorderedList;
+import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.streams.DownloadHandler;
@@ -24,6 +21,7 @@ public class CatsView extends Div {
 
     public CatsView(AnimalRepo animalRepo) {
         Div catLayout = new Div();
+        H1 h1 = new H1("Facility Housed Cats");
         catLayout.getStyle().set("display", "grid")
                 .set("grid-template-columns", "repeat(auto-fill, minmax(190px, 1fr))")
                 .set("gap", "1em")
@@ -36,7 +34,7 @@ public class CatsView extends Div {
             if("Cat".equals(animal.getType())) {
                 catLayout.add(createAnimalCard(animal));
             }
-            add(catLayout);
+            add(h1, catLayout);
         }
 
     }

@@ -8,10 +8,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.card.Card;
 import com.vaadin.flow.component.card.CardVariant;
-import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.component.html.ListItem;
-import com.vaadin.flow.component.html.UnorderedList;
+import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.streams.DownloadHandler;
@@ -26,6 +23,7 @@ public class DogsView extends Div {
 
     public DogsView(AnimalRepo animalRepo) {
         Div dogLayout = new Div();
+        H1 h1 = new H1("Facility Housed Dogs");
         dogLayout.getStyle().set("display", "grid")
                 .set("grid-template-columns", "repeat(auto-fill, minmax(190px, 1fr))")
                 .set("gap", "1em")
@@ -35,12 +33,18 @@ public class DogsView extends Div {
 
         //Create dog Cards
         for (Animal animal : animals) {
+
             if("Dog".equals(animal.getType())) {
                dogLayout.add(createAnimalCard(animal));
             }
-           add(dogLayout);
+           add(h1, dogLayout);
         }
-
+        //add button
+//        Button addCard = new Button("Add");
+//        addCard.addClickListener(event -> {
+//            Div newCard = createAnimalCard("Name", "Age", "Agression");
+//
+//        });
     }
 
     private Component createAnimalCard(Animal animal) {
@@ -74,7 +78,20 @@ public class DogsView extends Div {
         return dogCard;
     }
 
-
-
+//private Div newCard(String name, Integer age, Boolean aggression) {
+//        Div dogCard = new Div();
+//   dogCard.getStyle().set("border", "1px solid #ccc");
+//   dogCard.getStyle().set("border-radius", "8px");
+//   dogCard.getStyle().set("padding", "16px");
+//   dogCard.getStyle().set("width", "200px");
+//   dogCard.getStyle().set("box-shadow", "2px 2px 6px rgba(0,0,0,0.1)");
+//
+//    Label title = new Label(name);
+//    Label dogAge = new Label(String.valueOf(age));
+//    Label aggressionStatus = new Label(String.valueOf(aggression));
+//
+//    dogCard.add(title, dogAge, aggressionStatus);
+//    return dogCard;
 
 }
+

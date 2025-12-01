@@ -1,10 +1,8 @@
 //creates routes
 package com.WhatsAppDog.MongoSpring.Controller;
-import com.WhatsAppDog.MongoSpring.Model.Supplies;
 
+import com.WhatsAppDog.MongoSpring.Model.Supplies;
 import com.WhatsAppDog.MongoSpring.Repository.SuppliesRepo;
-import com.vaadin.flow.server.auth.AnonymousAllowed;
-import com.vaadin.hilla.BrowserCallable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.vaadin.crudui.crud.CrudListener;
