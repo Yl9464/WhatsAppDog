@@ -16,25 +16,31 @@ public class SuppliesController implements CrudListener<Supplies> {
     @Autowired //connects repo and controller
     private final SuppliesRepo suppliesRepo;
 
-    //constructor for repository and usable in methods
     public SuppliesController(SuppliesRepo suppliesRepo) {
         this.suppliesRepo = suppliesRepo;
     }
 
-    @Override
+  //  @Override //indicates the method is meant to override a method from a parent class or an interface
     //findAll() will run out of memory if db grows substantially
     public List<Supplies> findAll(){
         return suppliesRepo.findAll();
     }
-    @Override
+    //@Override
+    public List<Supplies> search(String item){
+        if(item == null || item.isEmpty()){
+            return suppliesRepo.findAll();
+        }
+        return suppliesRepo.findByItemIgnoreCase(item);
+    }
+
     public Supplies add(Supplies supply){
         return suppliesRepo.save(supply);
     }
-    @Override
+    //@Override
     public Supplies update(Supplies supply){
         return suppliesRepo.save(supply);
     }
-    @Override
+    //@Override
     public void delete(Supplies supply){
         suppliesRepo.delete(supply);
     }

@@ -11,21 +11,20 @@ import com.vaadin.flow.router.Route;
 import org.vaadin.crudui.crud.impl.GridCrud;
 
 @Route(value = SuppliesView.ROUTE, layout = MainView.class)
-public class SuppliesView extends VerticalLayout {
 
+public class SuppliesView extends VerticalLayout {
     public static final String ROUTE = "supplies";
 
+    private SuppliesRepo suppliesRepo;
     GridCrud<Supplies> crud = new GridCrud<>(Supplies.class);
     Grid<Supplies> grid = crud.getGrid(); //access internal grid
-    TextField filterText = new TextField();
-    private SuppliesRepo suppliesRepo;
+    TextField searchTerm = new TextField();
 
     public SuppliesView(SuppliesRepo supplies) {
 
         H1 h1 = new H1("Facility Supplies");
 
         grid.removeAllColumns(); //remove default headers
-
         //readd custom headers
         grid.addColumn(Supplies::getCategory).setHeader("Category").setSortable(true);
         grid.addColumn(Supplies::getItem).setHeader("Item").setSortable(true);
@@ -35,9 +34,15 @@ public class SuppliesView extends VerticalLayout {
         //add Data
         crud.setFindAllOperation(supplies::findAll);
         crud.setAddOperation(supplies::save);
-        //low stock
 
-        add(h1, filterText, crud);
+        //Search Bar
+        searchTerm.setPlaceholder("Enter Item...");
+        searchTerm.setWidth("300px");
+        searchTerm.addValueChangeListener(e -> {
+            String item = e.getValue();
+            crud.getGrid().setItems(supplies.findByItemIgnoreCase(item));
+        });
+        add(h1, searchTerm, crud);
         setSizeFull();
 
     }
