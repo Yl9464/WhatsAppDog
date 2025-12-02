@@ -7,6 +7,7 @@ import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
 import org.vaadin.crudui.crud.impl.GridCrud;
 
@@ -36,12 +37,14 @@ public class SuppliesView extends VerticalLayout {
         crud.setAddOperation(supplies::save);
 
         //Search Bar
-        searchTerm.setPlaceholder("Enter Item...");
+        searchTerm.setPlaceholder("Enter Item or Category...");
+        searchTerm.setClearButtonVisible(true);
         searchTerm.setWidth("300px");
-        searchTerm.addValueChangeListener(e -> {
-            String item = e.getValue();
-            crud.getGrid().setItems(supplies.findByItemIgnoreCase(item));
-        });
+
+
+        searchTerm.setValueChangeMode(ValueChangeMode.EAGER);
+        searchTerm.addValueChangeListener(e ->
+                crud.getGrid().setItems(supplies.searchItem(e.getValue())));
         add(h1, searchTerm, crud);
         setSizeFull();
 

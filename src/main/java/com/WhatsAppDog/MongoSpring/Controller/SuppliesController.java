@@ -21,17 +21,17 @@ public class SuppliesController implements CrudListener<Supplies> {
     }
 
   //  @Override //indicates the method is meant to override a method from a parent class or an interface
-    //findAll() will run out of memory if db grows substantially
-    public List<Supplies> findAll(){
+   public List<Supplies> findAll(){
         return suppliesRepo.findAll();
     }
-    //@Override
-    public List<Supplies> search(String item){
-        if(item == null || item.isEmpty()){
-            return suppliesRepo.findAll();
+    //query by item name
+    public List<Supplies> searchItem(String query){
+        if(query == null || query.isBlank()){
+            return findAll();
         }
-        return suppliesRepo.findByItemIgnoreCase(item);
+        return suppliesRepo.searchItem(query);
     }
+
 
     public Supplies add(Supplies supply){
         return suppliesRepo.save(supply);
