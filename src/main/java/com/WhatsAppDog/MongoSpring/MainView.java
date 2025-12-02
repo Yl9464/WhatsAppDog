@@ -20,7 +20,7 @@ public class MainView extends AppLayout{
     private void createMenuBar() {
         MenuBar menuBar = new MenuBar();
         menuBar.addItem("Home", e -> getUI().ifPresent(ui -> ui.navigate(HomeView.class)));
-    //animal menu and submenu
+     //animal menu and submenu
         MenuItem animalItem = menuBar.addItem("Animals");
         SubMenu animalSub = animalItem.getSubMenu();
         addClassName("animalSubMenu"); //css
@@ -34,7 +34,8 @@ public class MainView extends AppLayout{
         addClassName("staffSubMenu"); //css
         staffSub.addItem("Volunteers", e -> getUI().ifPresent(ui -> ui.navigate(Volunteers.class)));
         staffSub.addItem("Employees",  e -> getUI().ifPresent(ui -> ui.navigate(Employees.class)));
-
+        //supplies
+        menuBar.addItem("Supplies", e -> getUI().ifPresent(ui -> ui.navigate(SuppliesView.class)));
         addToNavbar(menuBar);
     }
 }
