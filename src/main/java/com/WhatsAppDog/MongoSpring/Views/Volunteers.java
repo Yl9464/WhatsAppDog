@@ -26,7 +26,6 @@ public class Volunteers extends VerticalLayout{
         grid.addColumn(Staff::getFirstName).setHeader("First Name").setSortable(true);
         grid.addColumn(Staff::getLastName).setHeader("Last Name").setSortable(true);
         grid.addColumn(Staff::getEmail).setHeader("Email").setSortable(true);
-        grid.addColumn(Staff::getJobTitle).setHeader("Position").setSortable(true);
         //add data
         crud.setFindAllOperation(() -> staff.findByJobTitle("Volunteer"));
         crud.setAddOperation(staff::save);

@@ -17,6 +17,7 @@ public class StaffView extends VerticalLayout{
     public static final String ROUTE = "staff";
     GridCrud<Staff> crud = new GridCrud<>(Staff.class);
     Grid<Staff> grid = crud.getGrid(); //access internal grid
+
     public StaffView(StaffRepo staff)  {
         H1 h1  = new H1("Staff Members");
 

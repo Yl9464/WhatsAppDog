@@ -24,7 +24,7 @@ public class StaffController implements CrudListener<Staff> {
     }
 
     public List<Staff> findByJobTitle(String title){
-        return staffRepo.findByJobTitle("Volunteer");
+        return staffRepo.findByJobTitle(title);
     }
 
 
