@@ -8,6 +8,8 @@ import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.menubar.MenuBar;
 
+import java.awt.*;
+
 @CssImport("./styles/styles.css")
 public class MainView extends AppLayout{
 
@@ -18,16 +20,20 @@ public class MainView extends AppLayout{
     private void createMenuBar() {
         MenuBar menuBar = new MenuBar();
         menuBar.addItem("Home", e -> getUI().ifPresent(ui -> ui.navigate(HomeView.class)));
-
+    //animal menu and submenu
         MenuItem animalItem = menuBar.addItem("Animals");
         SubMenu animalSub = animalItem.getSubMenu();
-        addClassName("animalSubMenu");
+        addClassName("animalSubMenu"); //css
         animalSub.addItem("Dogs", e -> getUI().ifPresent(ui -> ui.navigate(DogsView.class)));
         animalSub.addItem("Cats",e -> getUI().ifPresent(ui -> ui.navigate(CatsView.class)));
         animalSub.addItem("Other", e -> getUI().ifPresent(ui -> ui.navigate(OthersView.class)));
 
-        menuBar.addItem("Supplies", e -> getUI().ifPresent(ui -> ui.navigate(SuppliesView.class)));
-        menuBar.addItem("Staff",  e -> getUI().ifPresent(ui -> ui.navigate(StaffView.class)));
+        //staff submenu
+        MenuItem staffItem = menuBar.addItem("Staff");
+        SubMenu staffSub = staffItem.getSubMenu();
+        addClassName("staffSubMenu"); //css
+        staffSub.addItem("Volunteers", e -> getUI().ifPresent(ui -> ui.navigate(Volunteers.class)));
+        staffSub.addItem("Employees",  e -> getUI().ifPresent(ui -> ui.navigate(Employees.class)));
 
         addToNavbar(menuBar);
     }
