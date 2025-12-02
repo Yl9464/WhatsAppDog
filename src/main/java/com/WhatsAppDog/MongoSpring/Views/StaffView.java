@@ -15,11 +15,11 @@ import org.vaadin.crudui.crud.impl.GridCrud;
 public class StaffView extends VerticalLayout{
 
     public static final String ROUTE = "staff";
-
+    GridCrud<Staff> crud = new GridCrud<>(Staff.class);
+    Grid<Staff> grid = crud.getGrid(); //access internal grid
     public StaffView(StaffRepo staff)  {
         H1 h1  = new H1("Staff Members");
-        GridCrud<Staff> crud = new GridCrud<>(Staff.class);
-        Grid<Staff> grid = crud.getGrid(); //access internal grid
+
         grid.removeAllColumns(); //remove default headers
         //readd custom headers
         grid.addColumn(Staff::getFirstName).setHeader("First Name");
