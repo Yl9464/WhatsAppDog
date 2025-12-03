@@ -1,41 +1,56 @@
 [
-  {
-    "employee_id": "0",
-    "firstName": "Jan",
-    "lastName":  "Doe",
-    "email": "JaneDoe@gmail.com",
-    "jobTitle": "Staff",
-    "salary":  "$20"
-  },{
-  "employee_id": "1",
-  "firstName": "John",
-  "lastName":  "Doe",
-  "email": "JohnDoe@gmail.com",
-  "jobTitle": "Volunteer",
-  "salary":  "N/A"
-},
-  {
-    "employee_id": "2",
-    "firstName": "Bob",
-    "lastName":  "Burger",
-    "email": "BoB@gmail.com",
-    "jobTitle": "Volunteer",
-    "salary":  "N/A"
-  },
-  {
-    "employee_id": "3",
-    "firstName": "Peter",
-    "lastName":  "Griffin",
-    "email": "PGiff@gmail.com",
-    "jobTitle": "Volunteer",
-    "salary":  "N/A"
-  },
-  {
-    "employee_id": "4",
-    "firstName": "Bojack",
-    "lastName":  "Horseman",
-    "email": "BojH@gmail.com",
-    "jobTitle": "Staff",
-    "salary":  "$15"
-  }
+  {"firstName":"John","lastName":"Smith","email":"john.smith@example.com","isEmployee":true,"salary":27.52},
+  {"firstName":"Emily","lastName":"Johnson","email":"emily.johnson@example.com","isEmployee":false,"salary":0},
+  {"firstName":"Michael","lastName":"Brown","email":"michael.brown@example.com","isEmployee":true,"salary":21.33},
+  {"firstName":"Sarah","lastName":"Davis","email":"sarah.davis@example.com","isEmployee":true,"salary":29.11},
+  {"firstName":"David","lastName":"Miller","email":"david.miller@example.com","isEmployee":false,"salary":0},
+  {"firstName":"Laura","lastName":"Wilson","email":"laura.wilson@example.com","isEmployee":true,"salary":25.60},
+  {"firstName":"James","lastName":"Moore","email":"james.moore@example.com","isEmployee":false,"salary":0},
+  {"firstName":"Olivia","lastName":"Taylor","email":"olivia.taylor@example.com","isEmployee":true,"salary":19.95},
+  {"firstName":"Daniel","lastName":"Anderson","email":"daniel.anderson@example.com","isEmployee":true,"salary":28.10},
+  {"firstName":"Sophia","lastName":"Thomas","email":"sophia.thomas@example.com","isEmployee":false,"salary":0},
+
+  {"firstName":"Henry","lastName":"Jackson","email":"henry.jackson@example.com","isEmployee":true,"salary":15.73},
+  {"firstName":"Ava","lastName":"White","email":"ava.white@example.com","isEmployee":false,"salary":0},
+  {"firstName":"Liam","lastName":"Harris","email":"liam.harris@example.com","isEmployee":true,"salary":14.81},
+  {"firstName":"Mia","lastName":"Martin","email":"mia.martin@example.com","isEmployee":true,"salary":22.09},
+  {"firstName":"Noah","lastName":"Thompson","email":"noah.thompson@example.com","isEmployee":false,"salary":0},
+  {"firstName":"Grace","lastName":"Garcia","email":"grace.garcia@example.com","isEmployee":true,"salary":11.77},
+  {"firstName":"Ethan","lastName":"Martinez","email":"ethan.martinez@example.com","isEmployee":false,"salary":0},
+  {"firstName":"Chloe","lastName":"Robinson","email":"chloe.robinson@example.com","isEmployee":true,"salary":26.54},
+  {"firstName":"Benjamin","lastName":"Clark","email":"benjamin.clark@example.com","isEmployee":true,"salary":24.73},
+  {"firstName":"Ella","lastName":"Rodriguez","email":"ella.rodriguez@example.com","isEmployee":false,"salary":0},
+
+  {"firstName":"Jackson","lastName":"Lewis","email":"jackson.lewis@example.com","isEmployee":true,"salary":19.14},
+  {"firstName":"Harper","lastName":"Lee","email":"harper.lee@example.com","isEmployee":false,"salary":0},
+  {"firstName":"Alexander","lastName":"Walker","email":"alexander.walker@example.com","isEmployee":true,"salary":28.74},
+  {"firstName":"Lily","lastName":"Hall","email":"lily.hall@example.com","isEmployee":true,"salary":10.86},
+  {"firstName":"Jacob","lastName":"Allen","email":"jacob.allen@example.com","isEmployee":false,"salary":0},
+  {"firstName":"Zoe","lastName":"Young","email":"zoe.young@example.com","isEmployee":true,"salary":17.50},
+  {"firstName":"Matthew","lastName":"Hernandez","email":"matthew.hernandez@example.com","isEmployee":false,"salary":0},
+  {"firstName":"Nora","lastName":"King","email":"nora.king@example.com","isEmployee":true,"salary":18.33},
+  {"firstName":"Ryan","lastName":"Wright","email":"ryan.wright@example.com","isEmployee":true,"salary":20.01},
+  {"firstName":"Aria","lastName":"Lopez","email":"aria.lopez@example.com","isEmployee":false,"salary":0},
+
+  {"firstName":"Wyatt","lastName":"Hill","email":"wyatt.hill@example.com","isEmployee":true,"salary":25.17},
+  {"firstName":"Scarlett","lastName":"Scott","email":"scarlett.scott@example.com","isEmployee":false,"salary":0},
+  {"firstName":"Isaac","lastName":"Green","email":"isaac.green@example.com","isEmployee":true,"salary":23.20},
+  {"firstName":"Hannah","lastName":"Adams","email":"hannah.adams@example.com","isEmployee":true,"salary":27.88},
+  {"firstName":"Gabriel","lastName":"Baker","email":"gabriel.baker@example.com","isEmployee":false,"salary":0},
+  {"firstName":"Layla","lastName":"Gonzalez","email":"layla.gonzalez@example.com","isEmployee":true,"salary":29.92},
+  {"firstName":"Samuel","lastName":"Nelson","email":"samuel.nelson@example.com","isEmployee":false,"salary":0},
+  {"firstName":"Victoria","lastName":"Carter","email":"victoria.carter@example.com","isEmployee":true,"salary":17.11},
+  {"firstName":"Owen","lastName":"Mitchell","email":"owen.mitchell@example.com","isEmployee":true,"salary":24.08},
+  {"firstName":"Penelope","lastName":"Perez","email":"penelope.perez@example.com","isEmployee":false,"salary":0},
+
+  {"firstName":"Jack","lastName":"Roberts","email":"jack.roberts@example.com","isEmployee":true,"salary":15.44},
+  {"firstName":"Camila","lastName":"Turner","email":"camila.turner@example.com","isEmployee":false,"salary":0},
+  {"firstName":"Sebastian","lastName":"Phillips","email":"sebastian.phillips@example.com","isEmployee":true,"salary":28.00},
+  {"firstName":"Eleanor","lastName":"Campbell","email":"eleanor.campbell@example.com","isEmployee":false,"salary":0},
+  {"firstName":"Aiden","lastName":"Parker","email":"aiden.parker@example.com","isEmployee":true,"salary":20.77},
+  {"firstName":"Natalie","lastName":"Evans","email":"natalie.evans@example.com","isEmployee":false,"salary":0},
+  {"firstName":"Joseph","lastName":"Edwards","email":"joseph.edwards@example.com","isEmployee":true,"salary":16.66},
+  {"firstName":"Stella","lastName":"Collins","email":"stella.collins@example.com","isEmployee":false,"salary":0},
+  {"firstName":"Dylan","lastName":"Stewart","email":"dylan.stewart@example.com","isEmployee":true,"salary":19.70},
+  {"firstName":"Aurora","lastName":"Morris","email":"aurora.morris@example.com","isEmployee":false,"salary":0}
 ]

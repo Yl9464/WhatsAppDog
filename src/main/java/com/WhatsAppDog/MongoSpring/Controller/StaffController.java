@@ -13,27 +13,28 @@ public class StaffController implements CrudListener<Staff> {
     @Autowired
     private final StaffRepo staffRepo;
 
-    @Autowired
-    public StaffController(StaffRepo staffRepo) {
-        this.staffRepo = staffRepo;
-    }
+    public StaffController(StaffRepo repo){
+        this.staffRepo = repo;
 
-    //@Override
+    }
+    //@Autowired
     public List<Staff> findAll() {
         return staffRepo.findAll();
     }
 
-    public List<Staff> findByJobTitle(String title){
-        return staffRepo.findByJobTitle(title);
+    public List<Staff> getEmployeeStatus(Boolean employee) {
+        return staffRepo.findByIsEmployee(employee);
     }
-
 
     public Staff add(Staff staff){
         if(staff == null){
             return null;
         }
         return staffRepo.save(staff);}
-   // @Override
+   public Staff save(Staff staff){
+        return staffRepo.save(staff);
+   }
+    // @Override
     public Staff update(Staff staff){ return staffRepo.save(staff);}
     //@Override
     //Dog Data

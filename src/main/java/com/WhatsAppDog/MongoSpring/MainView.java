@@ -32,6 +32,7 @@ public class MainView extends AppLayout{
         MenuItem staffItem = menuBar.addItem("Staff");
         SubMenu staffSub = staffItem.getSubMenu();
         addClassName("staffSubMenu"); //css
+        staffSub.addItem("All Staff", e -> getUI().ifPresent(ui -> ui.navigate(StaffView.class)));
         staffSub.addItem("Volunteers", e -> getUI().ifPresent(ui -> ui.navigate(Volunteers.class)));
         staffSub.addItem("Employees",  e -> getUI().ifPresent(ui -> ui.navigate(Employees.class)));
         //supplies

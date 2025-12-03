@@ -25,9 +25,12 @@ public class Employees extends VerticalLayout {
         grid.addColumn(Staff::getLastName).setHeader("Last Name").setSortable(true);
         grid.addColumn(Staff::getEmail).setHeader("Email").setSortable(true);
         grid.addColumn(Staff::getSalary).setHeader("Salary").setSortable(true);
+
         //add data
-        crud.setFindAllOperation(() -> staff.findByJobTitle("Staff"));
+        crud.setFindAllOperation(() -> staff.findByIsEmployee(true));
         crud.setAddOperation(staff::save);
+
+
         add(h1, crud);
 
 

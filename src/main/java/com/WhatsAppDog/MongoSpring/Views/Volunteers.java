@@ -14,7 +14,6 @@ import org.vaadin.crudui.crud.impl.GridCrud;
 public class Volunteers extends VerticalLayout{
     public static  final String ROUTE = "volunteers";
 
-   // private final StaffRepo staffRepo;
     GridCrud<Staff> crud = new GridCrud<>(Staff.class);
     Grid<Staff> grid =crud.getGrid();
 
@@ -26,8 +25,10 @@ public class Volunteers extends VerticalLayout{
         grid.addColumn(Staff::getFirstName).setHeader("First Name").setSortable(true);
         grid.addColumn(Staff::getLastName).setHeader("Last Name").setSortable(true);
         grid.addColumn(Staff::getEmail).setHeader("Email").setSortable(true);
+        grid.addColumn(Staff::isEmployee).setHeader("Employee status").setSortable(true);
+
         //add data
-        crud.setFindAllOperation(() -> staff.findByJobTitle("Volunteer"));
+        crud.setFindAllOperation(() -> staff.findByIsEmployee(false));
         crud.setAddOperation(staff::save);
 
 

@@ -23,11 +23,14 @@ public class StaffView extends VerticalLayout{
 
         grid.removeAllColumns(); //remove default headers
         //readd custom headers
-        grid.addColumn(Staff::getFirstName).setHeader("First Name");
-        grid.addColumn(Staff::getLastName).setHeader("Last Name");
-        grid.addColumn(Staff::getEmail).setHeader("Email");
-        grid.addColumn(Staff::getJobTitle).setHeader("Position");
-        grid.addColumn(Staff::getSalary).setHeader("Salary");
+        grid.addColumn(Staff::getFirstName).setHeader("First Name").setSortable(true);;
+        grid.addColumn(Staff::getLastName).setHeader("Last Name").setSortable(true);;
+        grid.addColumn(Staff::getEmail).setHeader("Email").setSortable(true);;
+        crud.getGrid().addColumn(person ->
+                person.isEmployee() ? "Employee" : "Volunteer"
+        ).setHeader("Staff Type").setSortable(true);;
+
+        grid.addColumn(Staff::getSalary).setHeader("Salary").setSortable(true);;
 
         crud.setFindAllOperation(staff::findAll);
         crud.setAddOperation(staff::save);
