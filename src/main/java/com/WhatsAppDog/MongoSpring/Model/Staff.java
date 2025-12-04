@@ -11,17 +11,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Document(collection ="Staff")
 
-public class Staff {
+public class Staff  {
     @Id //sets value as primary key
     @EqualsAndHashCode.Include
     private ObjectId id;
-    private Integer  employee_id;
-    private String   firstName;
-    private String   lastName;
-    private String   email;
-    private String   jobTitle;
-    private String   salary;
+   public String   firstName;
+   public String   lastName;
+   public String   email;
+   private boolean   isEmployee;
+    public Double   salary;
+
 
 }

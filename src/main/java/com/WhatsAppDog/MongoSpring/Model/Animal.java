@@ -17,12 +17,11 @@ public class Animal {
     @Id //sets value as primary key
     @EqualsAndHashCode.Include
     private ObjectId id;
-    private Integer idNu;
     private String name;
     private String type;
     private Integer age;
     private Boolean aggression;
-    private ObjectId imageId;
+    private String imageUrl; //stores img path
 
 }
 

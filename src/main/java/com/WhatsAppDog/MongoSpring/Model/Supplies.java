@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 //implements this.""
 @AllArgsConstructor
 @Document(collection ="Supplies")
-public class Supplies {
+public class Supplies  {
     @Id //sets value as primary key
     @EqualsAndHashCode.Include //creates getters and setters for each field ( equals() & hashcode)
     private ObjectId id;

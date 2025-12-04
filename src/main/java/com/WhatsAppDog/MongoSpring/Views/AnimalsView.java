@@ -1,14 +1,15 @@
 package com.WhatsAppDog.MongoSpring.Views;
 
-import com.WhatsAppDog.MongoSpring.MainLayout;
+import com.WhatsAppDog.MongoSpring.MainView;
+import com.WhatsAppDog.MongoSpring.Model.Animal;
 import com.WhatsAppDog.MongoSpring.Repository.AnimalRepo;
-import com.vaadin.flow.component.card.Card;
 import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.streams.DownloadHandler;
+import com.vaadin.ui.UI;
 
-@Route(value = AnimalsView.ROUTE, layout= MainLayout.class)
+import java.util.List;
+
+@Route(value = AnimalsView.ROUTE, layout= MainView.class)
 
 public class AnimalsView extends Div {
 
@@ -21,28 +22,22 @@ public class AnimalsView extends Div {
                 .set("grid-template-columns", "repeat(auto-fill, minmax(190px, 1fr))")
                 .set("gap", "1em");
 
-        Card imageCard = new Card();
-        DownloadHandler imageHandler = DownloadHandler.forClassResource(
-                getClass(), "images/tempAnimal.png", "Animal Pic Placeholder");
-        Image image = new Image(imageHandler, "");
-        image.setWidth("100px");
-        imageCard.setMedia(image);
-        imageCard.add("Lapland is the northern-most region of Finland and an active outdoor destination.");
-
-        layout.add(imageCard);
+        List<Animal> animals = animalRepo.findAll();
+        //create card for dog cards
+        for (Animal animal : animals) {
+            //if animal category = dog  render cards in DogsView
+            if("Dog".equals(animal.getType())) {
+                UI.getCurrent().getNavigator().navigateTo(DogsView.ROUTE + "/" + animal.getType());
+            }
+            if("Cat".equals(animal.getType())) {
+                UI.getCurrent().getNavigator().navigateTo(CatsView.ROUTE + "/" + animal.getType());
+            }
+            else{
+                UI.getCurrent().getNavigator().navigateTo(OthersView.ROUTE + "/" + animal.getType());
+            }
+        }
         add(layout);
     }
+
+
 }
-//Grid data rendering
-//public class AnimalsView extends VerticalLayout{
-//H1 h1 = new H1("In House Animals");
-//    Grid<Animal> grid = new Grid<>(Animal.class, false);
-//    grid.addColumn(Animal::getName).setHeader("Name");
-//    grid.addColumn(Animal::getType).setHeader("Type");
-//    grid.addColumn(Animal::getAge).setHeader("Age");
-//    grid.addColumn(Animal::getAggression).setHeader("Aggression");
-//
-//    List<Animal> animal = animalRepo.findAll();
-//    grid.setItems(animal);
-//    add(h1,grid);
-//

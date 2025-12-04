@@ -1,7 +1,7 @@
 //creates routes
 package com.WhatsAppDog.MongoSpring.Controller;
-import com.WhatsAppDog.MongoSpring.Model.Supplies;
 
+import com.WhatsAppDog.MongoSpring.Model.Supplies;
 import com.WhatsAppDog.MongoSpring.Repository.SuppliesRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,25 +16,31 @@ public class SuppliesController implements CrudListener<Supplies> {
     @Autowired //connects repo and controller
     private final SuppliesRepo suppliesRepo;
 
-    //constructor for repository and usable in methods
     public SuppliesController(SuppliesRepo suppliesRepo) {
         this.suppliesRepo = suppliesRepo;
     }
 
-    @Override
-    //findAll() will run out of memory if db grows substantially
-    public List<Supplies> findAll(){
+  //  @Override //indicates the method is meant to override a method from a parent class or an interface
+   public List<Supplies> findAll(){
         return suppliesRepo.findAll();
     }
-    @Override
+    //query by item name
+    public List<Supplies> searchItem(String query){
+        if(query == null || query.isBlank()){
+            return findAll();
+        }
+        return suppliesRepo.searchItem(query);
+    }
+
+
     public Supplies add(Supplies supply){
         return suppliesRepo.save(supply);
     }
-    @Override
+    //@Override
     public Supplies update(Supplies supply){
         return suppliesRepo.save(supply);
     }
-    @Override
+    //@Override
     public void delete(Supplies supply){
         suppliesRepo.delete(supply);
     }

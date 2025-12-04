@@ -1,28 +1,53 @@
 package com.WhatsAppDog.MongoSpring.Views;
-import com.WhatsAppDog.MongoSpring.MainLayout;
+
+import com.WhatsAppDog.MongoSpring.MainView;
 import com.WhatsAppDog.MongoSpring.Model.Supplies;
 import com.WhatsAppDog.MongoSpring.Repository.SuppliesRepo;
+import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
 import org.vaadin.crudui.crud.impl.GridCrud;
 
-import static java.lang.Integer.valueOf;
+@Route(value = SuppliesView.ROUTE, layout = MainView.class)
 
-
-@Route(value = SuppliesView.ROUTE, layout = MainLayout.class)
 public class SuppliesView extends VerticalLayout {
-
     public static final String ROUTE = "supplies";
-    public static final String TITLE = "Supplies";
+
+    private SuppliesRepo suppliesRepo;
+    GridCrud<Supplies> crud = new GridCrud<>(Supplies.class);
+    Grid<Supplies> grid = crud.getGrid(); //access internal grid
+    TextField searchTerm = new TextField();
+
+    public SuppliesView(SuppliesRepo supplies) {
+
+        H1 h1 = new H1("Facility Supplies");
+
+        grid.removeAllColumns(); //remove default headers
+        //readd custom headers
+        grid.addColumn(Supplies::getCategory).setHeader("Category").setSortable(true);
+        grid.addColumn(Supplies::getItem).setHeader("Item").setSortable(true);
+        grid.addColumn(Supplies::getQuantity).setHeader("Quantity").setSortable(true);
+        grid.addColumn(Supplies::getSupplier).setHeader("Supplier").setSortable(true);
+
+        //add Data
+        crud.setFindAllOperation(supplies::findAll);
+        crud.setAddOperation(supplies::save);
+
+        //Search Bar
+        searchTerm.setPlaceholder("Enter Item or Category...");
+        searchTerm.setClearButtonVisible(true);
+        searchTerm.setWidth("300px");
 
 
-    public SuppliesView(SuppliesRepo suppliesRepo) {
-
-        GridCrud<Supplies> suppliesCrud = new GridCrud<>(Supplies.class);
-        suppliesCrud.setFindAllOperation(suppliesRepo::findAll);
-
-        add(suppliesCrud);
+        searchTerm.setValueChangeMode(ValueChangeMode.EAGER);
+        searchTerm.addValueChangeListener(e ->
+                crud.getGrid().setItems(supplies.searchItem(e.getValue())));
+        add(h1, searchTerm, crud);
         setSizeFull();
 
     }
+
 }
