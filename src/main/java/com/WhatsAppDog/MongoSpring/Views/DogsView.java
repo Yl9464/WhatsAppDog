@@ -26,12 +26,16 @@ public class DogsView extends Div {
 
     public DogsView(AnimalRepo animalRepo) {
         Div dogLayout = new Div();
+        Button dogBtn = new Button("Add New Dog");
+        dogBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+
         dogLayout.getStyle().set("display", "grid")
                 .set("grid-template-columns", "repeat(auto-fill, minmax(190px, 1fr))")
                 .set("gap", "1em")
                 .set("margin", "2em");
         //getAll Data
         List<Animal> animals = animalRepo.findAll();
+        add(dogBtn);
 
         //Create dog Cards
         for (Animal animal : animals) {
