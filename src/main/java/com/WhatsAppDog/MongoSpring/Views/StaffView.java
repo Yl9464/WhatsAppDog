@@ -7,18 +7,25 @@ import com.WhatsAppDog.MongoSpring.Repository.StaffRepo;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.vaadin.crudui.crud.impl.GridCrud;
-
 
 @Route(value = StaffView.ROUTE, layout= MainView.class)
 public class StaffView extends VerticalLayout{
 
     public static final String ROUTE = "staff";
+
+    @Autowired
+    private StaffRepo staffRepo;
     GridCrud<Staff> crud = new GridCrud<>(Staff.class);
     Grid<Staff> grid = crud.getGrid(); //access internal grid
+    TextField searchTerm = new TextField();
 
     public StaffView(StaffRepo staff)  {
+
         H1 h1  = new H1("Staff Members");
 
         grid.removeAllColumns(); //remove default headers
@@ -35,9 +42,19 @@ public class StaffView extends VerticalLayout{
         crud.setFindAllOperation(staff::findAll);
         crud.setAddOperation(staff::save);
 
-        add(h1, crud);
+//search bar
+        searchTerm.setPlaceholder("Enter name...");
+        searchTerm.setClearButtonVisible(true);
+        searchTerm.setWidth("300px");
+
+        searchTerm.setValueChangeMode(ValueChangeMode.EAGER);
+        searchTerm.addValueChangeListener(e -> {
+                    String value = e.getValue();
+                    crud.getGrid().setItems(staffRepo.searchPerson(value));
+                });
+
+        add(h1, searchTerm, crud);
         setSizeFull();
 
     }
 }
-

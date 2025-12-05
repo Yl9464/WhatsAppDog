@@ -6,16 +6,18 @@ import com.WhatsAppDog.MongoSpring.Repository.StaffRepo;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
 import org.vaadin.crudui.crud.impl.GridCrud;
 
 @Route(value=Volunteers.ROUTE, layout = MainView.class)
-
 public class Volunteers extends VerticalLayout{
-    public static  final String ROUTE = "volunteers";
 
+    public static  final String ROUTE = "volunteers";
     GridCrud<Staff> crud = new GridCrud<>(Staff.class);
     Grid<Staff> grid =crud.getGrid();
+    TextField searchTerm = new TextField();
 
     public Volunteers(StaffRepo staff) {
 
@@ -25,15 +27,23 @@ public class Volunteers extends VerticalLayout{
         grid.addColumn(Staff::getFirstName).setHeader("First Name").setSortable(true);
         grid.addColumn(Staff::getLastName).setHeader("Last Name").setSortable(true);
         grid.addColumn(Staff::getEmail).setHeader("Email").setSortable(true);
-        grid.addColumn(Staff::isEmployee).setHeader("Employee status").setSortable(true);
 
         //add data
         crud.setFindAllOperation(() -> staff.findByIsEmployee(false));
         crud.setAddOperation(staff::save);
+        //search
+        searchTerm.setPlaceholder("Enter name...");
+        searchTerm.setClearButtonVisible(true);
+        searchTerm.setWidth("300px");
 
+        searchTerm.setValueChangeMode(ValueChangeMode.EAGER);
+        searchTerm.addValueChangeListener(e -> {
+            String value = e.getValue();
+            crud.getGrid().setItems(staff.searchPerson(value));
+        });
 
-        add(h1, crud);
-
+        add(h1,searchTerm, crud);
+        setSizeFull();
 
 
     }
