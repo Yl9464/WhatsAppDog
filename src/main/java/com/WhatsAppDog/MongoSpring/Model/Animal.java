@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,12 +15,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Animal {
     @Id //sets value as primary key
     @EqualsAndHashCode.Include
-    private ObjectId id;
     private String name;
     private String type;
     private Integer age;
-    private Boolean aggression;
+    private boolean isAggressive;
     private String imageUrl; //stores img path
+    private boolean isFemale;
+
 
 }
+//public Animal(String name, String type, Integer age, boolean aggression, String imageUrl){
+//
+//}
+//getter and setters
+
 

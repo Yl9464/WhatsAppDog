@@ -49,7 +49,7 @@ import java.util.List;
         image.setHeight("100px");
 
         othersCard.setTitle(new Div(animal.getName() + " • "+ animal.getType()));
-        if(animal.getAggression() == true){
+        if(animal.isAggressive() == true){
            othersCard.addThemeVariants(CardVariant.LUMO_OUTLINED);
            othersCard.addClassName("aggression-card");
         }
@@ -57,7 +57,7 @@ import java.util.List;
         UnorderedList details = new UnorderedList(
                 // new ListItem("Name: " + animal.getName()),
                 new ListItem("Age: " + animal.getAge()),
-                new ListItem("Aggression: " + (animal.getAggression() ? "Yes" : "No"))
+                new ListItem("Aggression: " + (animal.isAggressive() ? "Yes" : "No"))
         );
         othersCard.add(image, details);
         // Edit button

@@ -1,81 +1,81 @@
 package com.WhatsAppDog.MongoSpring.Views;
 
+import com.WhatsAppDog.MongoSpring.Controller.AnimalController;
 import com.WhatsAppDog.MongoSpring.MainView;
 import com.WhatsAppDog.MongoSpring.Model.Animal;
-import com.WhatsAppDog.MongoSpring.Repository.AnimalRepo;
-import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.button.ButtonVariant;
-import com.vaadin.flow.component.card.Card;
-import com.vaadin.flow.component.card.CardVariant;
-import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.H2;
+import com.vaadin.flow.component.html.H4;
 import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.component.html.ListItem;
-import com.vaadin.flow.component.html.UnorderedList;
-import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.streams.DownloadHandler;
+import org.vaadin.crudui.crud.CrudListener;
+import org.vaadin.crudui.crud.impl.GridCrud;
 
 import java.util.List;
 
-
 @Route(value= DogsView.ROUTE, layout = MainView.class)
-
-public class DogsView extends Div {
+public class DogsView extends VerticalLayout{
     public static final String ROUTE = "dogs";
 
-    public DogsView(AnimalRepo animalRepo) {
-        Div dogLayout = new Div();
-        Button dogBtn = new Button("Add New Dog");
-        dogBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+    public DogsView(AnimalController animalController) {
+        GridCrud<Animal> crud = new GridCrud<>(Animal.class);
 
-        dogLayout.getStyle().set("display", "grid")
-                .set("grid-template-columns", "repeat(auto-fill, minmax(190px, 1fr))")
-                .set("gap", "1em")
-                .set("margin", "2em");
-        //getAll Data
-        List<Animal> animals = animalRepo.findAll();
-        add(dogBtn);
-
-        //Create dog Cards
-        for (Animal animal : animals) {
-            if("Dog".equals(animal.getType())) {
-                dogLayout.add(createAnimalCard(animal));
+        crud.setCrudListener(new CrudListener<Animal>() {
+            @Override
+            public List<Animal> findAll() {
+                return animalController.findAll();
             }
-            add(dogLayout);
+
+            @Override
+            public Animal add(Animal animal) {
+                return animalController.add(animal);
+            }
+
+            @Override
+            public Animal update(Animal animal) {
+                return animalController.update(animal);
+            }
+
+            @Override
+            public void delete(Animal animal) {
+                animalController.delete(animal);
+            }
+        });
+        //rmv default
+        crud.getGrid().removeAllColumns();
+        //add card render
+        crud.getGrid().addColumn(new ComponentRenderer<>(animal -> {
+            DownloadHandler imgHandler = DownloadHandler.forClassResource(
+                    getClass(), animal.getImageUrl(), "Animal Pic"
+            );
+            Image img = new Image(imgHandler, "");
+            img.setWidth("100px");
+            img.setHeight("100px");
+
+
+            HorizontalLayout card = new HorizontalLayout();
+            card.getStyle().set("border", "1px solid #ccc");
+            card.getStyle().set("padding", "14px");
+            card.getStyle().set("border-radius", "10px");
+            card.getStyle().set("box-shadow", "1px 3px 5px rgba(0,0,0,0.2)");
+            //card.setWidth("300px");
+
+            H4 name = new H4(animal.getName());
+            Span age = new Span("Age: " + animal.getAge());
+            Span aggression = new Span("Aggression: " + (animal.isAggressive() ? "Use caution" : "No"));
+            Span image = new Span(animal.getImageUrl());
+            Span gender = new Span(animal.isFemale() ? "Female" : "Male");
+
+            card.add(img, name, age, aggression, gender);
+
+            return card;
+        }));
+        crud.getGrid().setAllRowsVisible(true);
+        add(new H2("Dog Cards"), crud);
+
         }
-
     }
-
-    private Component createAnimalCard(Animal animal) {
-        Card dogCard = new Card();
-        dogCard.addThemeVariants(CardVariant.LUMO_OUTLINED);
-
-        DownloadHandler imageHandler = DownloadHandler.forClassResource(
-                getClass(), animal.getImageUrl(), "Animal Pic");
-        Image image = new Image(imageHandler, "");
-        image.setWidth("100px");
-        image.setHeight("100px");
-
-        dogCard.setTitle(new Div(animal.getName() + " • "+ animal.getType()));
-
-        if(animal.getAggression() == true){
-            dogCard.addThemeVariants(CardVariant.LUMO_OUTLINED);
-            dogCard.addClassName("aggression-card");
-        }
-        UnorderedList details = new UnorderedList(
-                // new ListItem("Name: " + animal.getName()),
-                new ListItem("Age: " + animal.getAge()),
-                new ListItem("Aggression: " + (animal.getAggression() ? "Yes" : "No"))
-        );
-
-        dogCard.add(image, details);
-        // Edit button
-        Button editBtn = new Button("Edit", VaadinIcon.EDIT.create());
-        editBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        dogCard.addToFooter(editBtn);
-
-        return dogCard;
-    }
-
-}

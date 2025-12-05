@@ -17,7 +17,9 @@ public class AnimalController implements CrudListener<Animal>{
    public AnimalController(AnimalRepo animalRepo) {
        this.animalRepo = animalRepo;
    }
-
+ //   public Collection<Animal> finddAll(){
+   //    return animalRepo.findAll();
+    //}
    //@Override
    public List<Animal> findAll() {return animalRepo.findAll();}
   // @Override

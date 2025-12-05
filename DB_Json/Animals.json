@@ -3,290 +3,327 @@
         "name": "Bob",
         "type": "Dog",
         "age": 8,
-        "aggression": false,
-        "imageUrl": "/images/dog.jpeg"
-
+        "isAggressive": false,
+        "imageUrl": "/images/dog.jpeg",
+        "isFemale": false
       },
       {
         "name": "Santa",
         "type": "Dog",
         "age": 4,
-        "aggression": true,
-        "imageUrl": "/images/dog.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/dog.jpeg",
+        "isFemale": false
       },
       {
         "name": "Pearl",
         "type": "Squirrel",
         "age": 8,
-        "aggression": false,
-        "imageUrl": "/images/squirrel.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/squirrel.jpeg",
+        "isFemale": true
       },
       {
         "name": "Raymond",
         "type": "raccoon",
         "age": 8,
-        "aggression": true,
-        "imageUrl": "/images/raccoon.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/raccoon.jpeg",
+        "isFemale": false
       },
       {
         "name": "Dierdre",
         "type": "Deer",
         "age": 15,
-        "aggression": false,
-        "imageUrl": "/images/deer.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/deer.jpeg",
+        "isFemale": true
+
       },
       {
         "name": "Steve",
         "type": "Dog",
         "age": 7,
-        "aggression": false,
-        "imageUrl": "/images/dog.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/dog.jpeg",
+        "isFemale": false
 
       },
       {
         "name": "Karren",
         "type": "Cat",
         "age": 10,
-        "aggression": true,
-        "imageUrl": "/images/cat.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/cat.jpeg",
+        "isFemale": true
       },
       {
         "name": "Carol",
         "type": "Cat",
         "age": 2,
-        "aggression": false,
-        "imageUrl": "/images/cat.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/cat.jpeg",
+        "isFemale": true
       },
       {
-        "idNu": 9,
         "name": "Pebbles",
         "type": "Dog",
         "age": 5,
-        "aggression": false,
-        "imageUrl": "/images/dog.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/dog.jpeg",
+        "isFemale": false
       },
       {
         "name": "Sydney",
         "type": "Squirrel",
         "age": 8,
-        "aggression": false,
-        "imageUrl": "/images/squirrel.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/squirrel.jpeg",
+        "isFemale": true
       },
       {
         "name": "Rachel",
         "type": "raccoon",
         "age": 13,
-        "aggression": true,
-        "imageUrl": "/images/raccoon.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/raccoon.jpeg",
+        "isFemale": true
       },
       {
         "name": "Kia",
         "type": "Coyote",
         "age": 9,
-        "aggression": true,
-        "imageUrl": "/images/coyote.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/coyote.jpeg",
+        "isFemale": true
       },
       {
         "name": "Kyle",
         "type": "Cat",
         "age": 8,
-        "aggression": false,
-        "imageUrl": "/images/cat.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/cat.jpeg",
+        "isFemale": false
       },
       {
         "name": "Sushi",
         "type": "Cat",
         "age": 6,
-        "aggression": false,
-        "imageUrl": "/images/cat.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/cat.jpeg",
+        "isFemale": false
       },
       {
 
         "name": "Terry",
         "type": "Turtle",
         "age": 12,
-        "aggression": false,
-        "imageUrl": "/images/turtle.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/turtle.jpeg",
+        "isFemale": false
       },
       {
 
         "name": "Bandit",
         "type": "Raccoon",
         "age": 4,
-        "aggression": true,
-        "imageUrl": "/images/raccoon.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/raccoon.jpeg",
+        "isFemale": true
       },
       {
 
         "name": "Brie",
         "type": "Bird",
         "age": 4,
-        "aggression": true,
-        "imageUrl": "/images/bird.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/bird.jpeg",
+        "isFemale": true
       },
       {
 
         "name": "Cupcake",
         "type": "Coyote",
         "age": 12,
-        "aggression": true,
-        "imageUrl": "/images/coyote.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/coyote.jpeg",
+        "isFemale": true
       },
       {
 
         "name": "Jenny",
         "type": "Dog",
         "age": 6,
-        "aggression": false,
-        "imageUrl": "/images/dog.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/dog.jpeg",
+        "isFemale": true
       },
       {
 
         "name": "Darth Vader ",
         "type": "Dog",
         "age": 7,
-        "aggression": true,
-        "imageUrl": "/images/dog.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/dog.jpeg",
+        "isFemale": false
       },
       {
 
         "name": "Mini",
         "type": "Dog",
         "age": 6,
-        "aggression": true,
-        "imageUrl": "/images/dog.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/dog.jpeg",
+        "isFemale": true
       },
       {
 
         "name": "Sean",
         "type": "Dog",
         "age": 15,
-        "aggression": true,
-        "imageUrl": "/images/dog.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/dog.jpeg",
+        "isFemale": false
       },
       {
 
         "name": "Henry",
         "type": "Horse",
         "age": 6,
-        "aggression": false,
-        "imageUrl": "/images/horse.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/horse.jpeg",
+        "isFemale": false
       },
       {
 
         "name": "Jason",
         "type": "Dog",
         "age": 8,
-        "aggression": false,
-        "imageUrl": "/images/dog.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/dog.jpeg",
+        "isFemale": false
       },
       {
 
         "name": "Zeek",
         "type": "Dog",
         "age": 11,
-        "aggression": false,
-        "imageUrl": "/images/dog.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/dog.jpeg",
+        "isFemale": false
       },
       {
 
         "name": "Anna",
         "type": "Bird",
         "age": 8,
-        "aggression": false,
-        "imageUrl": "/images/bird.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/bird.jpeg",
+        "isFemale": true
       },
       {
 
         "name": "Derek",
         "type": "Deer",
         "age": 14,
-        "aggression": false,
-        "imageUrl": "/images/deer.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/deer.jpeg",
+        "isFemale": false
       },
       {
 
         "name": "Merl",
         "type": "Squirrel",
         "age": 4,
-        "aggression": true,
-        "imageUrl": "/images/squirrel.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/squirrel.jpeg",
+        "isFemale": false
       },
       {
 
         "name": "Leo",
         "type": "Cat",
         "age": 6,
-        "aggression": true,
-        "imageUrl": "/images/cat.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/cat.jpeg",
+        "isFemale": false
       },
       {
 
         "name": "Caitlyn",
         "type": "Cat",
         "age": 3,
-        "aggression": false,
-        "imageUrl": "/images/cat.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/cat.jpeg",
+        "isFemale": true
       },
       {
 
         "name": "Benny",
         "type": "Bear",
         "age": 12,
-        "aggression": true,
-        "imageUrl": "/images/bear.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/bear.jpeg",
+        "isFemale": false
       },
       {
 
         "name": "Vinny",
         "type": "Dog",
         "age": 7,
-        "aggression": true,
-        "imageUrl": "/images/dog.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/dog.jpeg",
+        "isFemale": false
       },
       {
 
         "name": "Locks",
         "type": "Dog",
         "age": 6,
-        "aggression": false,
-        "imageUrl": "/images/dog.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/dog.jpeg",
+        "isFemale": false
       },
       {
 
         "name": "Hannah",
         "type": "Bunny",
         "age": 4,
-        "aggression": false,
-        "imageUrl": "/images/bunny.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/bunny.jpeg",
+        "isFemale": true
       },
       {
 
         "name": "Bert",
         "type": "Bunny",
         "age": 8,
-        "aggression": false,
-        "imageUrl": "/images/bunny.jpeg"
+        "isAggressive": false,
+        "imageUrl": "/images/bunny.jpeg",
+        "isFemale": false
       },
       {
         "name": "Vincent",
         "type": "raccoon",
         "age": 13,
-        "aggression": true,
-        "imageUrl": "/images/raccoon.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/raccoon.jpeg",
+        "isFemale": false
       },
       {
         "name": "Tina",
         "type": "Turtle",
         "age": 14,
-        "aggression": true,
-        "imageUrl": "/images/turtle.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/turtle.jpeg",
+        "isFemale": true
       },
       {
         "name": "Gene",
         "type": "Dog",
         "age": 8,
-        "aggression": true,
-        "imageUrl": "/images/dog.jpeg"
+        "isAggressive": true,
+        "imageUrl": "/images/dog.jpeg",
+        "isFemale": false
       }
 ]
