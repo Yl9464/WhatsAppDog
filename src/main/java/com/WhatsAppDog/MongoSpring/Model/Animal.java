@@ -23,11 +23,4 @@ public class Animal {
     private String imageUrl; //stores img path
 
 
-
 }
-//public Animal(String name, String type, Integer age, boolean aggression, String imageUrl){
-//
-//}
-//getter and setters
-
-

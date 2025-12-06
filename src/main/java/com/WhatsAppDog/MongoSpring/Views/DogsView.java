@@ -9,12 +9,14 @@ import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H4;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.streams.DownloadHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -28,21 +30,19 @@ public class DogsView extends VerticalLayout {
 
     private final AnimalController animalController;
     private final Grid<Animal> grid = new Grid<>(Animal.class, false);
-  private final Div cardContainer = new Div();
+    private final Div cardContainer = new Div();
 
     @Autowired
     public DogsView(AnimalController animalController) {
         this.animalController = animalController;
         setSizeFull();
         setSpacing(true);
-
-
         configureGrid();
-       configureCardGrid();
+        configureCardGrid();
 
         //ADD
-       Button addBtn = new Button("Add animal", new Icon(VaadinIcon.PLUS));
-        addBtn.addClickListener(e -> {
+       Button addBtn = new Button("Add Dog", new Icon(VaadinIcon.PLUS));
+       addBtn.addClickListener(e -> {
             addForm form = new addForm(this::saveAnimal);
             form.open(new Animal());
         });
@@ -111,33 +111,40 @@ public class DogsView extends VerticalLayout {
     }
 
     private Component createCard(Animal animal) {
+        VerticalLayout dogCard = new VerticalLayout();
 
-        VerticalLayout card = new VerticalLayout();
-        card.getStyle()
+        dogCard.getStyle()
                 .set("border", "1px solid var(--lumo-contrast-20pct)")
                 .set("border-radius", "10px")
                 .set("padding", "15px")
                 .set("background-color", "white")
                 .set("box-shadow", "var(--lumo-box-shadow-s)");
 
-        H4 name = new H4(animal.getName());
-        Span age = new Span("Age: " + animal.getAge());
-        Span aggression = new Span("Aggression: " + (animal.isAggressive() ? "Use caution" : "No"));
-        Span image = new Span(animal.getImageUrl());
-        Span gender = new Span(animal.isFemale() ? "Female" : "Male");
-        Button edit = new Button("Edit", e -> {
+        DownloadHandler imageHandler = DownloadHandler.forClassResource(
+                getClass(),  animal.getImageUrl(), "Animal Pic");
+        Image dogImage = new Image(imageHandler, "");
+        dogImage.setWidth("200px");
+        dogImage.setWidth("200px");
+
+       Button edit = new Button("Edit", e -> {
             addForm form = new addForm(this::saveAnimal);
             form.open(animal);
         });
-
         Button del = new Button("Delete", e -> {
             animalController.delete(animal);
             refreshAll();
         });
 
-        card.add(name, age, aggression, image, gender, new HorizontalLayout(edit, del));
+        dogCard.add(
+                new H4(animal.getName()),
+                dogImage,
+                new Span("Age: " + animal.getAge()),
+                new Span("Aggression: " + (animal.isAggressive() ? "Use caution" : "No")),
+              new Span(animal.isFemale() ? "Female" : "Male"),
+                 new HorizontalLayout(edit, del)
+        );
 
-        return card;
+        return dogCard;
     }
     private void saveAnimal(Animal animal) {
         animalController.saveAnimal(animal);   // call your MongoDB repo or service
