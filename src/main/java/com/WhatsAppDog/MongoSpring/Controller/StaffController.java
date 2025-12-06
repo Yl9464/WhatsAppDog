@@ -36,6 +36,7 @@ public class StaffController implements CrudListener<Staff> {
             return null;
         }
         return staffRepo.save(staff);}
+
     public Staff save(Staff staff){
         return staffRepo.save(staff);
     }

@@ -18,9 +18,10 @@ public class Animal {
     private String name;
     private String type;
     private Integer age;
+    private boolean isFemale;
     private boolean isAggressive;
     private String imageUrl; //stores img path
-    private boolean isFemale;
+
 
 
 }

@@ -3,79 +3,144 @@ package com.WhatsAppDog.MongoSpring.Views;
 import com.WhatsAppDog.MongoSpring.Controller.AnimalController;
 import com.WhatsAppDog.MongoSpring.MainView;
 import com.WhatsAppDog.MongoSpring.Model.Animal;
-import com.vaadin.flow.component.html.H2;
+import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H4;
-import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.streams.DownloadHandler;
-import org.vaadin.crudui.crud.CrudListener;
-import org.vaadin.crudui.crud.impl.GridCrud;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+@CssImport("./styles/styles.css")
 @Route(value= DogsView.ROUTE, layout = MainView.class)
-public class DogsView extends VerticalLayout{
+
+
+public class DogsView extends VerticalLayout {
     public static final String ROUTE = "dogs";
 
+    private final AnimalController animalController;
+    private final Grid<Animal> grid = new Grid<>(Animal.class, false);
+  private final Div cardContainer = new Div();
+
+    @Autowired
     public DogsView(AnimalController animalController) {
-        GridCrud<Animal> crud = new GridCrud<>(Animal.class);
+        this.animalController = animalController;
+        setSizeFull();
+        setSpacing(true);
 
-        crud.setCrudListener(new CrudListener<Animal>() {
-            @Override
-            public List<Animal> findAll() {
-                return animalController.findAll();
-            }
 
-            @Override
-            public Animal add(Animal animal) {
-                return animalController.add(animal);
-            }
+        configureGrid();
+       configureCardGrid();
 
-            @Override
-            public Animal update(Animal animal) {
-                return animalController.update(animal);
-            }
+        //ADD
+       Button addBtn = new Button("Add animal", new Icon(VaadinIcon.PLUS));
+        addBtn.addClickListener(e -> {
+            addForm form = new addForm(this::saveAnimal);
+            form.open(new Animal());
+        });
 
-            @Override
-            public void delete(Animal animal) {
-                animalController.delete(animal);
+        //LEFT
+        VerticalLayout layoutLeft = new VerticalLayout();
+       layoutLeft.setSizeFull();
+        layoutLeft.setPadding(false);
+        layoutLeft.setSpacing(false);
+
+
+        //RIGHT Cards
+       cardContainer.setSizeFull();
+
+        //Layout
+        add(layoutLeft,addBtn, cardContainer);
+        setFlexGrow(1, layoutLeft);
+        setFlexGrow(2, cardContainer);
+
+        refreshAll();
+    }
+
+    private void configureGrid() {
+        grid.removeAllColumns();
+        grid.addColumn(Animal::getName).setHeader("Name");
+        grid.addColumn(Animal::getAge).setHeader("Age");
+        grid.addColumn(Animal::getType).setHeader("Type");
+
+        grid.addColumn(a -> a.isAggressive() ? "Use Caution" : "No").setHeader("Aggression Status");
+        grid.addColumn(a -> a.isFemale() ? "Female" : "Male").setHeader("Gender");
+
+        grid.asSingleSelect().addValueChangeListener(e -> {
+            if (e.getValue() != null) {
+                addForm form = new addForm(this::saveAnimal);
+                form.open(e.getValue());
             }
         });
-        //rmv default
-        crud.getGrid().removeAllColumns();
-        //add card render
-        crud.getGrid().addColumn(new ComponentRenderer<>(animal -> {
-            DownloadHandler imgHandler = DownloadHandler.forClassResource(
-                    getClass(), animal.getImageUrl(), "Animal Pic"
-            );
-            Image img = new Image(imgHandler, "");
-            img.setWidth("100px");
-            img.setHeight("100px");
 
-
-            HorizontalLayout card = new HorizontalLayout();
-            card.getStyle().set("border", "1px solid #ccc");
-            card.getStyle().set("padding", "14px");
-            card.getStyle().set("border-radius", "10px");
-            card.getStyle().set("box-shadow", "1px 3px 5px rgba(0,0,0,0.2)");
-            //card.setWidth("300px");
-
-            H4 name = new H4(animal.getName());
-            Span age = new Span("Age: " + animal.getAge());
-            Span aggression = new Span("Aggression: " + (animal.isAggressive() ? "Use caution" : "No"));
-            Span image = new Span(animal.getImageUrl());
-            Span gender = new Span(animal.isFemale() ? "Female" : "Male");
-
-            card.add(img, name, age, aggression, gender);
-
-            return card;
-        }));
-        crud.getGrid().setAllRowsVisible(true);
-        add(new H2("Dog Cards"), crud);
-
-        }
+        grid.addComponentColumn(a -> {
+            Button delete = new Button("Delete");
+            delete.addClickListener(e -> {
+                animalController.delete(a);
+                refreshAll();
+            });
+            return delete;
+        }).setHeader("Delete?");
     }
+
+    private void configureCardGrid() {
+        cardContainer.getStyle()
+                .set("display", "grid")
+                .set("grid-template-columns", "repeat(3, 1fr)")   // 🔥 EXACTLY 3 CARDS PER ROW
+                .set("gap", "20px")
+                .set("padding", "20px");
+        addClassName("card-container");
+    }
+    private void refreshAll() {
+        List<Animal> list = animalController.findAll();
+        grid.setItems(list);
+        refreshCards(list);
+    }
+
+    private void refreshCards(List<Animal> animal) {
+        cardContainer.removeAll();
+        animal.forEach(s -> cardContainer.add(createCard(s)));
+    }
+
+    private Component createCard(Animal animal) {
+
+        VerticalLayout card = new VerticalLayout();
+        card.getStyle()
+                .set("border", "1px solid var(--lumo-contrast-20pct)")
+                .set("border-radius", "10px")
+                .set("padding", "15px")
+                .set("background-color", "white")
+                .set("box-shadow", "var(--lumo-box-shadow-s)");
+
+        H4 name = new H4(animal.getName());
+        Span age = new Span("Age: " + animal.getAge());
+        Span aggression = new Span("Aggression: " + (animal.isAggressive() ? "Use caution" : "No"));
+        Span image = new Span(animal.getImageUrl());
+        Span gender = new Span(animal.isFemale() ? "Female" : "Male");
+        Button edit = new Button("Edit", e -> {
+            addForm form = new addForm(this::saveAnimal);
+            form.open(animal);
+        });
+
+        Button del = new Button("Delete", e -> {
+            animalController.delete(animal);
+            refreshAll();
+        });
+
+        card.add(name, age, aggression, image, gender, new HorizontalLayout(edit, del));
+
+        return card;
+    }
+    private void saveAnimal(Animal animal) {
+        animalController.saveAnimal(animal);   // call your MongoDB repo or service
+        refreshAll();               // reload UI
+    }
+}

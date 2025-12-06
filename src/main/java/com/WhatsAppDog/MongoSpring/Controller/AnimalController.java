@@ -29,4 +29,6 @@ public class AnimalController implements CrudListener<Animal>{
    // @Override
     public  void delete(Animal animal){ animalRepo.delete(animal);}
 
+    public Animal saveAnimal(Animal animal){
+       return animalRepo.save(animal);}
 }

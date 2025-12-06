@@ -1,3 +1,11 @@
+results-grid tw-grid tw-gap-5 tw-grid-cols-1 tw-col-span-12 md:tw-col-span-12 md:tw-grid-cols-2
+lg:tw-col-span-9 lg:tw-grid-cols-3
+
+
+
+
+
+
 //GridCrud
 @Route ("staff")
 public clas StaffView extends VeritcalLayout{
