@@ -29,9 +29,9 @@ public class AnimalsView extends Div {
             if("Dog".equals(animal.getType())) {
                 UI.getCurrent().getNavigator().navigateTo(DogsView.ROUTE + "/" + animal.getType());
             }
-            if("Cat".equals(animal.getType())) {
-                UI.getCurrent().getNavigator().navigateTo(CatsView.ROUTE + "/" + animal.getType());
-            }
+//            if("Cat".equals(animal.getType())) {
+//                UI.getCurrent().getNavigator().navigateTo(CatsView.ROUTE + "/" + animal.getType());
+//            }
             else{
                 UI.getCurrent().getNavigator().navigateTo(OthersView.ROUTE + "/" + animal.getType());
             }

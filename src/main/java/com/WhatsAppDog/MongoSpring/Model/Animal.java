@@ -15,6 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Animal {
     @Id //sets value as primary key
     @EqualsAndHashCode.Include
+    private String id;
     private String name;
     private String type;
     private Integer age;

@@ -1,153 +1,60 @@
 package com.WhatsAppDog.MongoSpring.Views;
 
+
 import com.WhatsAppDog.MongoSpring.Controller.AnimalController;
 import com.WhatsAppDog.MongoSpring.MainView;
 import com.WhatsAppDog.MongoSpring.Model.Animal;
-import com.vaadin.flow.component.Component;
+import com.WhatsAppDog.MongoSpring.Repository.AnimalRepo;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.html.H4;
-import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Span;
-import com.vaadin.flow.component.icon.Icon;
-import com.vaadin.flow.component.icon.VaadinIcon;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.streams.DownloadHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.vaadin.crudui.crud.impl.GridCrud;
 
-import java.util.List;
 
 @CssImport("./styles/styles.css")
 @Route(value= DogsView.ROUTE, layout = MainView.class)
 
+    public class DogsView extends VerticalLayout {
+        public static final String ROUTE = "dogs";
+    private  AnimalRepo animalRepo;
 
-public class DogsView extends VerticalLayout {
-    public static final String ROUTE = "dogs";
+        @Autowired
+        public DogsView(AnimalController animalController){
+            GridCrud<Animal> animalCrud = new GridCrud<>(Animal.class, animalController);
 
-    private final AnimalController animalController;
-    private final Grid<Animal> grid = new Grid<>(Animal.class, false);
-    private final Div cardContainer = new Div();
+            Grid<Animal> animalGrid = animalCrud.getGrid();
+            animalGrid.removeAllColumns();
+            animalGrid.addColumn(Animal::getType).setHeader("Category").setSortable(true);
+            animalGrid.addColumn(Animal::getName).setHeader("Name").setSortable(true);
+            animalGrid.addColumn(Animal::getAge).setHeader("Age").setSortable(true);
+            animalGrid.addColumn(animal -> animal.isFemale() ? "Female" : "Male").setHeader("Gender").setSortable(true);
+            animalGrid.addComponentColumn(animal -> {
+                Span badge = new Span(animal.isAggressive() ? "Aggressive" : "None");
+                if(animal.isAggressive()){ badge.getElement().getStyle().set("color", "red");};
+                return badge;
+            }).setHeader("Aggression Status").setSortable(true);
 
-    @Autowired
-    public DogsView(AnimalController animalController) {
-        this.animalController = animalController;
-        setSizeFull();
-        setSpacing(true);
-        configureGrid();
-        configureCardGrid();
+            animalGrid.addComponentColumn(animal -> {
+                Button delete = new Button("Delete");
+                delete.addThemeVariants(ButtonVariant.LUMO_ERROR);
 
-        //ADD
-       Button addBtn = new Button("Add Dog", new Icon(VaadinIcon.PLUS));
-       addBtn.addClickListener(e -> {
-            addForm form = new addForm(this::saveAnimal);
-            form.open(new Animal());
-        });
-
-        //LEFT
-        VerticalLayout layoutLeft = new VerticalLayout();
-       layoutLeft.setSizeFull();
-        layoutLeft.setPadding(false);
-        layoutLeft.setSpacing(false);
+                delete.addClickListener(e -> {
+                    animalController.delete(animal);
+                    animalCrud.refreshGrid();
+                    Notification.show("Deleted " + animal.getName());
+                });
+                return delete;
+            }).setHeader("Delete");
 
 
-        //RIGHT Cards
-       cardContainer.setSizeFull();
-
-        //Layout
-        add(layoutLeft,addBtn, cardContainer);
-        setFlexGrow(1, layoutLeft);
-        setFlexGrow(2, cardContainer);
-
-        refreshAll();
+            add(animalCrud);
+            setSizeFull();
     }
 
-    private void configureGrid() {
-        grid.removeAllColumns();
-        grid.addColumn(Animal::getName).setHeader("Name");
-        grid.addColumn(Animal::getAge).setHeader("Age");
-        grid.addColumn(Animal::getType).setHeader("Type");
-
-        grid.addColumn(a -> a.isAggressive() ? "Use Caution" : "No").setHeader("Aggression Status");
-        grid.addColumn(a -> a.isFemale() ? "Female" : "Male").setHeader("Gender");
-
-        grid.asSingleSelect().addValueChangeListener(e -> {
-            if (e.getValue() != null) {
-                addForm form = new addForm(this::saveAnimal);
-                form.open(e.getValue());
-            }
-        });
-
-        grid.addComponentColumn(a -> {
-            Button delete = new Button("Delete");
-            delete.addClickListener(e -> {
-                animalController.delete(a);
-                refreshAll();
-            });
-            return delete;
-        }).setHeader("Delete?");
-    }
-
-    private void configureCardGrid() {
-        cardContainer.getStyle()
-                .set("display", "grid")
-                .set("grid-template-columns", "repeat(3, 1fr)")   // 🔥 EXACTLY 3 CARDS PER ROW
-                .set("gap", "20px")
-                .set("padding", "20px");
-        addClassName("card-container");
-    }
-    private void refreshAll() {
-        List<Animal> list = animalController.findAll();
-        grid.setItems(list);
-        refreshCards(list);
-    }
-
-    private void refreshCards(List<Animal> animal) {
-        cardContainer.removeAll();
-        animal.forEach(s -> cardContainer.add(createCard(s)));
-    }
-
-    private Component createCard(Animal animal) {
-        VerticalLayout dogCard = new VerticalLayout();
-
-        dogCard.getStyle()
-                .set("border", "1px solid var(--lumo-contrast-20pct)")
-                .set("border-radius", "10px")
-                .set("padding", "15px")
-                .set("background-color", "white")
-                .set("box-shadow", "var(--lumo-box-shadow-s)");
-
-        DownloadHandler imageHandler = DownloadHandler.forClassResource(
-                getClass(),  animal.getImageUrl(), "Animal Pic");
-        Image dogImage = new Image(imageHandler, "");
-        dogImage.setWidth("200px");
-        dogImage.setWidth("200px");
-
-       Button edit = new Button("Edit", e -> {
-            addForm form = new addForm(this::saveAnimal);
-            form.open(animal);
-        });
-        Button del = new Button("Delete", e -> {
-            animalController.delete(animal);
-            refreshAll();
-        });
-
-        dogCard.add(
-                new H4(animal.getName()),
-                dogImage,
-                new Span("Age: " + animal.getAge()),
-                new Span("Aggression: " + (animal.isAggressive() ? "Use caution" : "No")),
-              new Span(animal.isFemale() ? "Female" : "Male"),
-                 new HorizontalLayout(edit, del)
-        );
-
-        return dogCard;
-    }
-    private void saveAnimal(Animal animal) {
-        animalController.saveAnimal(animal);   // call your MongoDB repo or service
-        refreshAll();               // reload UI
-    }
 }
