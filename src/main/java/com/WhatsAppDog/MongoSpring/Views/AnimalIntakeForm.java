@@ -2,60 +2,84 @@ package com.WhatsAppDog.MongoSpring.Views;
 
 import com.WhatsAppDog.MongoSpring.Controller.AnimalIntakeController;
 import com.WhatsAppDog.MongoSpring.Model.AnimalIntake;
-import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.checkbox.Checkbox;
-import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.formlayout.FormLayout;
-import com.vaadin.flow.component.textfield.NumberField;
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.html.H2;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Route(value="intakeForm")
-public class AnimalIntakeForm extends FormLayout {
+public class AnimalIntakeForm extends VerticalLayout {
 
-    private AnimalIntakeController animalIntakeController; // service autowired
+    private final AnimalIntakeController animalIntakeController;
+    private final Binder<AnimalIntake> binder = new Binder<>(AnimalIntake.class);
 
     @Autowired
-    public AnimalIntakeForm( AnimalIntakeController animalIntakeController) {
+    public AnimalIntakeForm(AnimalIntakeController animalIntakeController) {
         this.animalIntakeController = animalIntakeController;
-        //Fields
-        TextField animalId = new TextField("Animal ID");
-        TextField animalName = new TextField("Animal Name");
-        TextField species = new TextField("Species");
-        TextField breed = new TextField("Breed" );
-        TextField color = new TextField("Color");
 
-        ComboBox<String> intakeType = new ComboBox<>("Intake Type");
-        intakeType.setItems("Stray", "Owner Surrender", "Transfer", "Court Order");
+        // ----- PAGE TITLE -----
+        H1 pageTitle = new H1("Animal Intake Form");
+        pageTitle.getStyle()
+                .set("text-align", "center")
+                .set("margin", "0")
+                .set("padding", "0 0 20px 0")
+                .set("font-weight", "600");
 
-        Checkbox medicalRecords = new Checkbox("Medical Records?");
-        TextField staffInitials = new TextField("Staff Initials");
-        NumberField temperature = new NumberField("Temperature");
-        Checkbox unableToWalk = new Checkbox("Unable to walk");
-        Checkbox troubleBreathing = new Checkbox("Trouble breathing");
-        Checkbox bleeding = new Checkbox ("Bleeding");
-        Checkbox brokenBones = new Checkbox("Broken bones");
+        // You MUST add the title before the container
+        add(pageTitle);
 
-        Binder<AnimalIntake> binder = new Binder<> (AnimalIntake.class);
-        add(animalId,animalName,species,breed,color,intakeType,medicalRecords,staffInitials,temperature,unableToWalk,troubleBreathing,bleeding,brokenBones);
-      //bind fields
-        binder.forField(temperature)
-                .withConverter(
-                        value -> value,        // NumberField gives Double, model wants Double
-                        value -> value
-                )
-                .bind(AnimalIntake::getTemperature, AnimalIntake::setTemperature);
-        binder.forField(medicalRecords)
-                .bind(AnimalIntake::isMedicalRecords, AnimalIntake::setMedicalRecords);
+        // ----- LEFT FORM -----
+        FormLayout leftForm = new FormLayout();
+        leftForm.setWidthFull();
+        addClassName("left-form-padding");
 
-        // Save button
-        Button saveButton = new Button("Save", e -> {
-            AnimalIntake animal = binder.getBean();
-            animalIntakeController.save(animal); // use Autowired service
-        });
+        leftForm.add(
+                new H2("Animal Information"),
+                new TextField("Animal ID"),
+                new TextField("Animal Name"),
+                new TextField("Species"),
+                new TextField("Breed")
+        );
 
-        add(saveButton);
+        // ----- RIGHT FORM -----
+        FormLayout rightForm = new FormLayout();
+        rightForm.setWidthFull();
+
+        rightForm.add(
+                new H2("Medical Information"),
+                new Checkbox("Unable to walk"),
+                new Checkbox("Trouble breathing"),
+                new Checkbox("Bleeding"),
+                new TextField("Temperature")
+        );
+
+        // ----- WRAPPERS FOR CORRECT SIZING -----
+        Div leftWrapper = new Div(leftForm);
+        leftWrapper.addClassName("left-side");
+
+        Div rightWrapper = new Div(rightForm);
+        rightWrapper.addClassName("right-side");
+
+        leftWrapper.setWidthFull();
+        rightWrapper.setWidthFull();
+
+        // ----- SPLIT LAYOUT -----
+        HorizontalLayout container = new HorizontalLayout(leftWrapper, rightWrapper);
+        container.setWidthFull();
+        container.setSpacing(true);
+        container.setPadding(true);
+        container.setMargin(true);
+        container.setFlexGrow(1, leftWrapper);
+        container.setFlexGrow(1, rightWrapper);
+
+        // Add the split form below the title
+        add(container);
     }
 }

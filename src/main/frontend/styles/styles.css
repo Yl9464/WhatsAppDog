@@ -21,3 +21,24 @@ border: 5px solid black;
     margin: 20px;
     border-radius: 8px
 }
+
+.intakeForm{
+border: 2px solid black;
+ padding: 20px;
+  margin: 20px;
+ border-radius: 8px
+}
+
+.animalForm{
+border: 2px solid blue;
+}
+
+.medicalForm{
+border: 2px solid pink;
+}
+ vaadin-text-field::part(input-field) {
+        width: 25%;
+  }
+  vaadin-text-field::part(input-field) {
+          width: 40%;
+    }

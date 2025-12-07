@@ -1,8 +1,31 @@
-results-grid tw-grid tw-gap-5 tw-grid-cols-1 tw-col-span-12 md:tw-col-span-12 md:tw-grid-cols-2
-lg:tw-col-span-9 lg:tw-grid-cols-3
-
-
-
+/setSizeFull();
+////        SplitLayout splitLayout = new SplitLayout();
+////        splitLayout.setSizeFull(); // Make the split layout take full size
+//
+//        //left
+//        VerticalLayout animalForm = new VerticalLayout();
+//        animalForm.setSpacing(true);
+//       //animalForm.setPadding(true);
+//       // animalForm.setMargin(true);
+//        animalForm.setWrap(true);
+//        configureAnimalForm();
+//        addClassName("animalForm");//Animal form half screen
+//    //right
+////        VerticalLayout medicalForm = new VerticalLayout();
+////        medicalForm.setSpacing(true);
+////        medicalForm.setPadding(true);
+////        medicalForm.setMargin(true);
+////        medicalForm.setWrap(true);
+////        configureMedicalForm();
+////      addClassName("medicalForm");
+//
+//    //add VLs to SL
+////        splitLayout.addToPrimary(animalForm);
+////        splitLayout.addToSecondary(medicalForm);
+//
+//       add(animalForm);
+//       setSizeFull();
+//       addClassName("intakeForm");//entire view
 
 
 
