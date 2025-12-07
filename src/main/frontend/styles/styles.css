@@ -21,7 +21,10 @@ border: 5px solid black;
     margin: 20px;
     border-radius: 8px
 }
-
+.intakeTitle{
+    text-align: center;
+    width: 100%; /* ensure full width */
+}
 .intakeForm{
 border: 2px solid black;
  padding: 20px;
