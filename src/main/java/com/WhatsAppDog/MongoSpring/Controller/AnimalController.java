@@ -20,6 +20,7 @@ public class AnimalController implements CrudListener<Animal>{
 @Override
    public List<Animal> findAll() {return animalRepo.findAll();}
 
+    public List<Animal> findByType(String type){return animalRepo.findByType("Dog");}
     @Override
     public Animal add(Animal animal){ return animalRepo.save(animal);}
 

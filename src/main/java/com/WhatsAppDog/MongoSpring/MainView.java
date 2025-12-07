@@ -27,7 +27,7 @@ public class MainView extends AppLayout{
         animalSub.addItem("Dogs", e -> getUI().ifPresent(ui -> ui.navigate(DogsView.class)));
       //  animalSub.addItem("Cats",e -> getUI().ifPresent(ui -> ui.navigate(CatsView.class)));
         animalSub.addItem("Other", e -> getUI().ifPresent(ui -> ui.navigate(OthersView.class)));
-
+        animalSub.addItem("All Animals", e -> getUI().ifPresent(ui -> ui.navigate(AllAnimalsView.class)));
         //staff submenu
         MenuItem staffItem = menuBar.addItem("Staff");
         SubMenu staffSub = staffItem.getSubMenu();

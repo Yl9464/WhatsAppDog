@@ -1,10 +1,8 @@
 package com.WhatsAppDog.MongoSpring.Views;
 
-
 import com.WhatsAppDog.MongoSpring.Controller.AnimalController;
 import com.WhatsAppDog.MongoSpring.MainView;
 import com.WhatsAppDog.MongoSpring.Model.Animal;
-import com.WhatsAppDog.MongoSpring.Repository.AnimalRepo;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.dependency.CssImport;
@@ -18,14 +16,16 @@ import org.vaadin.crudui.crud.impl.GridCrud;
 
 
 @CssImport("./styles/styles.css")
-@Route(value= DogsView.ROUTE, layout = MainView.class)
+@Route(value= AllAnimalsView.ROUTE, layout = MainView.class)
 
-public class DogsView extends VerticalLayout {
-    public static final String ROUTE = "dogs";
-    private  AnimalRepo animalRepo;
+public class AllAnimalsView extends VerticalLayout {
+    public static final String ROUTE = "allAnimals";
+
+
+    private  AllAnimalsView animalRepo;
 
     @Autowired
-    public DogsView(AnimalController animalController){
+    public AllAnimalsView(AnimalController animalController){
         GridCrud<Animal> animalCrud = new GridCrud<>(Animal.class, animalController);
 
         Grid<Animal> animalGrid = animalCrud.getGrid();
