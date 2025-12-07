@@ -20,7 +20,10 @@ public class HomeView extends VerticalLayout {
         String formattedDate = currentDate.format(formatter);
 
         //Span dateSpan = new Span("Today's Date: " + formattedDate);
+        AnimalIntakeForm intakeForm = new AnimalIntakeForm();
+
         add(formattedDate);
+        add(intakeForm);
 
     }
 

@@ -17,6 +17,7 @@ public class MainView extends AppLayout{
        addToNavbar(new H2("WhatsAppDog"));
        createMenuBar();
     }
+
     private void createMenuBar() {
         MenuBar menuBar = new MenuBar();
         menuBar.addItem("Home", e -> getUI().ifPresent(ui -> ui.navigate(HomeView.class)));
