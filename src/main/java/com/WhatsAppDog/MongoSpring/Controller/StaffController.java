@@ -21,16 +21,6 @@ public class StaffController implements CrudListener<Staff> {
     public List<Staff> findAll() {
         return staffRepo.findAll();
     }
-
-    public List<Staff> searchPerson(String query){
-        if(query == null || query.isBlank()){
-            return findAll();
-        }
-        return staffRepo.searchPerson(query);
-    }
-    public List<Staff> getEmployeeStatus(Boolean employee) {
-        return staffRepo.findByIsEmployee(employee);
-    }
     public Staff add(Staff staff){
         if(staff == null){
             return null;
@@ -40,10 +30,15 @@ public class StaffController implements CrudListener<Staff> {
     public Staff save(Staff staff){
         return staffRepo.save(staff);
     }
-    // @Override
     public Staff update(Staff staff){ return staffRepo.save(staff);}
-    //@Override
-    //Dog Data
     public  void delete(Staff staff){ staffRepo.delete(staff);}
-
+    public List<Staff> searchPerson(String query){
+        if(query == null || query.isBlank()){
+            return findAll();
+        }
+        return staffRepo.searchPerson(query);
+    }
+    public List<Staff> getEmployeeStatus(Boolean employee) {
+        return staffRepo.findByIsEmployee(employee);
+    }
 }

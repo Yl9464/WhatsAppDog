@@ -64,10 +64,14 @@ public class AllAnimalsView extends VerticalLayout {
         searchTerm.setPlaceholder("Enter name...");
         searchTerm.setClearButtonVisible(true);
         searchTerm.setWidth("300px");
-        add(searchTerm);
-
          //search Logic
         searchTerm.setValueChangeMode(ValueChangeMode.EAGER);
+        searchTerm.addValueChangeListener(e -> {
+            String value = e.getValue();
+            crud.getGrid().setItems(animalController.findByAnimalNameContainingIgnoreCase(value));
+        });
+
+        add(searchTerm);
         add(crud);
         setSizeFull();
     }
