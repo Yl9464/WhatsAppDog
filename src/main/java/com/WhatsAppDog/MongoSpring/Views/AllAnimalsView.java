@@ -9,10 +9,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.vaadin.crudui.crud.CrudListener;
 import org.vaadin.crudui.crud.impl.GridCrud;
-
-import java.util.Collection;
 
 
 @CssImport("./styles/styles.css")
@@ -29,28 +26,6 @@ public class AllAnimalsView extends VerticalLayout {
 
         this.animalController = animalController;
         crud = new GridCrud<>(Animal.class);
-        crud.setCrudListener(new CrudListener<Animal>() {
-            @Override
-            public Collection<Animal> findAll() {
-                return animalController.findAll();
-            }
-
-            @Override
-            public Animal add(Animal animal) {
-                return animalController.add(animal);
-            }
-
-            @Override
-            public Animal update(Animal animal) {
-                return animalController.update(animal);
-            }
-
-            @Override
-            public void delete(Animal animal) {
-                animalController.delete(animal);
-            }
-        });
-
 
         crud.getGrid().removeAllColumns();
         crud.getGrid().addColumn(Animal::getAnimalName).setHeader("Name").setSortable(true);
@@ -68,6 +43,12 @@ public class AllAnimalsView extends VerticalLayout {
             String value = e.getValue();
             crud.getGrid().setItems(animalController.findByAnimalNameContainingIgnoreCase(value));
         });
+
+        // CRUD operations
+        crud.setAddOperation(animalController::add);
+        crud.setUpdateOperation(animalController::update);
+        crud.setDeleteOperation(animalController::delete);
+        crud.setFindAllOperation(animalController::findAll);
 
         add(searchTerm,crud);
         setSizeFull();

@@ -21,13 +21,15 @@ public class StaffView extends VerticalLayout{
 
     private final StaffController staffController;
     private final GridCrud<Staff> crud;
-    //Grid<Staff> grid = crud.getGrid(); //access internal grid
+
     TextField searchTerm = new TextField();
 
     @Autowired
     public StaffView(StaffController staffController)  {
         this.staffController = staffController;
+
         crud = new GridCrud<>(Staff.class);
+
         crud.setCrudListener(new CrudListener<Staff>() {
             @Override
             public Collection<Staff> findAll() {
@@ -49,7 +51,6 @@ public class StaffView extends VerticalLayout{
                 staffController.delete(staff);
             }
         });
-
         H1 h1  = new H1("Staff Members");
 
         crud.getGrid().removeAllColumns(); //remove default headers
@@ -72,6 +73,11 @@ public class StaffView extends VerticalLayout{
                     String value = e.getValue();
                     crud.getGrid().setItems(staffController.searchPerson(value));
                 });
+        // CRUD operations
+        crud.setAddOperation(staffController::add);
+        crud.setUpdateOperation(staffController::update);
+        crud.setDeleteOperation(staffController::delete);
+        crud.setFindAllOperation(staffController::findAll);
 
         add(h1, searchTerm, crud);
         setSizeFull();

@@ -58,6 +58,8 @@ public class Employees extends VerticalLayout {
         //add data
         crud.setFindAllOperation(() -> staffController.getEmployeeStatus(true));
         crud.setAddOperation(staffController::add);
+        crud.setUpdateOperation(staffController::update);
+        crud.setDeleteOperation(staffController::delete);
 
         //search
         searchTerm.setPlaceholder("Enter name...");
@@ -69,6 +71,11 @@ public class Employees extends VerticalLayout {
             String value = e.getValue();
             crud.getGrid().setItems(staffController.searchPerson(value));
         });
+        // CRUD operations
+        crud.setAddOperation(staffController::add);
+        crud.setUpdateOperation(staffController::update);
+        crud.setDeleteOperation(staffController::delete);
+        crud.setFindAllOperation(staffController::findAll);
 
         add(h1,searchTerm, crud);
         setSizeFull();

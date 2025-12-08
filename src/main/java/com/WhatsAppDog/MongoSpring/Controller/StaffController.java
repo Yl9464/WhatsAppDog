@@ -17,10 +17,10 @@ public class StaffController implements CrudListener<Staff> {
         this.staffRepo = repo;
     }
 
-    //@Autowired
     public List<Staff> findAll() {
         return staffRepo.findAll();
     }
+
     public Staff add(Staff staff){
         if(staff == null){
             return null;

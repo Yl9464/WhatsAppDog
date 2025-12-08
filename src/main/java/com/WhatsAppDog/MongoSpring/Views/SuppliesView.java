@@ -66,6 +66,13 @@ public class SuppliesView extends VerticalLayout {
         searchTerm.setValueChangeMode(ValueChangeMode.EAGER);
         searchTerm.addValueChangeListener(e ->
                 crud.getGrid().setItems(suppliesController.searchItem(e.getValue())));
+
+        // CRUD operations
+        crud.setAddOperation(suppliesController::add);
+        crud.setUpdateOperation(suppliesController::update);
+        crud.setDeleteOperation(suppliesController::delete);
+        crud.setFindAllOperation(suppliesController::findAll);
+
         add(h1, searchTerm, crud);
         setSizeFull();
 
