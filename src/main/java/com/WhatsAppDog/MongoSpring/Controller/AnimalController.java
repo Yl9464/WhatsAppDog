@@ -18,16 +18,16 @@ public class AnimalController implements CrudListener<Animal>{
        this.animalRepo = animalRepo;
    }
 
-//@Override
    public List<Animal> findAll() {return animalRepo.findAll();}
 
-  //  @Override
+//    public List<Animal> findByNameContainingIgnoreCase(String name) {
+//        return animalRepo.findByNameContainingIgnoreCase(name);
+//    }
+
     public Animal add(Animal animal){ return animalRepo.save(animal);}
 
-    //@Override
     public Animal update(Animal animal){ return animalRepo.save(animal);}
 
-    //@Override
     public void delete(Animal animal){ animalRepo.delete(animal);}
 
 

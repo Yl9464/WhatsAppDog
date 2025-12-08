@@ -5,6 +5,7 @@ import com.WhatsAppDog.MongoSpring.MainView;
 import com.WhatsAppDog.MongoSpring.Model.AnimalIntake;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.vaadin.crudui.crud.CrudListener;
@@ -20,13 +21,24 @@ public class AllAnimalsView extends VerticalLayout {
     public static final String ROUTE = "allAnimals";
 
    private final AnimalIntakeController intakeController;
+
     private final GridCrud<AnimalIntake> crud;
 
     @Autowired
     public AllAnimalsView(AnimalIntakeController intakeController) {
 
         this.intakeController = intakeController;
+//search
 
+        TextField searchField = new TextField();
+        searchField.setPlaceholder("Name...");
+        searchField.setClearButtonVisible(true);
+        searchField.setWidth("300px");
+
+
+        add(searchField);
+
+        //set grid
         crud = new GridCrud<>(AnimalIntake.class);
         crud.setCrudListener(new CrudListener<AnimalIntake>() {
             @Override
@@ -62,35 +74,4 @@ public class AllAnimalsView extends VerticalLayout {
 
 }
 
-
-//        GridCrud<Animal> animalCrud = new GridCrud<>(Animal.class);
-//        //Crud Op
-//       animalCrud.setAddOperation(animalController::add);
-//       animalCrud.setUpdateOperation(animalController::update);
-//       animalCrud.setDeleteOperation(animalController::delete);
-//
-//        Grid<Animal> animalGrid = animalCrud.getGrid();
-//        animalGrid.removeAllColumns();
-//        animalGrid.addColumn(Animal::getType).setHeader("Category").setSortable(true);
-//        animalGrid.addColumn(Animal::getName).setHeader("Name").setSortable(true);
-//        animalGrid.addColumn(Animal::getAge).setHeader("Age").setSortable(true);
-//        animalGrid.addColumn(animal -> animal.isFemale() ? "Female" : "Male").setHeader("Gender").setSortable(true);
-//        animalGrid.addComponentColumn(animal -> {
-//            Span badge = new Span(animal.isAggressive() ? "Aggressive" : "None");
-//            if(animal.isAggressive()){ badge.getElement().getStyle().set("color", "red");};
-//            return badge;
-//        }).setHeader("Aggression Status").setSortable(true);
-//
-//        animalGrid.addComponentColumn(animal -> {
-//            Button delete = new Button("Delete");
-//            delete.addThemeVariants(ButtonVariant.LUMO_ERROR);
-//
-//            delete.addClickListener(e -> {
-//                animalController.delete(animal);
-//                animalCrud.refreshGrid();
-//                Notification.show("Deleted " + animal.getName());
-//            });
-//            return delete;
-//        }).setHeader("Delete");
-//
 

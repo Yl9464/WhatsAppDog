@@ -21,14 +21,9 @@ public class MainView extends AppLayout{
     private void createMenuBar() {
         MenuBar menuBar = new MenuBar();
         menuBar.addItem("Home", e -> getUI().ifPresent(ui -> ui.navigate(HomeView.class)));
-     //animal menu and submenu
-        MenuItem animalItem = menuBar.addItem("Animals");
-        SubMenu animalSub = animalItem.getSubMenu();
-        addClassName("animalSubMenu"); //css
-       // animalSub.addItem("Dogs", e -> getUI().ifPresent(ui -> ui.navigate(DogsView.class)));
-      //  animalSub.addItem("Cats",e -> getUI().ifPresent(ui -> ui.navigate(CatsView.class)));
-       // animalSub.addItem("Other", e -> getUI().ifPresent(ui -> ui.navigate(OthersView.class)));
-        animalSub.addItem("All Animals", e -> getUI().ifPresent(ui -> ui.navigate(AllAnimalsView.class)));
+
+         //menu and submenu
+        MenuItem animalItem = menuBar.addItem("Animals",e -> getUI().ifPresent(ui -> ui.navigate(AllAnimalsView.class)));
         //staff submenu
         MenuItem staffItem = menuBar.addItem("Staff");
         SubMenu staffSub = staffItem.getSubMenu();

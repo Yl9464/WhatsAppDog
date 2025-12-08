@@ -26,7 +26,7 @@ public class AnimalIntakeController {
     }
 
     public AnimalIntake updateAnimal(AnimalIntake animal) {
-            return intakeRepo.save(animal);
+        return intakeRepo.save(animal);
 
     }
     public void delete(AnimalIntake intake) {
