@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AnimalIntakeRepository extends MongoRepository<AnimalIntake, String> {
-    //List<Animal> findByNameContainingIgnoreCase(String name);
+   // List<Animal> findByAnimalNameContainingIgnoreCase(String name);
 }
 

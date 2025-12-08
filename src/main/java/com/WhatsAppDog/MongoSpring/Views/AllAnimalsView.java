@@ -1,11 +1,12 @@
 package com.WhatsAppDog.MongoSpring.Views;
 
-import com.WhatsAppDog.MongoSpring.Controller.AnimalIntakeController;
+import com.WhatsAppDog.MongoSpring.Controller.AnimalController;
 import com.WhatsAppDog.MongoSpring.MainView;
-import com.WhatsAppDog.MongoSpring.Model.AnimalIntake;
+import com.WhatsAppDog.MongoSpring.Model.Animal;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.vaadin.crudui.crud.CrudListener;
@@ -20,54 +21,53 @@ import java.util.Collection;
 public class AllAnimalsView extends VerticalLayout {
     public static final String ROUTE = "allAnimals";
 
-   private final AnimalIntakeController intakeController;
-
-    private final GridCrud<AnimalIntake> crud;
+    //private final AnimalIntakeController intakeController;
+    private final AnimalController animalController;
+    private final GridCrud<Animal> crud;
+    TextField searchTerm = new TextField();
 
     @Autowired
-    public AllAnimalsView(AnimalIntakeController intakeController) {
+    public AllAnimalsView(AnimalController animalController) {
 
-        this.intakeController = intakeController;
-//search
-
-        TextField searchField = new TextField();
-        searchField.setPlaceholder("Name...");
-        searchField.setClearButtonVisible(true);
-        searchField.setWidth("300px");
-
-
-        add(searchField);
-
-        //set grid
-        crud = new GridCrud<>(AnimalIntake.class);
-        crud.setCrudListener(new CrudListener<AnimalIntake>() {
+        this.animalController = animalController;
+        crud = new GridCrud<>(Animal.class);
+        crud.setCrudListener(new CrudListener<Animal>() {
             @Override
-            public Collection<AnimalIntake> findAll() {
-                return intakeController.findAll();
+            public Collection<Animal> findAll() {
+                return animalController.findAll();
             }
 
             @Override
-            public AnimalIntake add(AnimalIntake animal) {
-                return intakeController.saveAnimal(animal);
+            public Animal add(Animal animal) {
+                return animalController.add(animal);
             }
 
             @Override
-            public AnimalIntake update(AnimalIntake animal) {
-                return intakeController.saveAnimal(animal);
+            public Animal update(Animal animal) {
+                return animalController.update(animal);
             }
 
             @Override
-            public void delete(AnimalIntake animal) {
-                intakeController.delete(animal);
+            public void delete(Animal animal) {
+                animalController.delete(animal);
             }
         });
-        crud.getGrid().removeAllColumns();
-        crud.getGrid().addColumn(AnimalIntake::getAnimalName).setHeader("Name").setSortable(true);
-        crud.getGrid().addColumn(AnimalIntake::getSpecies).setHeader("Species").setSortable(true);
-        crud.getGrid().addColumn(AnimalIntake::getBreed).setHeader("Breed").setSortable(true);
-        crud.getGrid().addColumn(AnimalIntake::getColor).setHeader("Color").setSortable(true);
-        crud.getGrid().addColumn(AnimalIntake::getIntakeType).setHeader("Intake Type").setSortable(true);
 
+
+        crud.getGrid().removeAllColumns();
+        crud.getGrid().addColumn(Animal::getAnimalName).setHeader("Name").setSortable(true);
+        crud.getGrid().addColumn(Animal::getSpecies).setHeader("Species").setSortable(true);
+        crud.getGrid().addColumn(Animal::getBreed).setHeader("Breed").setSortable(true);
+        crud.getGrid().addColumn(Animal::getColor).setHeader("Color").setSortable(true);
+        crud.getGrid().addColumn(Animal::getIntakeType).setHeader("Intake Type").setSortable(true);
+        //search bar
+        searchTerm.setPlaceholder("Enter name...");
+        searchTerm.setClearButtonVisible(true);
+        searchTerm.setWidth("300px");
+        add(searchTerm);
+
+         //search Logic
+        searchTerm.setValueChangeMode(ValueChangeMode.EAGER);
         add(crud);
         setSizeFull();
     }
@@ -75,3 +75,4 @@ public class AllAnimalsView extends VerticalLayout {
 }
 
 
+//

@@ -11,23 +11,23 @@ import java.util.List;
 @Service
 public class AnimalController implements CrudListener<Animal>{
 
-   @Autowired
+    @Autowired
     private final AnimalRepo animalRepo;
 
-   public AnimalController(AnimalRepo animalRepo) {
-       this.animalRepo = animalRepo;
-   }
+    public AnimalController(AnimalRepo animalRepo) {
+        this.animalRepo = animalRepo;
+    }
 
-   public List<Animal> findAll() {return animalRepo.findAll();}
+    //@Override
+    public List<Animal> findAll() {return animalRepo.findAll();}
 
-//    public List<Animal> findByNameContainingIgnoreCase(String name) {
-//        return animalRepo.findByNameContainingIgnoreCase(name);
-//    }
-
+    //  @Override
     public Animal add(Animal animal){ return animalRepo.save(animal);}
 
+    //@Override
     public Animal update(Animal animal){ return animalRepo.save(animal);}
 
+    //@Override
     public void delete(Animal animal){ animalRepo.delete(animal);}
 
 
