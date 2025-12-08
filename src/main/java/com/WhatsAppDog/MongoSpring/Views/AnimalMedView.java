@@ -3,7 +3,6 @@ package com.WhatsAppDog.MongoSpring.Views;
 import com.WhatsAppDog.MongoSpring.Controller.AnimalController;
 import com.WhatsAppDog.MongoSpring.MainView;
 import com.WhatsAppDog.MongoSpring.Model.Animal;
-import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -12,33 +11,42 @@ import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.vaadin.crudui.crud.impl.GridCrud;
 
-
-@CssImport("./styles/styles.css")
-@Route(value= AllAnimalsView.ROUTE, layout = MainView.class)
-public class AllAnimalsView extends VerticalLayout {
-    public static final String ROUTE = "allAnimals";
-
+@Route(value= AnimalMedView.ROUTE, layout = MainView.class)
+public class AnimalMedView extends VerticalLayout {
+    public static final String ROUTE = "AnimalMed";
     private final AnimalController animalController;
     private final GridCrud<Animal> crud;
     TextField searchTerm = new TextField();
 
     @Autowired
-    public AllAnimalsView(AnimalController animalController) {
-
+    public AnimalMedView(AnimalController animalController) {
         this.animalController = animalController;
+       H1 title = new H1("Health Records");
         crud = new GridCrud<>(Animal.class);
-
         crud.getGrid().removeAllColumns();
         crud.getGrid().addColumn(Animal::getAnimalName).setHeader("Name").setSortable(true);
         crud.getGrid().addColumn(Animal::getSpecies).setHeader("Species").setSortable(true);
-        crud.getGrid().addColumn(Animal::getBreed).setHeader("Breed").setSortable(true);
-        crud.getGrid().addColumn(Animal::getColor).setHeader("Color").setSortable(true);
-        crud.getGrid().addColumn(Animal::getIntakeType).setHeader("Intake Type").setSortable(true);
+       // crud.getGrid().addColumn(Animal::getTemperature).setHeader("Temperature").setSortable(true);
+        crud.getGrid().addColumn(person ->
+                (person.getTemperature() ==null) ? "Not Taken" : (person.getTemperature())
+        ).setHeader("Temperature").setSortable(true);
+        crud.getGrid().addColumn(person ->
+                person.isBleeding() ? "Yes" : "No"
+        ).setHeader("Bleeding").setSortable(true);
+
+        crud.getGrid().addColumn(person ->
+                person.isBrokenBones() ? "Yes" : "No"
+        ).setHeader("Broken Bones").setSortable(true);;
+
+        crud.getGrid().addColumn(person ->
+                person.isUnableToWalk() ? "Yes" : "No"
+        ).setHeader("Walking Impaired").setSortable(true);;
+
         //search bar
         searchTerm.setPlaceholder("Enter name...");
         searchTerm.setClearButtonVisible(true);
         searchTerm.setWidth("300px");
-         //search Logic
+        //search Logic
         searchTerm.setValueChangeMode(ValueChangeMode.EAGER);
         searchTerm.addValueChangeListener(e -> {
             String value = e.getValue();
@@ -50,12 +58,8 @@ public class AllAnimalsView extends VerticalLayout {
         crud.setUpdateOperation(animalController::update);
         crud.setDeleteOperation(animalController::delete);
         crud.setFindAllOperation(animalController::findAll);
-        H1 title = new H1("Resident Animals");
-        add(title, searchTerm,crud);
+
+        add(title,searchTerm,crud);
         setSizeFull();
     }
-
 }
-
-
-//

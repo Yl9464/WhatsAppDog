@@ -1,84 +1,35 @@
 package com.WhatsAppDog.MongoSpring.Views;
 
-import com.WhatsAppDog.MongoSpring.Controller.StaffController;
 import com.WhatsAppDog.MongoSpring.MainView;
 import com.WhatsAppDog.MongoSpring.Model.Staff;
+import com.WhatsAppDog.MongoSpring.Repository.StaffRepo;
+import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.vaadin.crudui.crud.CrudListener;
 import org.vaadin.crudui.crud.impl.GridCrud;
-
-import java.util.Collection;
 
 @Route(value=Employees.ROUTE, layout = MainView.class)
 
 public class Employees extends VerticalLayout {
     public static  final String ROUTE = "employees";
 
-    private final StaffController staffController;
-    GridCrud<Staff> crud;
-    TextField searchTerm = new TextField();
-    @Autowired
-    public Employees(StaffController staffController) {
-        this.staffController =staffController;
-        crud = new GridCrud<>(Staff.class);
-        crud.setCrudListener(new CrudListener<Staff>() {
-            @Override
-            public Collection<Staff> findAll() {
-                return staffController.findAll();
-            }
+    GridCrud<Staff> crud = new GridCrud<>(Staff.class);
+    Grid<Staff> grid =crud.getGrid();
 
-            @Override
-            public Staff add(Staff staff) {
-                return staffController.add(staff);
-            }
-
-            @Override
-            public Staff update(Staff staff) {
-                return staffController.update(staff);
-            }
-
-            @Override
-            public void delete(Staff staff) {
-                staffController.delete(staff);
-            }
-        });
+    public Employees(StaffRepo staff) {
         H1 h1 = new H1("Employees");
-        crud.getGrid().removeAllColumns(); //remove default headers
-        //readd custom headers
-        crud.getGrid().addColumn(Staff::getFirstName).setHeader("First Name").setSortable(true);;
-        crud.getGrid().addColumn(Staff::getLastName).setHeader("Last Name").setSortable(true);;
-        crud.getGrid().addColumn(Staff::getEmail).setHeader("Email").setSortable(true);;
-        crud.getGrid().addColumn(Staff::getSalary).setHeader("Salary").setSortable(true);
 
-        //add data
-        crud.setFindAllOperation(() -> staffController.getEmployeeStatus(true));
-        crud.setAddOperation(staffController::add);
-        crud.setUpdateOperation(staffController::update);
-        crud.setDeleteOperation(staffController::delete);
+        grid.removeAllColumns();
+        grid.addColumn(Staff::getFirstName).setHeader("First Name").setSortable(true);
+        grid.addColumn(Staff::getLastName).setHeader("Last Name").setSortable(true);
+        grid.addColumn(Staff::getEmail).setHeader("Email").setSortable(true);
+        grid.addColumn(Staff::getSalary).setHeader("Salary").setSortable(true);
 
-        //search
-        searchTerm.setPlaceholder("Enter name...");
-        searchTerm.setClearButtonVisible(true);
-        searchTerm.setWidth("300px");
+        crud.setAddOperation(staff::save);
 
-        searchTerm.setValueChangeMode(ValueChangeMode.EAGER);
-        searchTerm.addValueChangeListener(e -> {
-            String value = e.getValue();
-            crud.getGrid().setItems(staffController.searchPerson(value));
-        });
-        // CRUD operations
-        crud.setAddOperation(staffController::add);
-        crud.setUpdateOperation(staffController::update);
-        crud.setDeleteOperation(staffController::delete);
-        crud.setFindAllOperation(staffController::findAll);
 
-        add(h1,searchTerm, crud);
-        setSizeFull();
+        add(h1, crud);
 
 
     }

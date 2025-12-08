@@ -54,7 +54,7 @@ public class Volunteers extends VerticalLayout{
         crud.getGrid().addColumn(Staff::getEmail).setHeader("Email").setSortable(true);;
 
         //add data
-        crud.setFindAllOperation(() -> staffController.getEmployeeStatus(false));
+       // crud.setFindAllOperation(() -> staffController.getEmployeeStatus(false));
         crud.setAddOperation(staffController::add);
 
         //search
@@ -65,7 +65,7 @@ public class Volunteers extends VerticalLayout{
         searchTerm.setValueChangeMode(ValueChangeMode.EAGER);
         searchTerm.addValueChangeListener(e -> {
             String value = e.getValue();
-            crud.getGrid().setItems(staffController.searchPerson(value));
+            //crud.getGrid().setItems(staffController.searchPerson(value));
         });
 
         add(h1,searchTerm, crud);

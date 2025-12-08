@@ -21,7 +21,6 @@ public class HomeView extends VerticalLayout {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy"); // Customize format
         String formattedDate = currentDate.format(formatter);
 
-
         AnimalIntakeForm intakeForm = new AnimalIntakeForm(controller);
 
         add(formattedDate);

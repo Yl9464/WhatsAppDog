@@ -20,30 +20,22 @@ public class MainView extends AppLayout{
     }
 
     private void createMenuBar() {
-
         MenuBar menuBar = new MenuBar();
         menuBar.addItem("Home", e -> getUI().ifPresent(ui -> ui.navigate(HomeView.class)));
+        MenuItem animalItem = menuBar.addItem("Animals");
+        SubMenu animalSub = animalItem.getSubMenu();
+        animalSub.addItem("All Animals", e -> getUI().ifPresent(ui ->ui.navigate(AllAnimalsView.class)));
+        animalSub.addItem("Medical Form", e -> getUI().ifPresent(ui ->ui.navigate(AnimalMedView.class)));
+        menuBar.addItem("Supplies", e -> getUI().ifPresent(ui -> ui.navigate(SuppliesView.class)));
+        menuBar.addItem("Staff", e ->getUI().ifPresent(ui -> ui.navigate(StaffView.class)));
         Button logoutBtn = new Button("Logout");
         logoutBtn.addClickListener(e -> {
             VaadinSession.getCurrent().getSession().invalidate();
             getUI().ifPresent(ui -> ui.navigate(""));
         });
-        //hl
-        HorizontalLayout menuLogout = new HorizontalLayout(menuBar,logoutBtn);
 
-         //menu and submenu
-        MenuItem animalItem = menuBar.addItem("Animals",e -> getUI().ifPresent(ui -> ui.navigate(AllAnimalsView.class)));
-        //staff submenu
-        MenuItem staffItem = menuBar.addItem("Staff");
-        SubMenu staffSub = staffItem.getSubMenu();
-        addClassName("staffSubMenu"); //css
-        staffSub.addItem("All Staff", e -> getUI().ifPresent(ui -> ui.navigate(StaffView.class)));
-        staffSub.addItem("Volunteers", e -> getUI().ifPresent(ui -> ui.navigate(Volunteers.class)));
-        staffSub.addItem("Employees",  e -> getUI().ifPresent(ui -> ui.navigate(Employees.class)));
-        //supplies
-        menuBar.addItem("Supplies", e -> getUI().ifPresent(ui -> ui.navigate(SuppliesView.class)));
-
-        addToNavbar(menuLogout);
+        HorizontalLayout menuLayout= new HorizontalLayout(menuBar,logoutBtn);
+        addToNavbar(menuLayout);
     }
 
 

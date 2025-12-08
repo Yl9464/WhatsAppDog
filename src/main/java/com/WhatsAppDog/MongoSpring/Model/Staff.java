@@ -18,10 +18,10 @@ public class Staff  {
     @Id //sets value as primary key
     @EqualsAndHashCode.Include
     private ObjectId id;
-   public String   firstName;
-   public String   lastName;
-   public String   email;
-   private boolean   isEmployee;
+    public String   firstName;
+    public String   lastName;
+    public String   email;
+    private boolean   isEmployee;
     public Double   salary;
 
 

@@ -21,9 +21,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 @SpringComponent
 @UIScope
 public class AnimalIntakeForm extends VerticalLayout {
-   // private AnimalIntakeController animalIntakeController;
-    private AnimalController animalController;
-   // private AnimalIntakeRepository intakeRepo;
+   private AnimalController animalController;
+
     TextField animalId = new TextField("Animal ID");
     ComboBox<String> intakeType = new ComboBox<>("Intake Type");
     TextField animalName = new TextField("Name");
