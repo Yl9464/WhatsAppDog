@@ -19,7 +19,14 @@ public class UserController {
                 .filter(user -> user.getPassword().equals(password));
     }
 
-    public User save(User user) {
-        return userRepo.save(user);
+    public boolean authenticate(String username, String password) {
+        Optional<User> optionalUser = userRepo.findByUsername(username);
+
+        if (optionalUser.isEmpty()) {
+            return false;
+        }
+        User user = optionalUser.get();
+        return user.getPassword().equals(password);
+
     }
 }
