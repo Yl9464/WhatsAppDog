@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 
-@Route(value = "", layout = MainView.class)
+@Route(value = "homeView", layout = MainView.class)
 public class HomeView extends VerticalLayout {
     public static final String ROUTE = "home";
     public static final String TITLE = "Home";
