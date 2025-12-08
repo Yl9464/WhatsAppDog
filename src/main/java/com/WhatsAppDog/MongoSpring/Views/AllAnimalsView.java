@@ -17,11 +17,9 @@ import java.util.Collection;
 
 @CssImport("./styles/styles.css")
 @Route(value= AllAnimalsView.ROUTE, layout = MainView.class)
-
 public class AllAnimalsView extends VerticalLayout {
     public static final String ROUTE = "allAnimals";
 
-    //private final AnimalIntakeController intakeController;
     private final AnimalController animalController;
     private final GridCrud<Animal> crud;
     TextField searchTerm = new TextField();
@@ -71,8 +69,7 @@ public class AllAnimalsView extends VerticalLayout {
             crud.getGrid().setItems(animalController.findByAnimalNameContainingIgnoreCase(value));
         });
 
-        add(searchTerm);
-        add(crud);
+        add(searchTerm,crud);
         setSizeFull();
     }
 

@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Document(collection ="Animals")
 public class Animal {
     @Id //sets value as primary key
