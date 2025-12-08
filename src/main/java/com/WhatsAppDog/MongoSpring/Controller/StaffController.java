@@ -21,19 +21,20 @@ public class StaffController implements CrudListener<Staff> {
     public List<Staff> findAll() {
         return staffRepo.findAll();
     }
-
-    public List<Staff> getEmployeeStatus(Boolean employee) {
-        return staffRepo.findByIsEmployee(employee);
+    public List<Staff> searchPerson(String query){
+        if(query == null || query.isBlank()){
+            return findAll();
+        }
+        return staffRepo.searchPerson(query);
     }
-
     public Staff add(Staff staff){
         if(staff == null){
             return null;
         }
         return staffRepo.save(staff);}
-   public Staff save(Staff staff){
+    public Staff save(Staff staff){
         return staffRepo.save(staff);
-   }
+    }
     // @Override
     public Staff update(Staff staff){ return staffRepo.save(staff);}
     //@Override

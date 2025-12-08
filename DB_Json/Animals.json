@@ -1,292 +1,322 @@
 [
-      {
-        "name": "Bob",
-        "type": "Dog",
-        "age": 8,
-        "aggression": false,
-        "imageUrl": "/images/dog.jpeg"
-
-      },
-      {
-        "name": "Santa",
-        "type": "Dog",
-        "age": 4,
-        "aggression": true,
-        "imageUrl": "/images/dog.jpeg"
-      },
-      {
-        "name": "Pearl",
-        "type": "Squirrel",
-        "age": 8,
-        "aggression": false,
-        "imageUrl": "/images/squirrel.jpeg"
-      },
-      {
-        "name": "Raymond",
-        "type": "raccoon",
-        "age": 8,
-        "aggression": true,
-        "imageUrl": "/images/raccoon.jpeg"
-      },
-      {
-        "name": "Dierdre",
-        "type": "Deer",
-        "age": 15,
-        "aggression": false,
-        "imageUrl": "/images/deer.jpeg"
-      },
-      {
-        "name": "Steve",
-        "type": "Dog",
-        "age": 7,
-        "aggression": false,
-        "imageUrl": "/images/dog.jpeg"
-
-      },
-      {
-        "name": "Karren",
-        "type": "Cat",
-        "age": 10,
-        "aggression": true,
-        "imageUrl": "/images/cat.jpeg"
-      },
-      {
-        "name": "Carol",
-        "type": "Cat",
-        "age": 2,
-        "aggression": false,
-        "imageUrl": "/images/cat.jpeg"
-      },
-      {
-        "idNu": 9,
-        "name": "Pebbles",
-        "type": "Dog",
-        "age": 5,
-        "aggression": false,
-        "imageUrl": "/images/dog.jpeg"
-      },
-      {
-        "name": "Sydney",
-        "type": "Squirrel",
-        "age": 8,
-        "aggression": false,
-        "imageUrl": "/images/squirrel.jpeg"
-      },
-      {
-        "name": "Rachel",
-        "type": "raccoon",
-        "age": 13,
-        "aggression": true,
-        "imageUrl": "/images/raccoon.jpeg"
-      },
-      {
-        "name": "Kia",
-        "type": "Coyote",
-        "age": 9,
-        "aggression": true,
-        "imageUrl": "/images/coyote.jpeg"
-      },
-      {
-        "name": "Kyle",
-        "type": "Cat",
-        "age": 8,
-        "aggression": false,
-        "imageUrl": "/images/cat.jpeg"
-      },
-      {
-        "name": "Sushi",
-        "type": "Cat",
-        "age": 6,
-        "aggression": false,
-        "imageUrl": "/images/cat.jpeg"
-      },
-      {
-
-        "name": "Terry",
-        "type": "Turtle",
-        "age": 12,
-        "aggression": false,
-        "imageUrl": "/images/turtle.jpeg"
-      },
-      {
-
-        "name": "Bandit",
-        "type": "Raccoon",
-        "age": 4,
-        "aggression": true,
-        "imageUrl": "/images/raccoon.jpeg"
-      },
-      {
-
-        "name": "Brie",
-        "type": "Bird",
-        "age": 4,
-        "aggression": true,
-        "imageUrl": "/images/bird.jpeg"
-      },
-      {
-
-        "name": "Cupcake",
-        "type": "Coyote",
-        "age": 12,
-        "aggression": true,
-        "imageUrl": "/images/coyote.jpeg"
-      },
-      {
-
-        "name": "Jenny",
-        "type": "Dog",
-        "age": 6,
-        "aggression": false,
-        "imageUrl": "/images/dog.jpeg"
-      },
-      {
-
-        "name": "Darth Vader ",
-        "type": "Dog",
-        "age": 7,
-        "aggression": true,
-        "imageUrl": "/images/dog.jpeg"
-      },
-      {
-
-        "name": "Mini",
-        "type": "Dog",
-        "age": 6,
-        "aggression": true,
-        "imageUrl": "/images/dog.jpeg"
-      },
-      {
-
-        "name": "Sean",
-        "type": "Dog",
-        "age": 15,
-        "aggression": true,
-        "imageUrl": "/images/dog.jpeg"
-      },
-      {
-
-        "name": "Henry",
-        "type": "Horse",
-        "age": 6,
-        "aggression": false,
-        "imageUrl": "/images/horse.jpeg"
-      },
-      {
-
-        "name": "Jason",
-        "type": "Dog",
-        "age": 8,
-        "aggression": false,
-        "imageUrl": "/images/dog.jpeg"
-      },
-      {
-
-        "name": "Zeek",
-        "type": "Dog",
-        "age": 11,
-        "aggression": false,
-        "imageUrl": "/images/dog.jpeg"
-      },
-      {
-
-        "name": "Anna",
-        "type": "Bird",
-        "age": 8,
-        "aggression": false,
-        "imageUrl": "/images/bird.jpeg"
-      },
-      {
-
-        "name": "Derek",
-        "type": "Deer",
-        "age": 14,
-        "aggression": false,
-        "imageUrl": "/images/deer.jpeg"
-      },
-      {
-
-        "name": "Merl",
-        "type": "Squirrel",
-        "age": 4,
-        "aggression": true,
-        "imageUrl": "/images/squirrel.jpeg"
-      },
-      {
-
-        "name": "Leo",
-        "type": "Cat",
-        "age": 6,
-        "aggression": true,
-        "imageUrl": "/images/cat.jpeg"
-      },
-      {
-
-        "name": "Caitlyn",
-        "type": "Cat",
-        "age": 3,
-        "aggression": false,
-        "imageUrl": "/images/cat.jpeg"
-      },
-      {
-
-        "name": "Benny",
-        "type": "Bear",
-        "age": 12,
-        "aggression": true,
-        "imageUrl": "/images/bear.jpeg"
-      },
-      {
-
-        "name": "Vinny",
-        "type": "Dog",
-        "age": 7,
-        "aggression": true,
-        "imageUrl": "/images/dog.jpeg"
-      },
-      {
-
-        "name": "Locks",
-        "type": "Dog",
-        "age": 6,
-        "aggression": false,
-        "imageUrl": "/images/dog.jpeg"
-      },
-      {
-
-        "name": "Hannah",
-        "type": "Bunny",
-        "age": 4,
-        "aggression": false,
-        "imageUrl": "/images/bunny.jpeg"
-      },
-      {
-
-        "name": "Bert",
-        "type": "Bunny",
-        "age": 8,
-        "aggression": false,
-        "imageUrl": "/images/bunny.jpeg"
-      },
-      {
-        "name": "Vincent",
-        "type": "raccoon",
-        "age": 13,
-        "aggression": true,
-        "imageUrl": "/images/raccoon.jpeg"
-      },
-      {
-        "name": "Tina",
-        "type": "Turtle",
-        "age": 14,
-        "aggression": true,
-        "imageUrl": "/images/turtle.jpeg"
-      },
-      {
-        "name": "Gene",
-        "type": "Dog",
-        "age": 8,
-        "aggression": true,
-        "imageUrl": "/images/dog.jpeg"
-      }
+  {
+    "id": "1",
+    "animalId": "A1001",
+    "animalName": "Buddy",
+    "species": "Dog",
+    "breed": "Labrador",
+    "color": "Yellow",
+    "intakeType": "Stray",
+    "medicalRecords": false,
+    "staffInitials": "JS",
+    "temperature": 101.4,
+    "unableToWalk": false,
+    "troubleBreathing": false,
+    "bleeding": false,
+    "brokenBones": false
+  },
+  {
+    "id": "2",
+    "animalId": "A1002",
+    "animalName": "Mittens",
+    "species": "Cat",
+    "breed": "Siamese",
+    "color": "Cream",
+    "intakeType": "Owner Surrender",
+    "medicalRecords": true,
+    "staffInitials": "AL",
+    "temperature": 100.2,
+    "unableToWalk": false,
+    "troubleBreathing": false,
+    "bleeding": true,
+    "brokenBones": false
+  },
+  {
+    "id": "3",
+    "animalId": "A1003",
+    "animalName": "Rocky",
+    "species": "Dog",
+    "breed": "Pitbull",
+    "color": "Brown",
+    "intakeType": "Rescue",
+    "medicalRecords": true,
+    "staffInitials": "KM",
+    "temperature": 102.1,
+    "unableToWalk": true,
+    "troubleBreathing": false,
+    "bleeding": false,
+    "brokenBones": true
+  },
+  {
+    "id": "4",
+    "animalId": "A1004",
+    "animalName": "Snowball",
+    "species": "Cat",
+    "breed": "Persian",
+    "color": "White",
+    "intakeType": "Stray",
+    "medicalRecords": false,
+    "staffInitials": "RT",
+    "temperature": 99.9,
+    "unableToWalk": false,
+    "troubleBreathing": false,
+    "bleeding": false,
+    "brokenBones": false
+  },
+  {
+    "id": "5",
+    "animalId": "A1005",
+    "animalName": "Shadow",
+    "species": "Dog",
+    "breed": "German Shepherd",
+    "color": "Black",
+    "intakeType": "Confiscated",
+    "medicalRecords": false,
+    "staffInitials": "BW",
+    "temperature": 103.0,
+    "unableToWalk": true,
+    "troubleBreathing": true,
+    "bleeding": true,
+    "brokenBones": false
+  },
+  {
+    "id": "6",
+    "animalId": "A1006",
+    "animalName": "Luna",
+    "species": "Cat",
+    "breed": "Maine Coon",
+    "color": "Gray",
+    "intakeType": "Owner Surrender",
+    "medicalRecords": true,
+    "staffInitials": "JS",
+    "temperature": 100.8,
+    "unableToWalk": false,
+    "troubleBreathing": false,
+    "bleeding": false,
+    "brokenBones": false
+  },
+  {
+    "id": "7",
+    "animalId": "A1007",
+    "animalName": "Duke",
+    "species": "Dog",
+    "breed": "Boxer",
+    "color": "Brindle",
+    "intakeType": "Stray",
+    "medicalRecords": false,
+    "staffInitials": "AL",
+    "temperature": 101.7,
+    "unableToWalk": false,
+    "troubleBreathing": false,
+    "bleeding": true,
+    "brokenBones": false
+  },
+  {
+    "id": "8",
+    "animalId": "A1008",
+    "animalName": "Bella",
+    "species": "Dog",
+    "breed": "Beagle",
+    "color": "Tri-color",
+    "intakeType": "Owner Surrender",
+    "medicalRecords": true,
+    "staffInitials": "KM",
+    "temperature": 100.3,
+    "unableToWalk": false,
+    "troubleBreathing": true,
+    "bleeding": false,
+    "brokenBones": false
+  },
+  {
+    "id": "9",
+    "animalId": "A1009",
+    "animalName": "Whiskers",
+    "species": "Cat",
+    "breed": "Tabby",
+    "color": "Orange",
+    "intakeType": "Rescue",
+    "medicalRecords": false,
+    "staffInitials": "BW",
+    "temperature": 101.1,
+    "unableToWalk": false,
+    "troubleBreathing": false,
+    "bleeding": true,
+    "brokenBones": true
+  },
+  {
+    "id": "10",
+    "animalId": "A1010",
+    "animalName": "Rex",
+    "species": "Dog",
+    "breed": "Rottweiler",
+    "color": "Black/Tan",
+    "intakeType": "Stray",
+    "medicalRecords": true,
+    "staffInitials": "RT",
+    "temperature": 102.5,
+    "unableToWalk": true,
+    "troubleBreathing": false,
+    "bleeding": false,
+    "brokenBones": false
+  },
+  {
+    "id": "11",
+    "animalId": "A1011",
+    "animalName": "Pumpkin",
+    "species": "Cat",
+    "breed": "Domestic Shorthair",
+    "color": "Orange",
+    "intakeType": "Owner Surrender",
+    "medicalRecords": true,
+    "staffInitials": "JS",
+    "temperature": 100.0,
+    "unableToWalk": false,
+    "troubleBreathing": false,
+    "bleeding": false,
+    "brokenBones": false
+  },
+  {
+    "id": "12",
+    "animalId": "A1012",
+    "animalName": "Scout",
+    "species": "Dog",
+    "breed": "Husky",
+    "color": "White/Gray",
+    "intakeType": "Rescue",
+    "medicalRecords": false,
+    "staffInitials": "AL",
+    "temperature": 101.9,
+    "unableToWalk": false,
+    "troubleBreathing": true,
+    "bleeding": false,
+    "brokenBones": false
+  },
+  {
+    "id": "13",
+    "animalId": "A1013",
+    "animalName": "Salem",
+    "species": "Cat",
+    "breed": "Bombay",
+    "color": "Black",
+    "intakeType": "Stray",
+    "medicalRecords": true,
+    "staffInitials": "KM",
+    "temperature": 99.5,
+    "unableToWalk": false,
+    "troubleBreathing": false,
+    "bleeding": false,
+    "brokenBones": true
+  },
+  {
+    "id": "14",
+    "animalId": "A1014",
+    "animalName": "Copper",
+    "species": "Dog",
+    "breed": "Coonhound",
+    "color": "Red",
+    "intakeType": "Owner Surrender",
+    "medicalRecords": false,
+    "staffInitials": "RT",
+    "temperature": 102.2,
+    "unableToWalk": false,
+    "troubleBreathing": false,
+    "bleeding": true,
+    "brokenBones": false
+  },
+  {
+    "id": "15",
+    "animalId": "A1015",
+    "animalName": "Nala",
+    "species": "Cat",
+    "breed": "Sphynx",
+    "color": "Pink",
+    "intakeType": "Rescue",
+    "medicalRecords": true,
+    "staffInitials": "BW",
+    "temperature": 100.6,
+    "unableToWalk": false,
+    "troubleBreathing": true,
+    "bleeding": false,
+    "brokenBones": false
+  },
+  {
+    "id": "16",
+    "animalId": "A1016",
+    "animalName": "Zeus",
+    "species": "Dog",
+    "breed": "Doberman",
+    "color": "Black",
+    "intakeType": "Stray",
+    "medicalRecords": true,
+    "staffInitials": "JS",
+    "temperature": 101.3,
+    "unableToWalk": false,
+    "troubleBreathing": false,
+    "bleeding": false,
+    "brokenBones": true
+  },
+  {
+    "id": "17",
+    "animalId": "A1017",
+    "animalName": "Chloe",
+    "species": "Cat",
+    "breed": "Calico",
+    "color": "Tri-color",
+    "intakeType": "Owner Surrender",
+    "medicalRecords": false,
+    "staffInitials": "KM",
+    "temperature": 99.8,
+    "unableToWalk": false,
+    "troubleBreathing": false,
+    "bleeding": false,
+    "brokenBones": false
+  },
+  {
+    "id": "18",
+    "animalId": "A1018",
+    "animalName": "Max",
+    "species": "Dog",
+    "breed": "Poodle",
+    "color": "White",
+    "intakeType": "Rescue",
+    "medicalRecords": true,
+    "staffInitials": "RT",
+    "temperature": 102.0,
+    "unableToWalk": false,
+    "troubleBreathing": false,
+    "bleeding": true,
+    "brokenBones": false
+  },
+  {
+    "id": "19",
+    "animalId": "A1019",
+    "animalName": "Tiger",
+    "species": "Cat",
+    "breed": "Tabby",
+    "color": "Brown",
+    "intakeType": "Stray",
+    "medicalRecords": false,
+    "staffInitials": "AL",
+    "temperature": 100.1,
+    "unableToWalk": false,
+    "troubleBreathing": true,
+    "bleeding": false,
+    "brokenBones": false
+  },
+  {
+    "id": "20",
+    "animalId": "A1020",
+    "animalName": "Harley",
+    "species": "Dog",
+    "breed": "Bulldog",
+    "color": "White/Brown",
+    "intakeType": "Owner Surrender",
+    "medicalRecords": true,
+    "staffInitials": "BW",
+    "temperature": 101.8,
+    "unableToWalk": true,
+    "troubleBreathing": false,
+    "bleeding": false,
+    "brokenBones": true
+  }
 ]

@@ -6,13 +6,15 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection ="Animals")
-public class Animal {
-    @Id //sets value as primary key
-   // @EqualsAndHashCode.Include
+@Document(collection = "Animals")  //Existing db
+public class AnimalIntake {
+
+    @Id
+    //@EqualsAndHashCode.Include
     private String id;
 
     private String animalId;
@@ -29,4 +31,5 @@ public class Animal {
     private boolean troubleBreathing;
     private boolean bleeding;
     private boolean brokenBones;
+
 }

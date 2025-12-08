@@ -20,11 +20,11 @@ public class SuppliesController implements CrudListener<Supplies> {
         this.suppliesRepo = suppliesRepo;
     }
 
-  //  @Override //indicates the method is meant to override a method from a parent class or an interface
+
    public List<Supplies> findAll(){
         return suppliesRepo.findAll();
     }
-    //query by item name
+
     public List<Supplies> searchItem(String query){
         if(query == null || query.isBlank()){
             return findAll();

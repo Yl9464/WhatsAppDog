@@ -1,81 +1,60 @@
-package com.WhatsAppDog.MongoSpring.Views;
-
-import com.WhatsAppDog.MongoSpring.MainView;
-import com.WhatsAppDog.MongoSpring.Model.Animal;
-import com.WhatsAppDog.MongoSpring.Repository.AnimalRepo;
-import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.button.ButtonVariant;
-import com.vaadin.flow.component.card.Card;
-import com.vaadin.flow.component.card.CardVariant;
-import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.component.html.ListItem;
-import com.vaadin.flow.component.html.UnorderedList;
-import com.vaadin.flow.component.icon.VaadinIcon;
-import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.streams.DownloadHandler;
-
-import java.util.List;
-
-
-@Route(value= DogsView.ROUTE, layout = MainView.class)
-
-public class DogsView extends Div {
-    public static final String ROUTE = "dogs";
-
-    public DogsView(AnimalRepo animalRepo) {
-        Div dogLayout = new Div();
-        Button dogBtn = new Button("Add New Dog");
-        dogBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-
-        dogLayout.getStyle().set("display", "grid")
-                .set("grid-template-columns", "repeat(auto-fill, minmax(190px, 1fr))")
-                .set("gap", "1em")
-                .set("margin", "2em");
-        //getAll Data
-        List<Animal> animals = animalRepo.findAll();
-        add(dogBtn);
-
-        //Create dog Cards
-        for (Animal animal : animals) {
-            if("Dog".equals(animal.getType())) {
-                dogLayout.add(createAnimalCard(animal));
-            }
-            add(dogLayout);
-        }
-
-    }
-
-    private Component createAnimalCard(Animal animal) {
-        Card dogCard = new Card();
-        dogCard.addThemeVariants(CardVariant.LUMO_OUTLINED);
-
-        DownloadHandler imageHandler = DownloadHandler.forClassResource(
-                getClass(), animal.getImageUrl(), "Animal Pic");
-        Image image = new Image(imageHandler, "");
-        image.setWidth("100px");
-        image.setHeight("100px");
-
-        dogCard.setTitle(new Div(animal.getName() + " • "+ animal.getType()));
-
-        if(animal.getAggression() == true){
-            dogCard.addThemeVariants(CardVariant.LUMO_OUTLINED);
-            dogCard.addClassName("aggression-card");
-        }
-        UnorderedList details = new UnorderedList(
-                // new ListItem("Name: " + animal.getName()),
-                new ListItem("Age: " + animal.getAge()),
-                new ListItem("Aggression: " + (animal.getAggression() ? "Yes" : "No"))
-        );
-
-        dogCard.add(image, details);
-        // Edit button
-        Button editBtn = new Button("Edit", VaadinIcon.EDIT.create());
-        editBtn.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        dogCard.addToFooter(editBtn);
-
-        return dogCard;
-    }
-
-}
+//package com.WhatsAppDog.MongoSpring.Views;
+//
+//
+//import com.WhatsAppDog.MongoSpring.Controller.AnimalController;
+//import com.WhatsAppDog.MongoSpring.MainView;
+//import com.WhatsAppDog.MongoSpring.Model.Animal;
+//import com.WhatsAppDog.MongoSpring.Repository.AnimalRepo;
+//import com.vaadin.flow.component.button.Button;
+//import com.vaadin.flow.component.button.ButtonVariant;
+//import com.vaadin.flow.component.dependency.CssImport;
+//import com.vaadin.flow.component.grid.Grid;
+//import com.vaadin.flow.component.html.Span;
+//import com.vaadin.flow.component.notification.Notification;
+//import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+//import com.vaadin.flow.router.Route;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.vaadin.crudui.crud.impl.GridCrud;
+//
+//
+//@CssImport("./styles/styles.css")
+//@Route(value= DogsView.ROUTE, layout = MainView.class)
+//
+//public class DogsView extends VerticalLayout {
+//    public static final String ROUTE = "dogs";
+//    private  AnimalRepo animalRepo;
+//
+//    @Autowired
+//    public DogsView(AnimalController animalController){
+//        GridCrud<Animal> animalCrud = new GridCrud<>(Animal.class, animalController);
+//
+//        Grid<Animal> animalGrid = animalCrud.getGrid();
+//        animalGrid.removeAllColumns();
+//        animalGrid.addColumn(Animal::getType).setHeader("Category").setSortable(true);
+//        animalGrid.addColumn(Animal::getName).setHeader("Name").setSortable(true);
+//        animalGrid.addColumn(Animal::getAge).setHeader("Age").setSortable(true);
+//        animalGrid.addColumn(animal -> animal.isFemale() ? "Female" : "Male").setHeader("Gender").setSortable(true);
+//        animalGrid.addComponentColumn(animal -> {
+//            Span badge = new Span(animal.isAggressive() ? "Aggressive" : "None");
+//            if(animal.isAggressive()){ badge.getElement().getStyle().set("color", "red");};
+//            return badge;
+//        }).setHeader("Aggression Status").setSortable(true);
+//
+//        animalGrid.addComponentColumn(animal -> {
+//            Button delete = new Button("Delete");
+//            delete.addThemeVariants(ButtonVariant.LUMO_ERROR);
+//
+//            delete.addClickListener(e -> {
+//                animalController.delete(animal);
+//                animalCrud.refreshGrid();
+//                Notification.show("Deleted " + animal.getName());
+//            });
+//            return delete;
+//        }).setHeader("Delete");
+//
+//
+//        add(animalCrud);
+//        setSizeFull();
+//    }
+//
+//}
