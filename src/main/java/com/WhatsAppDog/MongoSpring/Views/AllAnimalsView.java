@@ -21,14 +21,19 @@ import org.vaadin.crudui.crud.impl.GridCrud;
 public class AllAnimalsView extends VerticalLayout {
     public static final String ROUTE = "allAnimals";
 
-
     private  AllAnimalsView animalRepo;
+    private  AnimalController animalController;
 
     @Autowired
     public AllAnimalsView(AnimalController animalController){
-        GridCrud<Animal> animalCrud = new GridCrud<>(Animal.class, animalController);
+        this.animalController = animalController;
+        GridCrud<Animal> animalCrud = new GridCrud<>(Animal.class);
+        //Crud Op
+       animalCrud.setAddOperation(animalController::add);
+       animalCrud.setUpdateOperation(animalController::update);
+       animalCrud.setDeleteOperation(animalController::delete);
 
-        Grid<Animal> animalGrid = animalCrud.getGrid();
+         Grid<Animal> animalGrid = animalCrud.getGrid();
         animalGrid.removeAllColumns();
         animalGrid.addColumn(Animal::getType).setHeader("Category").setSortable(true);
         animalGrid.addColumn(Animal::getName).setHeader("Name").setSortable(true);

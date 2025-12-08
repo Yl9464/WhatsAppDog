@@ -10,18 +10,25 @@ import java.util.List;
 @Service
 public class AnimalIntakeController {
 
+    private final AnimalIntakeRepository intakeRepo;
+
     @Autowired
-    private AnimalIntakeRepository repo;
+    public AnimalIntakeController(AnimalIntakeRepository intakeRepo) {
+        this.intakeRepo = intakeRepo;
+    }
 
     public List<AnimalIntake> findAll() {
-        return repo.findAll();
+        return intakeRepo.findAll();
     }
 
-    public AnimalIntake save(AnimalIntake intake) {
-        return repo.save(intake);
+    public AnimalIntake saveAnimal(AnimalIntake animal) {
+        return intakeRepo.save(animal);
     }
+        public AnimalIntake updateAnimal(AnimalIntake animal) {
+            return intakeRepo.save(animal);
 
+    }
     public void delete(AnimalIntake intake) {
-        repo.delete(intake);
+        intakeRepo.delete(intake);
     }
 }
