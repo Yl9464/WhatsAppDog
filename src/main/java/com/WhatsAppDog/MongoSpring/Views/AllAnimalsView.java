@@ -18,14 +18,13 @@ import java.util.Collection;
 
 public class AllAnimalsView extends VerticalLayout {
     public static final String ROUTE = "allAnimals";
-   // private  AllAnimalsView animalRepo;
-    //private  AnimalController animalController;
 
-    private final AnimalIntakeController intakeController;
+   private final AnimalIntakeController intakeController;
     private final GridCrud<AnimalIntake> crud;
 
     @Autowired
     public AllAnimalsView(AnimalIntakeController intakeController) {
+
         this.intakeController = intakeController;
 
         crud = new GridCrud<>(AnimalIntake.class);

@@ -1,6 +1,6 @@
 package com.WhatsAppDog.MongoSpring.Views;
 
-import com.WhatsAppDog.MongoSpring.Controller.AnimalIntakeController;
+import com.WhatsAppDog.MongoSpring.Controller.AnimalController;
 import com.WhatsAppDog.MongoSpring.MainView;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
@@ -16,7 +16,7 @@ public class HomeView extends VerticalLayout {
     public static final String TITLE = "Home";
 
     @Autowired
-   public HomeView(AnimalIntakeController controller) {
+   public HomeView(AnimalController controller) {
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy"); // Customize format
         String formattedDate = currentDate.format(formatter);

@@ -1,6 +1,7 @@
 package com.WhatsAppDog.MongoSpring.Views;
 
-import com.WhatsAppDog.MongoSpring.Controller.AnimalIntakeController;
+import com.WhatsAppDog.MongoSpring.Controller.AnimalController;
+import com.WhatsAppDog.MongoSpring.Model.Animal;
 import com.WhatsAppDog.MongoSpring.Model.AnimalIntake;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.checkbox.Checkbox;
@@ -20,7 +21,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 @SpringComponent
 @UIScope
 public class AnimalIntakeForm extends VerticalLayout {
-    private AnimalIntakeController animalIntakeController;
+   // private AnimalIntakeController animalIntakeController;
+    private AnimalController animalController;
    // private AnimalIntakeRepository intakeRepo;
     TextField animalId = new TextField("Animal ID");
     ComboBox<String> intakeType = new ComboBox<>("Intake Type");
@@ -40,9 +42,8 @@ public class AnimalIntakeForm extends VerticalLayout {
     Binder<AnimalIntake> binder = new Binder<>(AnimalIntake.class);
 
     @Autowired
-    public AnimalIntakeForm(AnimalIntakeController controller) {
-        this.animalIntakeController = controller;
-
+    public AnimalIntakeForm(AnimalController animalController) {
+        this.animalController = animalController; //controller injected
         // setSizeFull();
         setWidth(null);
         setPadding(true);
@@ -80,16 +81,36 @@ public class AnimalIntakeForm extends VerticalLayout {
         //save
         add(save);
         save.addClickListener(event -> {
-           animalIntakeController.saveAnimal(binder.getBean());
-            Notification.show("Animal Saved");
-            binder.setBean(new AnimalIntake());//clear fields
+            //get data
+            //AnimalIntake animalIntake = binder.getBean();
+
+            //map to existing db
+            Animal animal = new Animal();
+            animal.setAnimalName(binder.getBean().getAnimalName());
+            animal.setSpecies(binder.getBean().getSpecies());
+            animal.setBreed(binder.getBean().getBreed());
+            animal.setColor(binder.getBean().getColor());
+            animal.setIntakeType(binder.getBean().getIntakeType());
+            animal.setMedicalRecords(binder.getBean().isMedicalRecords());
+            animal.setStaffInitials(binder.getBean().getStaffInitials());
+            animal.setTemperature(binder.getBean().getTemperature());
+            animal.setUnableToWalk(binder.getBean().isUnableToWalk());
+            animal.setTroubleBreathing(binder.getBean().isTroubleBreathing());
+            animal.setBleeding(binder.getBean().isBleeding());
+            animal.setBrokenBones(binder.getBean().isBrokenBones());
+            //save to db
+            animalController.add(animal);
+            Notification.show("Animal Saved Successfully");
+            //clear form
+            binder.setBean(new AnimalIntake());
+
+            /// /
+//           animalIntakeController.saveAnimal(binder.getBean());
+//            Notification.show("Animal Saved");
+//            binder.setBean(new AnimalIntake());//clear fields
         });
 
-        // configAnimalInfo();
-       // configMedInfo();
-        //add(saveBtn);
-        //binder.bindInstanceFields(this);
-      //  saveBtn.addClickListener(e -> saveAnimal());
+
     }
 }
 

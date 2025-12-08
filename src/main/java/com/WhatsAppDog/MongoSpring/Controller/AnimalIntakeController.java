@@ -17,14 +17,15 @@ public class AnimalIntakeController {
         this.intakeRepo = intakeRepo;
     }
 
+    public AnimalIntake saveAnimal(AnimalIntake animal) {
+        return intakeRepo.save(animal);
+    }
+
     public List<AnimalIntake> findAll() {
         return intakeRepo.findAll();
     }
 
-    public AnimalIntake saveAnimal(AnimalIntake animal) {
-        return intakeRepo.save(animal);
-    }
-        public AnimalIntake updateAnimal(AnimalIntake animal) {
+    public AnimalIntake updateAnimal(AnimalIntake animal) {
             return intakeRepo.save(animal);
 
     }

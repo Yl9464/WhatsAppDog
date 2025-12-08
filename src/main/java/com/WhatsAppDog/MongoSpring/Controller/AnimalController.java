@@ -17,17 +17,17 @@ public class AnimalController implements CrudListener<Animal>{
    public AnimalController(AnimalRepo animalRepo) {
        this.animalRepo = animalRepo;
    }
-@Override
+
+//@Override
    public List<Animal> findAll() {return animalRepo.findAll();}
 
-    public List<Animal> findByType(String type){return animalRepo.findByType("Dog");}
-    @Override
+  //  @Override
     public Animal add(Animal animal){ return animalRepo.save(animal);}
 
-    @Override
+    //@Override
     public Animal update(Animal animal){ return animalRepo.save(animal);}
 
-    @Override
+    //@Override
     public void delete(Animal animal){ animalRepo.delete(animal);}
 
 
